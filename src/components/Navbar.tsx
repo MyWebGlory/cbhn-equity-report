@@ -56,7 +56,7 @@ const Navbar = () => {
             href="https://fundraise.givesmart.com/e/c21PlQ?vid=19fqpi"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-secondary px-5 py-2 text-[13px] font-semibold text-secondary-foreground transition-opacity hover:opacity-90"
+            className="animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite] rounded-full bg-secondary px-5 py-2 text-[13px] font-semibold text-secondary-foreground transition-opacity hover:opacity-90"
           >
             Donate
           </a>
