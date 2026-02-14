@@ -69,9 +69,9 @@ const CommunityStories = () => {
               initial={{ opacity: 0, y: 30, scale: 0.97 }}
               animate={gridInView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-              className="flex flex-col rounded-xl border border-border/60 bg-card p-7"
+              className="flex flex-col rounded-xl border border-border/60 bg-card p-7 border-l-2 border-l-accent/20"
             >
-              <Quote size={20} className="mb-4 text-secondary/60" />
+              <Quote size={20} className="mb-4 text-accent/40" />
               <p className="flex-1 font-serif text-base italic leading-[1.8] text-foreground/80">
                 "{story.quote}"
               </p>

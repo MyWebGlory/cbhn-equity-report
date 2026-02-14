@@ -70,7 +70,7 @@ const Leadership = () => {
               initial={{ opacity: 0, y: 30, scale: 0.97 }}
               animate={gridInView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: i * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
-              className="rounded-xl border border-border/60 bg-background p-7"
+              className="rounded-xl border border-border/60 bg-background p-7 hover:border-t-2 hover:border-t-secondary/20 transition-all duration-300"
             >
               <p className="text-[11px] font-semibold uppercase tracking-widest text-secondary/80">
                 {person.role}

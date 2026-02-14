@@ -95,7 +95,7 @@ const EventsTimeline = () => {
                     {event.month.slice(0, 3)}
                   </div>
                   {i < events.length - 1 && (
-                    <div className="mt-2 h-full w-px bg-border" />
+                    <div className="mt-2 h-full w-px bg-gradient-to-b from-primary/20 to-border" />
                   )}
                 </div>
                 <div className="pb-2">

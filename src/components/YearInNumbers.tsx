@@ -57,7 +57,7 @@ const YearInNumbers = () => {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section className="section-padding bg-muted/50">
+    <section className="section-padding bg-gradient-to-b from-muted/50 to-muted/30">
       <div className="report-container">
         <motion.div
           ref={ref}
