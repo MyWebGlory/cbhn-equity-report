@@ -32,7 +32,7 @@ const FinancialsChart = () => {
           initial={{ opacity: 0, y: 25 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-14 text-center"
+          className="mx-auto mb-14 max-w-3xl text-center"
         >
           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
             Financial Transparency
@@ -40,6 +40,11 @@ const FinancialsChart = () => {
           <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl lg:text-5xl">
             Where Your Donations Go
           </h2>
+          <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
+            CBHN is a Charity Navigator Four Star rated organization. We are committed
+            to full transparency in how we allocate the resources entrusted to us. In 2024,
+            90% of all funds went directly toward programs, advocacy, and community education.
+          </p>
         </motion.div>
 
         <motion.div
@@ -110,7 +115,7 @@ const FinancialsChart = () => {
             rel="noopener noreferrer"
             className="text-[13px] text-muted-foreground transition-colors hover:text-foreground"
           >
-            ★★★★ Charity Navigator — Four Star Rated
+            Charity Navigator Four Star Rated, 2025
           </a>
         </motion.div>
       </div>

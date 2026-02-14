@@ -3,7 +3,6 @@ import heroCommunity from "@/assets/hero-community.jpg";
 
 const HeroSection = () => (
   <section className="relative flex min-h-screen items-center overflow-hidden">
-    {/* Background image */}
     <div className="absolute inset-0">
       <img
         src={heroCommunity}
@@ -13,7 +12,6 @@ const HeroSection = () => (
       <div className="absolute inset-0 bg-gradient-to-b from-foreground/70 via-foreground/50 to-foreground/70" />
     </div>
 
-    {/* Content */}
     <div className="report-container relative z-10 px-6 py-32 lg:px-24">
       <motion.p
         initial={{ opacity: 0, y: 15 }}
@@ -41,9 +39,11 @@ const HeroSection = () => (
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="mt-8 max-w-md text-base leading-relaxed text-primary-foreground/70"
+        className="mt-8 max-w-lg text-base leading-relaxed text-primary-foreground/70"
       >
-        Join us in the campaign for Black health equity across California.
+        CBHN is the only Black-led statewide organization in California dedicated to
+        advancing health equity for African Americans and Black immigrants. This is
+        a look back at what we accomplished together in 2024.
       </motion.p>
 
       <motion.div
@@ -66,7 +66,6 @@ const HeroSection = () => (
         </a>
       </motion.div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
