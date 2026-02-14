@@ -75,7 +75,7 @@ const MissionSection = () => {
           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
             Our Vision
           </p>
-          <p className="font-serif text-xl italic leading-relaxed text-foreground/80 md:text-2xl">
+          <p className="font-serif text-xl italic leading-relaxed text-foreground/80 md:text-2xl border-l-2 border-l-accent/25 pl-6">
             A California where every African American and Black immigrant has the
             opportunity to live long, healthy lives, free from violence, racism,
             and health inequities.

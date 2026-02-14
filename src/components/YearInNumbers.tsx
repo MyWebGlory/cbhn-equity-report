@@ -40,6 +40,7 @@ const CounterCell = ({ item, inView, delay }: { item: typeof counters[0]; inView
       <p className="font-serif text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
         {item.prefix || ""}{count.toLocaleString()}{item.suffix}
       </p>
+      <div className="mx-auto mt-2 h-px w-10 bg-secondary/25" />
       <p className="mt-3 text-sm font-medium tracking-wide text-muted-foreground">
         {item.label}
       </p>

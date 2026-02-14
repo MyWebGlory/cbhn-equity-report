@@ -93,7 +93,7 @@ const FinancialsChart = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={chartInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.06, ease: [0.25, 0.1, 0.25, 1] }}
-                className="flex items-center gap-3 cursor-pointer rounded-lg px-3 py-2 transition-colors hover:bg-muted/50"
+                className="flex items-center gap-3 cursor-pointer rounded-lg px-3 py-2 transition-colors hover:bg-primary/5 border-l-2 border-l-transparent hover:border-l-primary/20"
                 onMouseEnter={() => setActiveIndex(i)}
                 onMouseLeave={() => setActiveIndex(null)}
               >
