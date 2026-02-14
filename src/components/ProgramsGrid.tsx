@@ -1,0 +1,92 @@
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { HeartPulse, Flame, BookOpen, ArrowRight } from "lucide-react";
+
+const programs = [
+  {
+    icon: <HeartPulse size={32} />,
+    title: "Health4Life",
+    description:
+      "A comprehensive wellness initiative providing culturally competent health education, screenings, and resources to Black communities across California. Empowering individuals to take control of their health journey.",
+    tag: "Wellness",
+  },
+  {
+    icon: <Flame size={32} />,
+    title: "HEAT Program",
+    description:
+      "Health Equity Action Team — training community health workers and advocates to address disparities at the neighborhood level through direct outreach, data-driven strategy, and grassroots engagement.",
+    tag: "Advocacy",
+  },
+  {
+    icon: <BookOpen size={32} />,
+    title: "Black Health Agenda",
+    description:
+      "A policy framework and action plan developed in partnership with legislators and community leaders to advance structural changes that improve health outcomes for all Black Californians.",
+    tag: "Policy",
+  },
+];
+
+const ProgramsGrid = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section id="programs" className="section-padding bg-card" ref={ref}>
+      <div className="report-container">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="mb-16 text-center"
+        >
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-secondary">
+            Our Programs
+          </p>
+          <h2 className="font-serif text-3xl font-bold text-foreground md:text-5xl">
+            Driving Change on the Ground
+          </h2>
+          <div className="mx-auto mt-6 h-1 w-16 rounded-full bg-secondary" />
+        </motion.div>
+
+        <div className="grid gap-8 md:grid-cols-3">
+          {programs.map((program, i) => (
+            <motion.div
+              key={program.title}
+              initial={{ opacity: 0, y: 40 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-background transition-shadow hover:shadow-xl"
+            >
+              {/* Header with icon */}
+              <div className="flex items-center gap-4 bg-primary p-6">
+                <div className="rounded-xl bg-primary-foreground/10 p-3 text-primary-foreground">
+                  {program.icon}
+                </div>
+                <div>
+                  <span className="mb-1 inline-block rounded-full bg-secondary px-3 py-0.5 text-xs font-semibold text-secondary-foreground">
+                    {program.tag}
+                  </span>
+                  <h3 className="font-serif text-xl font-bold text-primary-foreground">
+                    {program.title}
+                  </h3>
+                </div>
+              </div>
+
+              {/* Body */}
+              <div className="flex flex-1 flex-col justify-between p-6">
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {program.description}
+                </p>
+                <button className="mt-6 flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-secondary">
+                  Learn More <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ProgramsGrid;
