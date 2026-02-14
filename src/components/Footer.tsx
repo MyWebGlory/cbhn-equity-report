@@ -16,7 +16,7 @@ const Footer = () => {
 
   return (
     <footer id="donate">
-      <div className="bg-foreground section-padding pb-16" ref={ctaRef}>
+      <div className="bg-gradient-to-br from-foreground via-foreground to-[hsl(180,20%,12%)] section-padding pb-16" ref={ctaRef}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={ctaInView ? { opacity: 1, y: 0 } : {}}

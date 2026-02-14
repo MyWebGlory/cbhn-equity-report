@@ -119,7 +119,7 @@ const MissionSection = () => {
                 key={item.title}
                 {...fadeUp(0.15 + i * 0.1)}
                 animate={prioritiesInView ? { opacity: 1, y: 0 } : {}}
-                className="rounded-xl border border-border/60 bg-background p-6"
+                className="rounded-xl border border-border/60 bg-background p-6 border-t-2 border-t-primary/15"
               >
                 <h4 className="font-serif text-base font-semibold text-foreground">
                   {item.title}

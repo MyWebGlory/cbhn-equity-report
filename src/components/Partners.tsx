@@ -50,7 +50,7 @@ const Partners = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.15 + i * 0.05, ease: [0.25, 0.1, 0.25, 1] }}
-              className="rounded-lg border border-border/60 bg-background px-5 py-4"
+              className="rounded-lg border border-border/60 bg-background px-5 py-4 hover:border-l-2 hover:border-l-accent/25 transition-all duration-300"
             >
               <p className="text-sm font-medium text-foreground">{partner.name}</p>
               <p className="mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">

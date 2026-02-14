@@ -56,7 +56,7 @@ const ImpactStats = () => {
   const gridInView = useInView(gridRef, { once: true, margin: "-40px" });
 
   return (
-    <section id="impact" className="section-padding bg-muted/50">
+    <section id="impact" className="section-padding bg-gradient-to-br from-muted/50 via-background to-muted/40">
       <div className="report-container">
         <motion.div
           ref={headerRef}
@@ -89,7 +89,7 @@ const ImpactStats = () => {
                 delay: i * 0.08,
                 ease: [0.25, 0.1, 0.25, 1],
               }}
-              className="group rounded-xl border border-border/60 bg-card p-7 transition-all duration-300 hover:border-primary/30 hover:shadow-md"
+              className="group rounded-xl border border-border/60 bg-card p-7 transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5"
             >
               <div className="mb-5 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/8 text-primary">

@@ -76,7 +76,7 @@ const ProgramsGrid = () => {
                 delay: i * 0.1,
                 ease: [0.25, 0.1, 0.25, 1],
               }}
-              className="group flex flex-col rounded-xl border border-border/60 bg-background p-7 transition-all duration-300 hover:border-primary/30 hover:shadow-md"
+              className="group flex flex-col rounded-xl border border-border/60 bg-background p-7 transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5"
             >
               <div className="mb-5 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/8 text-primary">

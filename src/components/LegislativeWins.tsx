@@ -102,7 +102,7 @@ const LegislativeWins = () => {
                     {item.icon}
                   </div>
                   {i < items.length - 1 && (
-                    <div className="mt-2 h-full w-px bg-border" />
+                    <div className="mt-2 h-full w-px bg-gradient-to-b from-secondary/20 to-border" />
                   )}
                 </div>
 

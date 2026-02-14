@@ -28,7 +28,7 @@ const FinancialsChart = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section id="financials" className="section-padding bg-card">
+    <section id="financials" className="section-padding bg-gradient-to-b from-card to-card/95">
       <div className="report-container">
         <motion.div
           ref={headerRef}
