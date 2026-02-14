@@ -49,7 +49,7 @@ const items = [
     icon: <Newspaper size={18} />,
     title: "Building a Black Health Agenda One Story at a Time",
     description:
-      "CBHN's newsroom published over 20 op-eds, feature stories, and community spotlights across major California outlets. Topics ranged from hiking with health-conscious Black communities to the effects of environmental racism on respiratory health. These stories shifted public conversation and brought visibility to Black health narratives.",
+      "CBHN's newsroom published over 20 op-eds, feature stories, and community spotlights across major California outlets. Topics ranged from hiking with health-conscious Black communities to the effects of environmental racism on respiratory health. The coverage put Black health front and center in public conversation.",
     year: "2023 to 2024",
   },
 ];
@@ -77,9 +77,9 @@ const LegislativeWins = () => {
             Legislative Wins and Newsroom
           </h2>
           <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
-            Policy change is at the core of what we do. In 2023 and 2024, CBHN advocated for
-            legislation, secured state funding, and brought Black health stories to the forefront
-            of California's public discourse.
+            CBHN does not wait for policy to catch up. In 2023 and 2024, we wrote legislation,
+            secured state funding, and made sure Black health stories were heard in Sacramento
+            and across California media.
           </p>
         </motion.div>
 

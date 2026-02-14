@@ -30,8 +30,8 @@ const Footer = () => {
             Help Us Build a Healthier California
           </h2>
           <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-primary-foreground/60">
-            Every dollar goes toward community health programs, policy advocacy, and
-            direct services for Black Californians. Your support makes this work possible.
+            90% of every dollar funds community health programs, policy work, and direct
+            services for Black Californians. The remaining 10% covers operations.
           </p>
           <motion.a
             initial={{ opacity: 0, y: 15 }}

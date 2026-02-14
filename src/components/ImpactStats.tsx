@@ -8,14 +8,14 @@ const stats = [
     stat: "260%",
     label: "Asthma ER Visits",
     description:
-      "Black children have a 260% higher emergency department visit rate, a 250% higher hospitalization rate, and a 500% higher death rate from asthma compared to white children. These numbers reflect decades of environmental injustice and unequal access to preventive care.",
+      "Black children have a 260% higher emergency department visit rate, a 250% higher hospitalization rate, and a 500% higher death rate from asthma compared to white children. Decades of environmental injustice and limited access to preventive care produced these numbers.",
   },
   {
     icon: <Heart size={22} />,
     stat: "15%",
-    label: "Diabetes & Heart Disease",
+    label: "Diabetes and Heart Disease",
     description:
-      "Nearly 15% of African Americans have diabetes, compared with 8% of whites. African Americans also experience higher rates of hypertension and heart disease, conditions that are preventable with early screening and consistent access to primary care.",
+      "Nearly 15% of African Americans have diabetes, compared with 8% of whites. African Americans also face higher rates of hypertension and heart disease. Early screening and steady access to primary care could prevent most of these cases.",
   },
   {
     icon: <Baby size={22} />,
@@ -34,16 +34,16 @@ const stats = [
   {
     icon: <Brain size={22} />,
     stat: "13%",
-    label: "Mental Health & Fair/Poor Health",
+    label: "Mental Health and Overall Wellbeing",
     description:
-      "Mental health problems among African Americans include bouts of depression that are more severe and longer lasting than those experienced by other groups. 13% of African Americans of all ages report being in fair or poor health overall.",
+      "African Americans report episodes of depression that are more severe and last longer than those in other groups. 13% of African Americans of all ages describe their own health as fair or poor.",
   },
   {
     icon: <Ribbon size={22} />,
     stat: "Underrepresented",
-    label: "Cancer Disparities",
+    label: "Cancer Mortality",
     description:
-      "African Americans experience higher incidence and mortality from many cancers that respond well to early diagnosis and treatment. Black adults with cancer are underrepresented in clinical trials and are far less likely to survive prostate, breast, and lung cancer than their white counterparts.",
+      "African Americans die at higher rates from cancers that respond well to early diagnosis and treatment. Black adults with cancer remain underrepresented in clinical trials and are far less likely to survive prostate, breast, and lung cancer than white patients.",
   },
 ];
 
@@ -70,9 +70,9 @@ const ImpactStats = () => {
             Why This Work Matters
           </h2>
           <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
-            Health disparities among Black Californians are not abstract statistics.
-            They represent real families, real neighborhoods, and real lives cut short
-            by preventable conditions. Here is what the data tells us.
+            Behind every number is a person who did not get the care they needed.
+            Black Californians face preventable health conditions at rates that should
+            not exist in 2024. Here is what the data tells us.
           </p>
         </motion.div>
 

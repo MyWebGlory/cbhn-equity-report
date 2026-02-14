@@ -37,10 +37,10 @@ const MissionSection = () => {
           </h2>
           <p className="mt-8 text-base leading-[1.8] text-muted-foreground md:text-lg">
             CBHN is the voice and trusted resource for Black Health Equity in California.
-            We are the only Black-led, statewide organization dedicated to advancing health
-            equity for all African Americans and Black immigrants. We conduct outreach,
-            education, and advocacy through the lens of understanding the critical issues
-            that sit at the intersection of racial justice, social justice, and environmental justice.
+            We are the only Black-led statewide organization working to close health gaps
+            for all African Americans and Black immigrants. Our outreach, education, and
+            advocacy work addresses the critical issues where racial justice, social justice,
+            and environmental justice overlap.
           </p>
         </motion.div>
 
