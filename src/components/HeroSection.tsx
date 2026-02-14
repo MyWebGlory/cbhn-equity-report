@@ -10,7 +10,7 @@ const HeroSection = () => (
         alt="California Black Health Network community members"
         className="h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/75 to-primary/50" />
     </div>
 
     {/* Content */}
@@ -37,6 +37,15 @@ const HeroSection = () => (
         <span className="italic">Equity</span>
       </motion.h1>
 
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="mt-6 max-w-lg text-lg text-primary-foreground/80"
+      >
+        Join us in the campaign for Black health equity across California.
+      </motion.p>
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -53,7 +62,7 @@ const HeroSection = () => (
           href="#donate"
           className="rounded-full border border-primary-foreground/40 px-8 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10"
         >
-          Make a Donation
+          Donate Now
         </a>
       </motion.div>
 
