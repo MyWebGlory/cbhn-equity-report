@@ -8,42 +8,42 @@ const stats = [
     stat: "260%",
     label: "Asthma ER Visits",
     description:
-      "Black children have a 260% higher emergency department visit rate and a 500% higher death rate from asthma compared to white children.",
+      "Black children have a 260% higher emergency department visit rate, a 250% higher hospitalization rate, and a 500% higher death rate from asthma compared to white children. These numbers reflect decades of environmental injustice and unequal access to preventive care.",
   },
   {
     icon: <Heart size={22} />,
     stat: "15%",
-    label: "Diabetes Rate",
+    label: "Diabetes & Heart Disease",
     description:
-      "Nearly 15% of African Americans have diabetes compared with 8% of whites, compounded by higher rates of hypertension.",
+      "Nearly 15% of African Americans have diabetes, compared with 8% of whites. African Americans also experience higher rates of hypertension and heart disease, conditions that are preventable with early screening and consistent access to primary care.",
   },
   {
     icon: <Baby size={22} />,
-    stat: "12/1K",
+    stat: "12 per 1,000",
     label: "Infant Mortality",
     description:
-      "On average 12 out of every 1,000 children under 1 year of age suffer from complications. Maternal health remains in crisis.",
+      "According to KidsData.org, African Americans lead California in infant mortality. Between 2005 and 2007, an average of 12 out of every 1,000 children under one year of age suffered from a range of complications. Black maternal health in California remains a public health emergency.",
   },
   {
     icon: <Scale size={22} />,
     stat: "50%",
     label: "Obesity Rates",
     description:
-      "37% of Black men and nearly 50% of Black women are obese — rates higher than those for whites in nearly every state.",
+      "Adult obesity rates for African Americans are higher than those for whites in nearly every state. 37% of Black men and nearly 50% of Black women are obese. These rates drive chronic conditions including diabetes, stroke, and cardiovascular disease.",
   },
   {
     icon: <Brain size={22} />,
-    stat: "Severe",
-    label: "Mental Health",
+    stat: "13%",
+    label: "Mental Health & Fair/Poor Health",
     description:
-      "Mental health problems among African Americans include bouts of depression that are more severe and long lasting than others.",
+      "Mental health problems among African Americans include bouts of depression that are more severe and longer lasting than those experienced by other groups. 13% of African Americans of all ages report being in fair or poor health overall.",
   },
   {
     icon: <Ribbon size={22} />,
-    stat: "Higher",
-    label: "Cancer Rates",
+    stat: "Underrepresented",
+    label: "Cancer Disparities",
     description:
-      "Higher incidence and mortality rates from many cancers, with far less likelihood of surviving prostate, breast, and lung cancer.",
+      "African Americans experience higher incidence and mortality from many cancers that respond well to early diagnosis and treatment. Black adults with cancer are underrepresented in clinical trials and are far less likely to survive prostate, breast, and lung cancer than their white counterparts.",
   },
 ];
 
@@ -58,7 +58,7 @@ const ImpactStats = () => {
           initial={{ opacity: 0, y: 25 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-14 text-center"
+          className="mx-auto mb-14 max-w-3xl text-center"
         >
           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
             The Disparities
@@ -66,6 +66,11 @@ const ImpactStats = () => {
           <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl lg:text-5xl">
             Why This Work Matters
           </h2>
+          <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
+            Health disparities among Black Californians are not abstract statistics.
+            They represent real families, real neighborhoods, and real lives cut short
+            by preventable conditions. Here is what the data tells us.
+          </p>
         </motion.div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

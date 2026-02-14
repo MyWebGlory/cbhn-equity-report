@@ -10,18 +10,17 @@ const socialLinks = [
 
 const Footer = () => (
   <footer id="donate">
-    {/* CTA Section — subtle dark background */}
     <div className="bg-foreground section-padding pb-16">
       <div className="report-container mx-auto max-w-2xl text-center">
         <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
           Support Our Work
         </p>
         <h2 className="font-serif text-3xl font-semibold text-primary-foreground md:text-4xl lg:text-5xl">
-          Learn How You Can Make a Difference
+          Help Us Build a Healthier California
         </h2>
         <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-primary-foreground/60">
-          Your donation directly funds community health programs, policy advocacy, and
-          life-saving initiatives for Black Californians.
+          Every dollar goes toward community health programs, policy advocacy, and
+          direct services for Black Californians. Your support makes this work possible.
         </p>
         <a
           href="https://fundraise.givesmart.com/e/c21PlQ?vid=19fqpi"
@@ -34,7 +33,6 @@ const Footer = () => (
       </div>
     </div>
 
-    {/* Bottom bar */}
     <div className="bg-foreground border-t border-primary-foreground/10 px-6 py-8 lg:px-24">
       <div className="report-container flex flex-col items-center justify-between gap-6 md:flex-row">
         <div>
@@ -42,9 +40,13 @@ const Footer = () => (
             California Black Health Network
           </p>
           <p className="mt-1 text-xs text-primary-foreground/40">
-            © 2026 CBHN. All rights reserved. |{" "}
+            2026 CBHN. All rights reserved.{" "}
             <a href="https://yourcbhn.org/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/60">
               Privacy Policy
+            </a>
+            {" "}Powered by{" "}
+            <a href="https://www.rpmnational.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/60">
+              RPMNational
             </a>
           </p>
         </div>
