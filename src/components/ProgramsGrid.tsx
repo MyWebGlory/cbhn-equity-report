@@ -14,7 +14,9 @@ const programs = [
     icon: <Flame size={24} />,
     title: "HEAT Program",
     description:
-      "The Health Equity Action Team trains community health workers to tackle health disparities block by block. HEAT uses outreach strategies grounded in local data and grassroots engagement to connect residents with preventive care, insurance enrollment, and mental health resources. In 2024, the program graduated 86 new community health workers and reached over 11,000 residents through door-to-door campaigns and community events.",
+      "The Health Equity Action Team trains community health workers to tackle health disparities block by block. HEAT uses outreach strategies grounded in local data and grassroots engagement to connect residents with preventive care, insurance enrollment, and mental health resources.",
+    highlightText: "In 2024, the program graduated 86 new community health workers",
+    descriptionSuffix: " and reached over 11,000 residents through door-to-door campaigns and community events.",
     tag: "Advocacy",
   },
   {
@@ -28,7 +30,8 @@ const programs = [
     icon: <Stethoscope size={24} />,
     title: "Covered California Outreach",
     description:
-      "CBHN partners with Covered California to increase health insurance enrollment among Black Californians who remain uninsured or underinsured. Through multilingual outreach, enrollment assistance, and educational workshops, the program helped over 3,100 individuals sign up for coverage during the 2024 open enrollment period. Call (866) 761-4165 to learn more about enrollment options.",
+      "CBHN partners with Covered California to increase health insurance enrollment among Black Californians who remain uninsured or underinsured. Through multilingual outreach, enrollment assistance, and educational workshops, the program helped over 3,100 individuals sign up for coverage during the 2024 open enrollment period.",
+    phoneNumber: "(866) 761-4165",
     tag: "Enrollment",
   },
 ];
@@ -89,7 +92,21 @@ const ProgramsGrid = () => {
               </h3>
               <p className="mt-3 flex-1 text-sm leading-[1.7] text-muted-foreground">
                 {program.description}
+                {program.highlightText && (
+                  <>
+                    {" "}<span className="font-semibold text-foreground">{program.highlightText}</span>
+                    {program.descriptionSuffix}
+                  </>
+                )}
               </p>
+              {program.phoneNumber && (
+                <a
+                  href={`tel:${program.phoneNumber.replace(/[^0-9]/g, "")}`}
+                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-2 text-[13px] font-semibold text-secondary transition-colors hover:bg-secondary/20"
+                >
+                  Call Now: {program.phoneNumber}
+                </a>
+              )}
               <button className="mt-6 flex items-center gap-2 text-[13px] font-medium text-primary transition-colors hover:text-secondary">
                 Learn More <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
               </button>

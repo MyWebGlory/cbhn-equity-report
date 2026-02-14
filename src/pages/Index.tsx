@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import BackToTop from "@/components/BackToTop";
 import HeroSection from "@/components/HeroSection";
 import MissionSection from "@/components/MissionSection";
 import YearInNumbers from "@/components/YearInNumbers";
@@ -16,6 +17,7 @@ import Footer from "@/components/Footer";
 const Index = () => (
   <div className="min-h-screen">
     <Navbar />
+    <BackToTop />
     <main>
       <HeroSection />
       <MissionSection />

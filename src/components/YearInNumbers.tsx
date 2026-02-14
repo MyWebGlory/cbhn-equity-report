@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
 const counters = [
-  { value: 58, suffix: "", label: "Counties Reached" },
+  { value: 58, suffix: "", label: "Counties Reached", subtitle: "100% Statewide Coverage" },
   { value: 42000, suffix: "+", label: "People Screened or Served" },
   { value: 86, suffix: "", label: "Community Health Workers Trained" },
   { value: 14, suffix: "", label: "Policy Recommendations Published" },
@@ -43,6 +43,11 @@ const CounterCell = ({ item, inView, delay }: { item: typeof counters[0]; inView
       <p className="mt-3 text-sm font-medium tracking-wide text-muted-foreground">
         {item.label}
       </p>
+      {item.subtitle && (
+        <p className="mt-1 text-[11px] font-semibold uppercase tracking-widest text-secondary">
+          {item.subtitle}
+        </p>
+      )}
     </motion.div>
   );
 };

@@ -9,6 +9,7 @@ const stats = [
     label: "Asthma ER Visits",
     description:
       "Black children have a 260% higher emergency department visit rate, a 250% higher hospitalization rate, and a 500% higher death rate from asthma compared to white children. Decades of environmental injustice and limited access to preventive care produced these numbers.",
+    highlight: true,
   },
   {
     icon: <Heart size={22} />,
@@ -16,13 +17,14 @@ const stats = [
     label: "Diabetes and Heart Disease",
     description:
       "Nearly 15% of African Americans have diabetes, compared with 8% of whites. African Americans also face higher rates of hypertension and heart disease. Early screening and steady access to primary care could prevent most of these cases.",
+    highlight: true,
   },
   {
     icon: <Baby size={22} />,
     stat: "12 per 1,000",
     label: "Infant Mortality",
     description:
-      "According to KidsData.org, African Americans lead California in infant mortality. Between 2005 and 2007, an average of 12 out of every 1,000 children under one year of age suffered from a range of complications. Black maternal health in California remains a public health emergency.",
+      "According to KidsData.org, African Americans lead California in infant mortality. Between 2005 and 2007, an average of 12 out of every 1,000 children under one year of age suffered from a range of complications. Black maternal health in California remains a public health emergency. These historic figures reflect a systemic crisis that CBHN continues to challenge through direct policy intervention.",
   },
   {
     icon: <Scale size={22} />,
@@ -94,7 +96,7 @@ const ImpactStats = () => {
                   {s.icon}
                 </div>
                 <div>
-                  <p className="font-serif text-2xl font-bold text-foreground">{s.stat}</p>
+                  <p className={`font-serif text-2xl font-bold ${s.highlight ? "text-[hsl(358,80%,47%)]" : "text-foreground"}`}>{s.stat}</p>
                 </div>
               </div>
               <p className="text-[13px] font-semibold uppercase tracking-wider text-secondary/80">

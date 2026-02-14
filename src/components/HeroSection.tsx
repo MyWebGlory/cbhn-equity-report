@@ -28,11 +28,11 @@ const HeroSection = () => (
         transition={{ duration: 1, delay: 0.2 }}
         className="font-serif text-5xl font-bold leading-[1.1] text-primary-foreground md:text-7xl lg:text-8xl"
       >
-        Fighting for
+        Leading the Charge
         <br />
-        Black Health
+        for Health
         <br />
-        <span className="italic font-normal">in California</span>
+        <span className="italic font-normal">Equity</span>
       </motion.h1>
 
       <motion.p
