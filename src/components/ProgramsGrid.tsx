@@ -7,21 +7,21 @@ const programs = [
     icon: <HeartPulse size={24} />,
     title: "Health4Life",
     description:
-      "Health4Life is our flagship wellness initiative. It brings culturally competent health education, free screenings, and preventive care resources directly into Black communities across California. The program trains local facilitators who understand the lived experience of participants, creating a space where people feel seen and supported. In 2024, Health4Life expanded into three new counties and screened over 4,200 individuals for chronic disease risk factors.",
+      "Health4Life brings culturally competent health education, free screenings, and preventive care directly into Black communities across California. The program trains local facilitators who share the lived experience of the people they serve, building trust from the ground up. In 2024, Health4Life expanded into three new counties and screened over 4,200 individuals for chronic disease risk factors.",
     tag: "Wellness",
   },
   {
     icon: <Flame size={24} />,
     title: "HEAT Program",
     description:
-      "The Health Equity Action Team trains community health workers and advocates to address health disparities at the neighborhood level. HEAT deploys data-driven outreach strategies and grassroots engagement to connect underserved residents with preventive care, insurance enrollment, and mental health resources. In 2024, the program graduated 86 new community health workers and reached over 11,000 residents through door-to-door campaigns and community events.",
+      "The Health Equity Action Team trains community health workers to tackle health disparities block by block. HEAT uses outreach strategies grounded in local data and grassroots engagement to connect residents with preventive care, insurance enrollment, and mental health resources. In 2024, the program graduated 86 new community health workers and reached over 11,000 residents through door-to-door campaigns and community events.",
     tag: "Advocacy",
   },
   {
     icon: <BookOpen size={24} />,
     title: "Black Health Agenda",
     description:
-      "The Black Health Agenda is a comprehensive policy framework developed with state legislators, public health officials, and community leaders. It lays out a concrete action plan to address structural barriers to health equity for all Black Californians. The 2024 edition focused on maternal mortality, environmental justice, and the expansion of Medi-Cal benefits to cover doula services and postpartum mental health support.",
+      "The Black Health Agenda is a policy framework built with state legislators, public health officials, and community leaders. It spells out specific actions to break down the barriers between Black Californians and equitable healthcare. The 2024 edition focused on maternal mortality, environmental justice, and the expansion of Medi-Cal benefits to cover doula services and postpartum mental health support.",
     tag: "Policy",
   },
   {
@@ -56,9 +56,9 @@ const ProgramsGrid = () => {
             What We Do on the Ground
           </h2>
           <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
-            CBHN conducts outreach, education, and advocacy to achieve health equity
-            for Black Californians. Our programs reach communities across the state,
-            from rural Central Valley towns to neighborhoods in Los Angeles and Oakland.
+            CBHN runs outreach, education, and advocacy programs across the state, from
+            rural Central Valley towns to neighborhoods in Los Angeles and Oakland. Each
+            program is built around what communities actually need.
           </p>
         </motion.div>
 

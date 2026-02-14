@@ -44,9 +44,9 @@ const FinancialsChart = () => {
             Where Your Donations Go
           </h2>
           <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
-            CBHN is a Charity Navigator Four Star rated organization. We are committed
-            to full transparency in how we allocate the resources entrusted to us. In 2024,
-            90% of all funds went directly toward programs, advocacy, and community education.
+            CBHN holds a Charity Navigator Four Star rating. We publish exactly how every
+            dollar is spent because donors deserve to know. In 2024, 90% of all funds went
+            directly to programs, advocacy, and community education.
           </p>
         </motion.div>
 

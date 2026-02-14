@@ -28,11 +28,11 @@ const HeroSection = () => (
         transition={{ duration: 1, delay: 0.2 }}
         className="font-serif text-5xl font-bold leading-[1.1] text-primary-foreground md:text-7xl lg:text-8xl"
       >
-        Empowering
+        Fighting for
         <br />
         Black Health
         <br />
-        <span className="italic font-normal">Equity</span>
+        <span className="italic font-normal">in California</span>
       </motion.h1>
 
       <motion.p
@@ -41,9 +41,9 @@ const HeroSection = () => (
         transition={{ duration: 0.8, delay: 0.5 }}
         className="mt-8 max-w-lg text-base leading-relaxed text-primary-foreground/70"
       >
-        CBHN is the only Black-led statewide organization in California dedicated to
-        advancing health equity for African Americans and Black immigrants. This is
-        a look back at what we accomplished together in 2024.
+        CBHN is the only Black-led statewide organization in California working to
+        close health gaps for African Americans and Black immigrants. Here is what
+        we did in 2024.
       </motion.p>
 
       <motion.div
