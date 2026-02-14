@@ -75,7 +75,7 @@ const CommunityStories = () => {
               <p className="flex-1 font-serif text-base italic leading-[1.8] text-foreground/80">
                 "{story.quote}"
               </p>
-              <div className="mt-6 border-t border-border/40 pt-4">
+              <div className="mt-6 border-t border-accent/10 pt-4">
                 <p className="text-sm font-semibold text-foreground">{story.name}</p>
                 <p className="text-[12px] text-muted-foreground">
                   {story.location} · {story.context}

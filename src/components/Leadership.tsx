@@ -75,6 +75,7 @@ const Leadership = () => {
               <p className="text-[11px] font-semibold uppercase tracking-widest text-secondary/80">
                 {person.role}
               </p>
+              <div className="mt-2 h-px w-8 bg-secondary/20" />
               <h3 className="mt-2 font-serif text-lg font-semibold text-foreground">
                 {person.name}
               </h3>
