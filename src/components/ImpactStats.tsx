@@ -48,16 +48,19 @@ const stats = [
 ];
 
 const ImpactStats = () => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const headerRef = useRef(null);
+  const gridRef = useRef(null);
+  const headerInView = useInView(headerRef, { once: true, margin: "-60px" });
+  const gridInView = useInView(gridRef, { once: true, margin: "-40px" });
 
   return (
-    <section id="impact" className="section-padding bg-muted/50" ref={ref}>
+    <section id="impact" className="section-padding bg-muted/50">
       <div className="report-container">
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          ref={headerRef}
+          initial={{ opacity: 0, y: 40 }}
+          animate={headerInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="mx-auto mb-14 max-w-3xl text-center"
         >
           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
@@ -73,13 +76,17 @@ const ImpactStats = () => {
           </p>
         </motion.div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div ref={gridRef} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
+              initial={{ opacity: 0, y: 35, scale: 0.97 }}
+              animate={gridInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{
+                duration: 0.6,
+                delay: i * 0.08,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
               className="group rounded-xl border border-border/60 bg-card p-7 transition-all duration-300 hover:border-primary/30 hover:shadow-md"
             >
               <div className="mb-5 flex items-center gap-3">

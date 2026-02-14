@@ -1,18 +1,32 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+const ease = [0.25, 0.1, 0.25, 1] as const;
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 40 },
+  transition: { duration: 0.8, delay, ease: ease as unknown as [number, number, number, number] },
+});
+
 const MissionSection = () => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const whoRef = useRef(null);
+  const missionRef = useRef(null);
+  const visionRef = useRef(null);
+  const prioritiesRef = useRef(null);
+
+  const whoInView = useInView(whoRef, { once: true, margin: "-60px" });
+  const missionInView = useInView(missionRef, { once: true, margin: "-60px" });
+  const visionInView = useInView(visionRef, { once: true, margin: "-60px" });
+  const prioritiesInView = useInView(prioritiesRef, { once: true, margin: "-60px" });
 
   return (
-    <section id="mission" className="section-padding bg-card" ref={ref}>
+    <section id="mission" className="section-padding bg-card">
       <div className="report-container">
         {/* Who We Are */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.9 }}
+          ref={whoRef}
+          {...fadeUp()}
+          animate={whoInView ? { opacity: 1, y: 0 } : {}}
           className="mx-auto max-w-3xl text-center"
         >
           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
@@ -32,9 +46,9 @@ const MissionSection = () => {
 
         {/* Mission */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          ref={missionRef}
+          {...fadeUp(0.1)}
+          animate={missionInView ? { opacity: 1, y: 0 } : {}}
           className="mx-auto mt-20 max-w-3xl text-center"
         >
           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
@@ -53,9 +67,9 @@ const MissionSection = () => {
 
         {/* Vision */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.35 }}
+          ref={visionRef}
+          {...fadeUp(0.1)}
+          animate={visionInView ? { opacity: 1, y: 0 } : {}}
           className="mx-auto mt-20 max-w-3xl text-center"
         >
           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
@@ -69,20 +83,23 @@ const MissionSection = () => {
         </motion.div>
 
         {/* Priorities */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mx-auto mt-20 max-w-3xl"
-        >
-          <p className="mb-6 text-center text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
+        <div ref={prioritiesRef} className="mx-auto mt-20 max-w-3xl">
+          <motion.p
+            {...fadeUp()}
+            animate={prioritiesInView ? { opacity: 1, y: 0 } : {}}
+            className="mb-6 text-center text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary"
+          >
             Our Priorities
-          </p>
-          <p className="mb-8 text-center text-base leading-[1.8] text-muted-foreground md:text-lg">
+          </motion.p>
+          <motion.p
+            {...fadeUp(0.1)}
+            animate={prioritiesInView ? { opacity: 1, y: 0 } : {}}
+            className="mb-8 text-center text-base leading-[1.8] text-muted-foreground md:text-lg"
+          >
             We support research and educational efforts that document the underlying factors
             determining the health status of Black Californians and inform policy initiatives
             to reduce disparities.
-          </p>
+          </motion.p>
           <div className="grid gap-5 md:grid-cols-3">
             {[
               {
@@ -97,9 +114,11 @@ const MissionSection = () => {
                 title: "Policy Participation",
                 text: "Increase participation of Black Californians in policy making at all levels within the health industry and public sector.",
               },
-            ].map((item) => (
-              <div
+            ].map((item, i) => (
+              <motion.div
                 key={item.title}
+                {...fadeUp(0.15 + i * 0.1)}
+                animate={prioritiesInView ? { opacity: 1, y: 0 } : {}}
                 className="rounded-xl border border-border/60 bg-background p-6"
               >
                 <h4 className="font-serif text-base font-semibold text-foreground">
@@ -108,10 +127,10 @@ const MissionSection = () => {
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {item.text}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
