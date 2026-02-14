@@ -3,11 +3,11 @@ import { useRef, useState } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 
 const data = [
-  { name: "Community Health Programs", value: 45, color: "hsl(212, 100%, 20%)" },
-  { name: "Policy & Advocacy", value: 20, color: "hsl(356, 85%, 47%)" },
-  { name: "Education & Outreach", value: 15, color: "hsl(212, 80%, 35%)" },
-  { name: "Research & Data", value: 10, color: "hsl(356, 65%, 60%)" },
-  { name: "Operations & Admin", value: 10, color: "hsl(210, 20%, 75%)" },
+  { name: "Community Health Programs", value: 45, color: "hsl(177, 100%, 38%)" },
+  { name: "Policy & Advocacy", value: 20, color: "hsl(30, 76%, 50%)" },
+  { name: "Education & Outreach", value: 15, color: "hsl(270, 35%, 35%)" },
+  { name: "Research & Data", value: 10, color: "hsl(177, 60%, 55%)" },
+  { name: "Operations & Admin", value: 10, color: "hsl(30, 40%, 70%)" },
 ];
 
 const CustomTooltip = ({ active, payload }: any) => {
@@ -40,7 +40,7 @@ const FinancialsChart = () => {
           <h2 className="font-serif text-3xl font-bold text-foreground md:text-5xl">
             Where Your Donations Go
           </h2>
-          <div className="mx-auto mt-6 h-1 w-16 rounded-full bg-secondary" />
+          <div className="mx-auto mt-6 h-1 w-16 rounded-full bg-primary" />
         </motion.div>
 
         <motion.div
@@ -49,7 +49,6 @@ const FinancialsChart = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="flex flex-col items-center gap-12 lg:flex-row lg:justify-center"
         >
-          {/* Chart */}
           <div className="h-80 w-80 md:h-96 md:w-96">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -79,7 +78,6 @@ const FinancialsChart = () => {
             </ResponsiveContainer>
           </div>
 
-          {/* Legend */}
           <div className="flex flex-col gap-4">
             {data.map((item, i) => (
               <div
@@ -99,6 +97,23 @@ const FinancialsChart = () => {
               </div>
             ))}
           </div>
+        </motion.div>
+
+        {/* Charity Navigator badge */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.5 }}
+          className="mt-12 flex justify-center"
+        >
+          <a
+            href="https://charitynavigator.org/ein/953794688"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 rounded-full bg-muted px-6 py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            ★★★★ Charity Navigator — Four Star Rated
+          </a>
         </motion.div>
       </div>
     </section>

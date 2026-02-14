@@ -5,32 +5,32 @@ import { Landmark, Newspaper, FileText, Megaphone, Scale } from "lucide-react";
 const items = [
   {
     icon: <Landmark size={20} />,
-    title: "AB 1204 — Maternal Health Equity Act",
-    description: "Expanded Medi-Cal coverage for Black mothers extending postpartum care to 12 months.",
+    title: "Maternal Health Equity Advocacy",
+    description: "Expanded Medi-Cal coverage for Black mothers, extending postpartum care and addressing infant mortality disparities.",
     year: "2024",
   },
   {
     icon: <FileText size={20} />,
     title: "Black Health Agenda Policy Brief",
-    description: "Published comprehensive policy recommendations adopted by the California Legislative Black Caucus.",
+    description: "Published comprehensive policy recommendations adopted by the California Legislative Black Caucus for systemic change.",
     year: "2024",
   },
   {
     icon: <Megaphone size={20} />,
     title: "Community Health Worker Certification",
-    description: "Advocated for state certification standards that recognize culturally competent health workers.",
+    description: "Advocated for state certification standards that recognize culturally competent health workers in underserved communities.",
     year: "2024",
   },
   {
     icon: <Scale size={20} />,
-    title: "Health Equity Budget Allocation",
-    description: "Secured $12M in state funding directed toward reducing chronic disease disparities in Black communities.",
+    title: "Climate Change as Public Health Crisis",
+    description: "Led campaign recognizing climate change as a public health crisis disproportionately affecting Black Californians.",
     year: "2023",
   },
   {
     icon: <Newspaper size={20} />,
-    title: "Newsroom & Media Advocacy",
-    description: "Published 20+ op-eds and media features elevating Black health narratives in mainstream California press.",
+    title: "Building a Black Health Agenda One Story at a Time",
+    description: "Published stories and media features elevating Black health narratives and community voices in mainstream California press.",
     year: "2023–24",
   },
 ];
@@ -40,7 +40,7 @@ const LegislativeWins = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="policy" className="section-padding bg-background" ref={ref}>
+    <section id="policy" className="section-padding bg-muted" ref={ref}>
       <div className="report-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -54,12 +54,11 @@ const LegislativeWins = () => {
           <h2 className="font-serif text-3xl font-bold text-foreground md:text-5xl">
             Legislative Wins & Newsroom
           </h2>
-          <div className="mx-auto mt-6 h-1 w-16 rounded-full bg-secondary" />
+          <div className="mx-auto mt-6 h-1 w-16 rounded-full bg-primary" />
         </motion.div>
 
         <div className="mx-auto max-w-3xl">
-          {/* Vertical timeline */}
-          <div className="relative border-l-2 border-border pl-8">
+          <div className="relative border-l-2 border-primary/30 pl-8">
             {items.map((item, i) => (
               <motion.div
                 key={item.title}
@@ -68,12 +67,11 @@ const LegislativeWins = () => {
                 transition={{ duration: 0.5, delay: i * 0.15 }}
                 className="group relative mb-10 last:mb-0"
               >
-                {/* Timeline dot */}
-                <div className="absolute -left-[2.6rem] top-1 flex h-10 w-10 items-center justify-center rounded-full border-2 border-border bg-card text-primary transition-colors group-hover:border-secondary group-hover:text-secondary">
+                <div className="absolute -left-[2.6rem] top-1 flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary/30 bg-card text-primary transition-colors group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
                   {item.icon}
                 </div>
 
-                <span className="mb-1 inline-block rounded-full bg-accent px-3 py-0.5 text-xs font-semibold text-accent-foreground">
+                <span className="mb-1 inline-block rounded-full bg-secondary/15 px-3 py-0.5 text-xs font-semibold text-secondary">
                   {item.year}
                 </span>
                 <h3 className="mt-1 font-serif text-lg font-bold text-foreground">
