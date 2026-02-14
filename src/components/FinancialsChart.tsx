@@ -21,17 +21,20 @@ const CustomTooltip = ({ active, payload }: any) => {
 };
 
 const FinancialsChart = () => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const headerRef = useRef(null);
+  const chartRef = useRef(null);
+  const headerInView = useInView(headerRef, { once: true, margin: "-60px" });
+  const chartInView = useInView(chartRef, { once: true, margin: "-40px" });
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section id="financials" className="section-padding bg-card" ref={ref}>
+    <section id="financials" className="section-padding bg-card">
       <div className="report-container">
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          ref={headerRef}
+          initial={{ opacity: 0, y: 40 }}
+          animate={headerInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="mx-auto mb-14 max-w-3xl text-center"
         >
           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
@@ -48,9 +51,10 @@ const FinancialsChart = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.97 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          ref={chartRef}
+          initial={{ opacity: 0, y: 30, scale: 0.97 }}
+          animate={chartInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex flex-col items-center gap-12 lg:flex-row lg:justify-center"
         >
           <div className="h-72 w-72 md:h-80 md:w-80">
@@ -84,8 +88,11 @@ const FinancialsChart = () => {
 
           <div className="flex flex-col gap-3">
             {data.map((item, i) => (
-              <div
+              <motion.div
                 key={item.name}
+                initial={{ opacity: 0, x: 20 }}
+                animate={chartInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.3 + i * 0.06, ease: [0.25, 0.1, 0.25, 1] }}
                 className="flex items-center gap-3 cursor-pointer rounded-lg px-3 py-2 transition-colors hover:bg-muted/50"
                 onMouseEnter={() => setActiveIndex(i)}
                 onMouseLeave={() => setActiveIndex(null)}
@@ -98,15 +105,15 @@ const FinancialsChart = () => {
                 <span className="ml-auto text-sm font-semibold text-muted-foreground">
                   {item.value}%
                 </span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.6 }}
+          animate={chartInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.8 }}
           className="mt-10 flex justify-center"
         >
           <a

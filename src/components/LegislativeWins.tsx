@@ -55,16 +55,19 @@ const items = [
 ];
 
 const LegislativeWins = () => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const headerRef = useRef(null);
+  const timelineRef = useRef(null);
+  const headerInView = useInView(headerRef, { once: true, margin: "-60px" });
+  const timelineInView = useInView(timelineRef, { once: true, margin: "-40px" });
 
   return (
-    <section id="policy" className="section-padding bg-muted/50" ref={ref}>
+    <section id="policy" className="section-padding bg-muted/50">
       <div className="report-container">
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          ref={headerRef}
+          initial={{ opacity: 0, y: 40 }}
+          animate={headerInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="mx-auto mb-14 max-w-3xl text-center"
         >
           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
@@ -80,14 +83,18 @@ const LegislativeWins = () => {
           </p>
         </motion.div>
 
-        <div className="mx-auto max-w-2xl">
+        <div ref={timelineRef} className="mx-auto max-w-2xl">
           <div className="relative space-y-8">
             {items.map((item, i) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={timelineInView ? { opacity: 1, x: 0 } : {}}
+                transition={{
+                  duration: 0.5,
+                  delay: i * 0.1,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
                 className="group flex gap-5"
               >
                 <div className="flex flex-col items-center">

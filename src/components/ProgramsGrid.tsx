@@ -34,16 +34,19 @@ const programs = [
 ];
 
 const ProgramsGrid = () => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const headerRef = useRef(null);
+  const gridRef = useRef(null);
+  const headerInView = useInView(headerRef, { once: true, margin: "-60px" });
+  const gridInView = useInView(gridRef, { once: true, margin: "-40px" });
 
   return (
-    <section id="programs" className="section-padding bg-card" ref={ref}>
+    <section id="programs" className="section-padding bg-card">
       <div className="report-container">
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          ref={headerRef}
+          initial={{ opacity: 0, y: 40 }}
+          animate={headerInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="mx-auto mb-14 max-w-3xl text-center"
         >
           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
@@ -59,13 +62,17 @@ const ProgramsGrid = () => {
           </p>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div ref={gridRef} className="grid gap-6 md:grid-cols-2">
           {programs.map((program, i) => (
             <motion.div
               key={program.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.12 }}
+              initial={{ opacity: 0, y: 35, scale: 0.97 }}
+              animate={gridInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{
+                duration: 0.6,
+                delay: i * 0.1,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
               className="group flex flex-col rounded-xl border border-border/60 bg-background p-7 transition-all duration-300 hover:border-primary/30 hover:shadow-md"
             >
               <div className="mb-5 flex items-center gap-3">
