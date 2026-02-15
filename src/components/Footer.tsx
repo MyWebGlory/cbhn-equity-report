@@ -16,7 +16,7 @@ const Footer = () => {
 
   return (
     <footer id="donate">
-      <div className="bg-gradient-to-br from-foreground via-foreground to-[hsl(180,20%,12%)] section-padding pb-16" ref={ctaRef}>
+      <div className="bg-gradient-to-br from-foreground via-foreground to-[hsl(216,60%,12%)] section-padding pb-16" ref={ctaRef}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={ctaInView ? { opacity: 1, y: 0 } : {}}
@@ -40,7 +40,7 @@ const Footer = () => {
             href="https://fundraise.givesmart.com/e/c21PlQ?vid=19fqpi"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-secondary px-8 py-3.5 text-[13px] font-semibold text-secondary-foreground transition-opacity hover:opacity-90"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-[13px] font-semibold text-primary-foreground transition-opacity hover:opacity-90"
           >
             Donate Today <ExternalLink size={14} />
           </motion.a>

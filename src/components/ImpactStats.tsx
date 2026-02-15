@@ -96,7 +96,7 @@ const ImpactStats = () => {
                   {s.icon}
                 </div>
                 <div>
-                  <p className={`font-serif text-2xl font-bold ${s.highlight ? "text-[hsl(358,80%,47%)]" : "text-foreground"}`}>{s.stat}</p>
+                  <p className={`font-serif text-2xl font-bold ${s.highlight ? "text-[hsl(0,100%,50%)]" : "text-foreground"}`}>{s.stat}</p>
                 </div>
               </div>
               <p className="text-[13px] font-semibold uppercase tracking-wider text-secondary/80">
