@@ -1,223 +1,198 @@
 
 
-# CBHN Impact Report: Complete Overhaul
+# Bold, Explosive Redesign of CBHN Impact Report
 
 ## Overview
 
-This is a full rebuild of the CBHN Impact Report website using the real content from the 34-page Word document. The report shifts from a "2024 Annual Report" to a **"4 Decades of Advancing Health Equity"** impact report, designed as a fundraising and donor-facing tool. Font changes to Open Sans. Two new images are integrated. The structure follows the editorial, long-scroll format inspired by Girls Who Code and The California Endowment reference sites.
+Transform the currently calm, muted editorial report into a bold, high-energy, visually explosive experience with big titles, strong color contrasts, floating decorative SVG elements, generous whitespace, and all 5 new images distributed across sections. Every section gets breathing room so the reader sees "one thing at a time."
 
 ---
 
-## Global Changes
+## New Images to Add
 
-**Font**: Replace `Inter` and `Playfair Display` with `Open Sans` for body text. Keep a serif font (Playfair Display) for headlines only, or switch headlines to Open Sans Bold if preferred.
+Copy all 5 uploaded images into `src/assets/`:
+- `image-6.png` --> `src/assets/community-conversation.png` (group conversation with colorful wave overlay)
+- `image-7.png` --> `src/assets/community-men.png` (three men thumbs up)
+- `image-8.png` --> `src/assets/community-leaders.png` (four professionals)
+- `image-9.png` --> `src/assets/community-joy.png` (five people having fun outdoors)
+- `image-10.png` --> `src/assets/community-faces.png` (diverse faces collage)
 
-**Color palette**: Already applied from the previous update (Shamrock, Molten Orange, Regal Navy). No changes needed here.
-
-**New images**: Copy `image-4.png` (Advocacy) and `image-5.png` (Team/Office) into `src/assets/`. Use them in the Advocacy/Policy section and the Executive Director letter or About section.
-
----
-
-## New Section Structure (Top to Bottom)
-
-The report will be restructured into the following sections, each in its own component:
-
-### 1. Hero Section (rewrite)
-- Headline: **"4 Decades of Advancing Health Equity in California"**
-- Subtitle: "Investments, Initiatives, and Impact"
-- Subtext: CBHN is the only Black-led statewide organization dedicated to health equity for all Black Californians. Founded in 1978.
-- CTA buttons: "Read the Report" and "Support the Campaign"
-
-### 2. Executive Director Letter (NEW component)
-- Full letter from Rhonda M. Smith, taken verbatim from the document (Page 3)
-- Photo placeholder using the uploaded team image (`image-5.png`)
-- Signed "Rhonda M. Smith, Executive Director"
-- Quote block from Denise Adams-Simms (1999-2008 ED) at the top
-
-### 3. Executive Summary / Infographic (NEW component)
-- A visual "at a glance" infographic with key lifetime stats:
-  - Founded 1978
-  - 45+ grant-funded programs reviewed
-  - 12 major funders over 4 decades
-  - 106,000+ individuals reached
-  - 95 organizational partnerships created
-  - 100+ legislative bills sponsored or supported
-  - 6,000+ individuals enrolled in health plans
-  - 700+ Black Health Network members
-  - $8.3M in grants (1980-2020)
-  - 4,000+ enrolled in healthcare coverage (2020-2024)
-- Animated counters with icons, laid out in a grid (similar to current YearInNumbers but expanded)
-
-### 4. History and Overview (REWRITE of MissionSection)
-- CBHN founded 1978 as collaboration between Bay Area, LA, and San Diego
-- Six chapters listed
-- 1983 incorporation as 501c3
-- Core focus areas: Outreach, Advocacy, Data-driven policy, Partnerships
-- 2017 strategic re-evaluation with new Vision, Mission, Values
-- Theory of Change explanation
-
-### 5. Four Decades Timeline (REWRITE of EventsTimeline)
-- Vertical timeline spanning 1978 to 2024:
-  - **1978**: Statewide branch founded
-  - **1980s**: First statewide conference, chapter model, first major grant from CA Health Care Foundation
-  - **1990s**: Not in Mama's Kitchen Campaign, AATEP (Prop 99), Tobacco Research, SLAA
-  - **2000s**: Quality Assurance Project, Sweet Heart Project, Personal Health Records
-  - **2010s**: Healthcare Reform and ACA outreach, Covered California Navigator, HIV/AIDS campaign, Mental Health webinars, Prevention and Wellness, Black Health Agenda town halls
-  - **2020-2024**: Campaign for Black Health Equity launch, COVID response, new ED hired
-
-### 6. A New Beginning: 2020-2024 (NEW component)
-- Response, Recovery, Resilience framework from page 12
-- Health Equity Framework visual (Racial Justice + Social Justice + Environmental Justice = Health Equity)
-- New Vision and Mission statements
-- Campaign for Black Health Equity overview and its six core components:
-  - Black Health Network
-  - Black Health Agenda
-  - Health Equity Forum
-  - Health4Life
-  - Advocacy and Policy
-  - Healthcare Coverage
-
-### 7. Grant-Funded Programs (REWRITE of ProgramsGrid)
-- Cards for each program from pages 15-17:
-  - MHSOAC
-  - ACEs Awareness
-  - Covered California Navigation
-  - Medi-Cal Outreach
-  - Campaign for Black Health Equity
-  - "How Do I..." Campaign
-  - Diabetes and SDOH
-  - Supporting Health of African Americans
-  - Non-Toxic Black Beauty Project
-  - All of Us Campaign
-  - Caregiving and the Black Community
-
-### 8. Health Disparities (keep ImpactStats, minor text updates)
-- Keep the current 6-card disparity grid, content is accurate
-
-### 9. Policy and Advocacy (REWRITE of LegislativeWins)
-- Use the advocacy image (`image-4.png`) as a section banner
-- **Sponsored Legislation**:
-  - SB 987: California Cancer Care Equity Act (signed 2022)
-  - AB 85: SDOH Screening (vetoed 2023, reintroduced)
-  - HERJF budget request
-  - AB 2300: Toxic-Free Medical Devices Act (signed 2024)
-- **Supported Legislation**:
-  - SB 65: California Momnibus Act
-  - SB 17: Racial Equity Commission
-  - Proposition 31: Flavored Tobacco Ban
-  - Proposition 3: Right to Marry
-  - Proposition 4: Climate Bond
-  - Proposition 6: End Involuntary Servitude
-  - Proposition 33: Rent Control
-- **Advocacy Wins**:
-  - Black Health Equity Advocacy Week (first week of May, every year)
-  - HEAT Program details
-
-### 10. Black Health Network (NEW component)
-- 700+ members across 31 counties
-- Member roles and professional titles
-- BHN Accomplishments list (13 networking events, 11 mentorship pairs, 37 HEAT graduates, Provider Directory, Black Healthcare Bill of Rights)
-- Mentoring testimonials (Ivanna Evans, Mercedes Samudio, Stephanie Bryant)
-
-### 11. Key Accomplishments 2020-2024 (NEW component)
-- Highlight reel with animated entries:
-  - 2 bills signed into law
-  - First-ever Black Health Equity Advocacy Week
-  - HEAT Program launched
-  - 2,000+ educated through Health4Life and Forums
-  - 110,000 individuals reached statewide
-  - 4,000+ enrolled in health plans
-  - 700+ BHN members
-  - Nonprofit of the Year 2022
-  - Sacramento Business Journal DEI Honoree 2023
-  - Non-Toxic Black Beauty Project launched
-
-### 12. "How Do I..." Campaign (NEW component)
-- Overview of the CHCF "Listening to Black Californians" study
-- Campaign goals and objectives
-- Year 1 results: 600 individuals educated, 4.8/5.0 satisfaction
-- Webinar topics listed
-
-### 13. Stakeholder Feedback (REWRITE of CommunityStories)
-- Replace fictional testimonials with real stakeholder quotes:
-  - Leigh Purry, Blue Shield of California
-  - Kiran Savage-Sangwan, California Pan-Ethnic Health Network
-  - HEAT program anonymous feedback (3 quotes)
-  - Mentoring program testimonials
-- Three themes: Health Disparity Awareness, Health Equity and Advocacy, Creating and Facilitating Connections
-- Key stats: 100% awareness improvement, 85% trust in CBHN advocacy, 80% made connections
-
-### 14. Looking Ahead: 2025 and Beyond (REWRITE of LookingAhead)
-- Campaign for Black Health Equity continuation at three levels:
-  - Individual: health literacy, disparities, outcomes
-  - Community: SDOH, healthcare access, stakeholder engagement
-  - System: racial bias, access, affordable equitable care
-- Priority initiatives:
-  - Capacity Building
-  - Marketing and Branding Strategy
-  - Provider Network Directory
-  - Health Education (Year 2 of "How Do I...")
-  - Conscious Black Beauty Movement
-  - Policy Priorities and Agenda
-  - Workforce Development
-
-### 15. Financials (keep FinancialsChart, update data)
-- Update with real funding data where available from the document
-- Mention $8.3M in grants from 1980-2020, 12 major funders
-
-### 16. Call to Action / Donate (keep Footer structure)
-- "Join the Campaign for Black Health Equity"
-- "Help CBHN rewrite the health story for all Black Californians"
-- Donate button, contact info, social links
+### Image Placement:
+- `community-conversation.png`: HistoryOverview section (between text blocks)
+- `community-men.png`: BlackHealthNetwork section (next to accomplishments)
+- `community-leaders.png`: NewBeginning2020 section (alongside Response/Recovery/Resilience)
+- `community-joy.png`: HowDoICampaign section (full-width banner)
+- `community-faces.png`: LookingAhead section (full-width banner above "Our Commitment")
 
 ---
 
-## Technical Implementation
+## Global Design System Changes
+
+### `src/index.css`
+- Add all the extended CSS custom properties (shamrock, molten-orange, sky-aqua, magenta-bloom, gold, gradients, shadows) from the provided palette
+- Increase `section-padding` to `px-6 py-28 md:px-12 lg:px-24 lg:py-36` for more vertical breathing room
+- Add utility classes for floating SVG decorations (absolute positioned, low opacity, animated)
+- Add a `.bold-heading` utility with very large font sizes (5xl to 8xl)
+
+### `tailwind.config.ts`
+- Add new colors: `shamrock`, `molten-orange`, `sky-aqua`, `gold`, `magenta-bloom` as direct Tailwind color tokens
+- Add keyframe animations for floating/rotating decorative elements (`float`, `spin-slow`, `drift`)
+
+---
+
+## Floating Decorative SVG Component
+
+### New file: `src/components/FloatingShapes.tsx`
+A reusable component that renders absolute-positioned SVG shapes (circles, rings, dots, waves, diagonal lines) in section accent colors at low opacity (10-20%). Different shape configurations per section. Uses CSS animation for gentle floating/drifting movement.
+
+---
+
+## Section-by-Section Redesign
+
+### 1. HeroSection.tsx -- EXPLOSIVE ENTRY
+- Title size bumped to `text-6xl md:text-8xl lg:text-[120px]` with tight leading
+- "EQUITY" word in massive italic with a gradient text fill (shamrock to sky-aqua)
+- Add floating SVG circles and rings in gold, sky-aqua, magenta-bloom at low opacity around the edges
+- More vertical padding (min-h-screen stays, but content centered with generous spacing)
+- CTA buttons larger, with colored shadows (shadow-shamrock, shadow-molten-orange)
+- Add a wavy SVG divider at the bottom edge of the hero
+
+### 2. ExecutiveDirectorLetter.tsx -- WARM, SPACIOUS
+- Much more vertical spacing (py-36)
+- The Denise Adams-Simms quote gets a full-width colored band background (regal-navy at 5% opacity)
+- Letter text gets wider line-height and more paragraph spacing
+- Floating accent dots (gold, shamrock) in corners
+- Image gets a colored border/ring accent
+
+### 3. ExecutiveSummary.tsx -- BIG IMPACT INFOGRAPHIC
+- Title in huge bold serif
+- Stats grid: each stat gets a bold colored background (alternating shamrock, molten-orange, regal-navy, sky-aqua, gold) with white text instead of subtle cards
+- Numbers rendered at 5xl-6xl size
+- Floating ring SVGs behind the grid
+- Much more gap between stats (gap-8)
+
+### 4. HistoryOverview.tsx -- STORYTELLING WITH IMAGES
+- Insert `community-conversation.png` as a full-width image break between the chapters and core focus sections
+- Title in very large bold text
+- Chapter badges get bold colored borders instead of subtle ones
+- Vision/Mission/Values cards get full-color left borders (primary, secondary, accent)
+- Add floating diagonal line SVGs
+
+### 5. FourDecadesTimeline.tsx -- BOLD TIMELINE
+- Timeline era circles: much larger (h-20 w-20), filled with solid color backgrounds (alternating shamrock, molten-orange, regal-navy, sky-aqua, gold)
+- Connecting line thicker (w-1 instead of w-px) with gradient
+- Era title in huge bold text
+- Sub-items cards get colored left border accents
+- More vertical spacing between decades (space-y-16)
+
+### 6. NewBeginning2020.tsx -- HIGH ENERGY SECTION
+- Full-width background gradient band (regal-navy to shamrock at 8% opacity)
+- Insert `community-leaders.png` alongside the Response/Recovery/Resilience cards
+- Health Equity Framework visual: bigger, bolder, with solid colored pills instead of faded ones
+- Campaign components grid: cards get bold top-border colors (each a different palette color)
+- Floating wave SVG decorations
+
+### 7. GrantPrograms.tsx -- COLORFUL CARD GRID
+- Each card gets a unique bold top-border color from the full palette
+- Icons in solid colored circles (not faded)
+- Tag badges in bold accent colors
+- More spacing between cards (gap-8)
+- Floating dot pattern SVG in background
+
+### 8. ImpactStats.tsx -- ALARMING, BOLD
+- Stats with highlight get full red/molten-orange background cards with white text
+- Non-highlighted stats get regal-navy background with white text
+- Much larger stat numbers (text-5xl)
+- More spacing between cards
+- Bold section title
+
+### 9. LegislativeWins.tsx -- STRUCTURED, POWERFUL
+- Advocacy image gets a colored overlay gradient
+- Sponsored legislation cards get bold colored left borders
+- "Signed into law" badges in green, "Vetoed" in red
+- BHEAW landmark card: full shamrock green background with white text
+- HEAT card: full regal-navy background with white text
+- More spacing between all elements
+
+### 10. BlackHealthNetwork.tsx -- COMMUNITY ENERGY
+- Insert `community-men.png` as a side image next to the member description
+- "700+" number rendered huge (text-8xl) with gradient text
+- Accomplishment items get colored dot indicators (alternating colors)
+- Testimonial cards get bold colored top borders
+- Floating circle SVGs
+
+### 11. KeyAccomplishments.tsx -- HIGHLIGHT REEL
+- Each accomplishment gets an animated entrance with staggered delay
+- Check icons in solid colored circles (alternating palette colors)
+- Enrollment table gets bold column coloring
+- More vertical spacing between items
+
+### 12. HowDoICampaign.tsx -- EDUCATIONAL, BRIGHT
+- Insert `community-joy.png` as full-width banner above the content
+- Stats (600+, 4.8/5.0) rendered much larger with colored backgrounds
+- Webinar topics get numbered with colored circles
+- Floating SVG elements
+
+### 13. StakeholderFeedback.tsx -- VOICES AMPLIFIED
+- Quote cards get full-color left borders (alternating palette colors)
+- Theme stat cards: bold colored backgrounds with white text
+- Quote icon in bold accent color
+- More spacing between quotes
+
+### 14. LookingAhead.tsx -- FORWARD MOMENTUM
+- Insert `community-faces.png` as full-width banner
+- Three levels cards: full solid color backgrounds (primary, secondary, accent) with white text
+- Priority cards get bold numbered indicators
+- "Our Commitment" card: full gradient background (shamrock to regal-navy) with white text
+
+### 15. FinancialsChart.tsx -- CLEAN, BOLD
+- Bigger pie chart
+- Legend items with bold color swatches
+- Floating decorative elements
+
+### 16. Footer.tsx -- POWERFUL CTA
+- Full gradient background (shamrock to regal-navy)
+- Donate button much larger with glow shadow
+- Social icons larger with colored hover states
+
+---
+
+## Technical Details
 
 ### Files to create:
+- `src/components/FloatingShapes.tsx` (reusable decorative SVG component)
+
+### Files to modify (all existing components):
+- `src/index.css` (extended palette, utilities, increased spacing)
+- `tailwind.config.ts` (new colors, animations)
+- `src/components/HeroSection.tsx`
 - `src/components/ExecutiveDirectorLetter.tsx`
 - `src/components/ExecutiveSummary.tsx`
 - `src/components/HistoryOverview.tsx`
 - `src/components/FourDecadesTimeline.tsx`
 - `src/components/NewBeginning2020.tsx`
 - `src/components/GrantPrograms.tsx`
+- `src/components/ImpactStats.tsx`
+- `src/components/LegislativeWins.tsx`
 - `src/components/BlackHealthNetwork.tsx`
 - `src/components/KeyAccomplishments.tsx`
 - `src/components/HowDoICampaign.tsx`
 - `src/components/StakeholderFeedback.tsx`
-
-### Files to heavily rewrite:
-- `src/components/HeroSection.tsx` (new headline and framing)
-- `src/components/MissionSection.tsx` (becomes HistoryOverview or removed)
-- `src/components/EventsTimeline.tsx` (becomes FourDecadesTimeline)
-- `src/components/ProgramsGrid.tsx` (becomes GrantPrograms with 11 programs)
-- `src/components/LegislativeWins.tsx` (real legislation data)
-- `src/components/CommunityStories.tsx` (becomes StakeholderFeedback)
-- `src/components/LookingAhead.tsx` (real 2025 priorities)
-- `src/components/YearInNumbers.tsx` (becomes ExecutiveSummary infographic)
-- `src/components/Leadership.tsx` (may keep or fold into HistoryOverview)
-- `src/pages/Index.tsx` (new section ordering)
-
-### Files to update:
-- `src/index.css` (swap Inter to Open Sans in Google Fonts import and CSS vars)
-- `src/components/Navbar.tsx` (update nav links to match new sections)
+- `src/components/LookingAhead.tsx`
+- `src/components/FinancialsChart.tsx`
+- `src/components/Footer.tsx`
+- `src/components/Navbar.tsx`
 
 ### Assets to copy:
-- `user-uploads://image-4.png` to `src/assets/advocacy.png`
-- `user-uploads://image-5.png` to `src/assets/team-office.png`
+- 5 new images from user-uploads to src/assets/
 
-### Design patterns kept:
-- Framer Motion `useInView` scroll-reveal on every section
-- Animated counters for stats
-- Vertical timeline with colored connecting lines
-- Card-based layouts with subtle tinted borders
-- Pulsing Donate button in navbar
-- Back to Top button
-- Recharts pie chart for financials
-- No em dashes, no ampersands, no AI cliches
-
-### Responsive approach:
-- All grids collapse to single column on mobile
-- Timeline stays readable on small screens
-- Images scale with `object-cover`
+### Key principles:
+- NO text content changes (all verbatim text preserved exactly as-is)
+- Bold color contrasts: dark backgrounds with white text, or bright colored backgrounds
+- Generous whitespace: py-28 to py-36 between sections, gap-8 in grids
+- Floating SVG decorations at 10-20% opacity for visual energy
+- Large typography: headlines at 5xl-8xl, stats at 5xl-6xl
+- One idea per viewport height where possible
+- Every section has at least one bold color accent element
+- All text remains readable with proper contrast ratios
 
