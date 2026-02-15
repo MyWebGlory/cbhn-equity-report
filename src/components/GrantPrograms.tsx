@@ -68,13 +68,13 @@ const ProgramCard = ({ program, i, gridInView }: { program: typeof programs[0]; 
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       animate={gridInView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ duration: 0.5, delay: i * 0.06, ease: [0.25, 0.1, 0.25, 1] }}
-      whileHover={{ y: -6, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.15)" }}
-      className={`group flex flex-col rounded-2xl bg-background p-8 shadow-lg transition-all duration-300 ${topBorderColors[i]}`}
+      whileHover={{ y: -4, boxShadow: "0 12px 24px -8px rgba(0,0,0,0.1)" }}
+      className={`group flex flex-col rounded-2xl bg-background p-8 shadow-lg transition-all duration-200 ${topBorderColors[i]}`}
     >
       <div className="mb-5 flex items-center gap-3">
         <motion.div
-          whileHover={{ rotate: 360 }}
-          transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.2 }}
           className={`flex h-11 w-11 items-center justify-center rounded-xl ${iconColors[i]}`}
         >
           {program.icon}

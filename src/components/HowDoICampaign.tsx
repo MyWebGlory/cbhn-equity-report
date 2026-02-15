@@ -101,12 +101,12 @@ const HowDoICampaign = () => {
                 {webinarTopics.map((topic, i) => (
                   <motion.div
                     key={i}
-                    whileHover={{ x: 12, backgroundColor: "rgba(0,0,0,0.02)" }}
+                    whileHover={{ x: 4 }}
                     className="flex items-start gap-4 rounded-xl p-2 transition-all cursor-default"
                   >
                     <motion.span
-                      whileHover={{ scale: 1.2, rotate: 360 }}
-                      transition={{ duration: 0.4 }}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.2 }}
                       className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-black ${topicCircleColors[i]}`}
                     >
                       {i + 1}

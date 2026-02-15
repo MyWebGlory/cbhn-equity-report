@@ -68,7 +68,7 @@ const HistoryOverview = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={whoInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.3 + i * 0.08 }}
-                whileHover={{ scale: 1.1, rotate: Math.random() > 0.5 ? 2 : -2 }}
+                whileHover={{ scale: 1.05 }}
                 className={`rounded-full border-2 px-5 py-2 text-xs font-bold cursor-default ${chapterColors[i]}`}
               >
                 {ch}
@@ -86,10 +86,10 @@ const HistoryOverview = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={whoInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.3 }}
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.01 }}
           className="my-20 overflow-hidden rounded-3xl"
         >
-          <img src={communityConversation} alt="CBHN community conversation" className="w-full h-64 md:h-96 object-cover transition-transform duration-700 hover:scale-110" />
+          <img src={communityConversation} alt="CBHN community conversation" className="w-full h-64 md:h-96 object-cover transition-transform duration-500 hover:scale-105" />
         </motion.div>
 
         {/* Core Focus */}
@@ -119,7 +119,7 @@ const HistoryOverview = () => {
                 key={item.title}
                 {...fadeUp(0.15 + i * 0.1)}
                 animate={prioritiesInView ? { opacity: 1, y: 0 } : {}}
-                whileHover={{ y: -8, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.15)" }}
+                whileHover={{ y: -4, boxShadow: "0 12px 24px -8px rgba(0,0,0,0.1)" }}
                 className={`rounded-2xl bg-background p-7 shadow-lg transition-all ${item.color}`}
               >
                 <h4 className="font-serif text-lg font-bold text-foreground">
@@ -181,7 +181,7 @@ const HistoryOverview = () => {
               initial={{ opacity: 0, x: -30 }}
               animate={missionInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.2 + i * 0.1 }}
-              whileHover={{ x: 8, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.1)" }}
+              whileHover={{ x: 4, boxShadow: "0 8px 20px -8px rgba(0,0,0,0.08)" }}
               className={`rounded-2xl bg-background p-8 border-l-4 shadow-md transition-all ${item.color} ${item.bg}`}
             >
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-3">{item.label}</p>
@@ -201,7 +201,7 @@ const HistoryOverview = () => {
             Theory of Change
           </p>
           <motion.p
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.01 }}
             className="font-serif text-lg italic leading-relaxed text-foreground/80 md:text-xl border-l-4 border-l-gold pl-8 text-left transition-all"
           >
             Staff, informed by their own experiences, relationships, conversations, information, and data, who author, analyze, develop, and communicate policy, strategy, and best practices to stakeholders (Black Californians, legislators, CEOs, foundations, researchers, healthcare providers, health plans and systems, and other key stakeholders) will help create the conditions for healthy Black people in California.
