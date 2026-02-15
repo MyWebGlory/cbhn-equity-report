@@ -1,73 +1,73 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { HeartPulse, Flame, BookOpen, Stethoscope, Brain, Sparkles, Apple, FlaskConical, Dna, Users, Baby } from "lucide-react";
+import { HeartPulse, Flame, BookOpen, Stethoscope, Brain, Sparkles, Apple, Dna, Users, Baby } from "lucide-react";
 
 const programs = [
   {
     icon: <Brain size={22} />,
-    title: "MHSOAC",
+    title: "Mental Health Services Office of Accountability (MHSOAC)",
     tag: "Mental Health",
-    description: "Mental Health Services Oversight and Accountability Commission program focused on reducing stigma around mental health in Black communities and increasing access to culturally responsive psychiatric care."
+    description: "To bring awareness of the challenges and issues facing the diverse racial and ethnic communities through advocacy, training and education, and outreach and engagement at the local levels to drive policy change to ensure that state policymaking reflects the collective needs of local communities and is responsive to the needs of the Black, Indigenous, and People of Color (BIPOC) communities across California."
   },
   {
     icon: <HeartPulse size={22} />,
-    title: "ACEs Awareness",
+    title: "Adverse Childhood Experiences (ACEs) Awareness",
     tag: "Prevention",
-    description: "Adverse Childhood Experiences awareness and screening program that trains community health workers to identify trauma and connect families with support services."
+    description: "To engage Black healthcare providers, health professionals, and community service providers in discussions on ACES, the connection between ACES and Black maternal health, and effective approaches to address the needs of Black pregnant women in this context."
   },
   {
     icon: <Stethoscope size={22} />,
     title: "Covered California Navigation",
     tag: "Enrollment",
-    description: "Navigator program that assists uninsured and underinsured Black Californians with health plan enrollment through Covered California. Over 3,100 individuals enrolled during the 2024 open enrollment period."
+    description: "To provide assistance and support for Covered California-eligible consumers to successfully enroll and re-enroll in a health insurance plan on behalf of Covered California, and to conduct outreach, education, enrollment, renewal assistance, and post-enrollment support."
   },
   {
     icon: <Users size={22} />,
-    title: "Medi-Cal Outreach",
+    title: "Medi-Cal Outreach, Education, and Enrollment",
     tag: "Enrollment",
-    description: "Community-based outreach to increase Medi-Cal enrollment and utilization among eligible Black Californians, with a focus on newly eligible populations and redetermination support."
+    description: "Enrollment, Retention and Education for California's diverse health care consumers to assist consumers with enrolling in and retaining health coverage (including Medi-Cal and Medicare), understanding their benefits, and navigating the health care system."
   },
   {
     icon: <Flame size={22} />,
     title: "Campaign for Black Health Equity",
     tag: "Framework",
-    description: "CBHN's comprehensive strategy connecting community health education, legislative advocacy, workforce development, and healthcare coverage under one unified approach to eliminating health disparities."
+    description: "A multi-year initiative that aims to close the gap in health disparities and improve the life expectancy of Black Californians. Specific programs include the New Black Health Agenda, the Black Health Network, Health Equity Forum, Health4Life, advocacy and policy initiatives, and continued Covered California Navigation."
   },
   {
     icon: <BookOpen size={22} />,
-    title: "\"How Do I...\" Campaign",
+    title: "The \"How Do I...\" Campaign",
     tag: "Education",
-    description: "Health literacy campaign developed in response to the California Health Care Foundation's \"Listening to Black Californians\" study. Year 1 educated 600 individuals with a 4.8 out of 5.0 satisfaction rating."
+    description: "To provide support for and empower Black Californians in navigating the healthcare system through a multi-channel approach, giving individuals the knowledge and tools to make informed healthcare decisions, as well as address healthcare challenges and systemic inequities through educational resources, advocacy, and interactive dialogues."
   },
   {
     icon: <Apple size={22} />,
-    title: "Diabetes and SDOH",
+    title: "Diabetes and Social Determinants of Health",
     tag: "Chronic Disease",
-    description: "Diabetes prevention and social determinants of health screening program that connects individuals with nutritional counseling, exercise programs, and primary care providers."
+    description: "To launch a culturally tailored diabetes outreach, education, and engagement program for Black Californians to improve the health literacy of pre-diabetic and type-2 diabetic people, teach patients how to manage their disease, support patients to create positive lifestyle behavior change, and improve transplant-related outcomes for Black dialysis patients through the CARE Program."
   },
   {
     icon: <HeartPulse size={22} />,
-    title: "Supporting Health of African Americans",
+    title: "Supporting the Health of African Americans",
     tag: "Wellness",
-    description: "Holistic health support program addressing cardiovascular health, hypertension management, and wellness education in partnership with county health departments across the state."
+    description: "To increase the number of African American individuals and organizations mobilizing themselves locally and joining collaborations at the state level to impact policies, services, and the environment for the purpose of improving the health and well-being of their community in Fresno, San Bernardino, and San Joaquin."
   },
   {
     icon: <Sparkles size={22} />,
-    title: "Non-Toxic Black Beauty Project",
+    title: "Non-Toxic Black Beauty Project and Safer Black Beauty List",
     tag: "Env. Justice",
-    description: "Research and advocacy initiative exposing toxic chemicals in beauty products marketed to Black women and advocating for safer alternatives and stronger regulatory standards."
+    description: "To improve Black women's health through education and awareness about the hazardous chemicals in products marketed to and targeted towards Black women and girls, center Black women with the resources they can trust and empower them to make safer choices, and train community leaders on how to share the issue and resource with their network."
   },
   {
     icon: <Dna size={22} />,
     title: "All of Us Campaign",
     tag: "Research",
-    description: "Partnership with the NIH All of Us Research Program to increase Black representation in biomedical research and precision medicine studies."
+    description: "To provide outreach, education, and engagement with older adults to encourage their participation in the All of Us Research Program."
   },
   {
     icon: <Baby size={22} />,
     title: "Caregiving and the Black Community",
     tag: "Family",
-    description: "Support program for Black caregivers addressing the unique challenges of managing chronic illness, elder care, and family health within systems that are not designed to serve their needs."
+    description: "To raise awareness of family caregiving issues for the Black community and provide education and resources to assist caregivers in mitigating the pressure, stress, and strain of caring for their loved ones."
   },
 ];
 
@@ -88,15 +88,13 @@ const GrantPrograms = () => {
           className="mx-auto mb-14 max-w-3xl text-center"
         >
           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
-            Our Programs
+            Grant Funded Projects and Programs
           </p>
           <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl lg:text-5xl">
-            Grant-Funded Programs
+            Programs and Initiatives: 2020 to 2024
           </h2>
           <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
-            Over four decades, CBHN has administered 45+ grant-funded programs. These are
-            the initiatives currently active or recently completed, each designed to address
-            specific health disparities facing Black Californians.
+            Between 2020 and 2024, CBHN received funding from eleven different funders to support the following key projects and programs:
           </p>
         </motion.div>
 

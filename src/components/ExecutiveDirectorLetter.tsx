@@ -17,10 +17,10 @@ const ExecutiveDirectorLetter = () => {
           className="mx-auto max-w-4xl"
         >
           <p className="mb-4 text-center text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
-            A Message from Leadership
+            Message from the Executive Director
           </p>
           <h2 className="text-center font-serif text-3xl font-semibold text-foreground md:text-4xl">
-            Letter from the Executive Director
+            A Letter to Our Community
           </h2>
 
           {/* Quote from former ED */}
@@ -31,11 +31,10 @@ const ExecutiveDirectorLetter = () => {
             className="mx-auto mt-10 max-w-2xl border-l-2 border-l-primary/30 pl-6"
           >
             <p className="font-serif text-lg italic leading-relaxed text-foreground/80">
-              "CBHN has always been about showing up where it matters most. We do not wait for
-              the system to come to us. We go to the people."
+              "If we are going to improve the health of the Black community, we need to help people find a way get everything they need from a system that may not be well suited to give it to them."
             </p>
             <cite className="mt-3 block text-sm not-italic text-muted-foreground">
-              Denise Adams-Simms, Executive Director (1999 to 2008)
+              Denise Adams-Simms, Executive Director, California Black Health Network, 1999 - 2008
             </cite>
           </motion.blockquote>
 
@@ -60,37 +59,30 @@ const ExecutiveDirectorLetter = () => {
               className="md:col-span-3 space-y-4 text-sm leading-[1.8] text-muted-foreground"
             >
               <p>
-                Dear Friends, Supporters, and Partners,
+                Dear Partners, Key Stakeholders, and CBHN Community,
               </p>
               <p>
-                When I stepped into the role of Executive Director in 2020, I inherited an organization
-                with a rich legacy of service and an urgent mandate to evolve. Over the past four years,
-                the California Black Health Network has undergone a transformation rooted in three
-                principles: Response, Recovery, and Resilience.
+                I have had the pleasure of serving as the Executive Director of the California Black Health Network (CBHN) since July 2020, and over the past five years CBHN has achieved many milestones and accomplishments. This would not have been possible without the support of our funders, partners, network members, Board of Directors, and of course, the CBHN staff. I extend my deepest gratitude to all of you for your belief in the vision and mission of our work, and especially those of you who have been committed to CBHN's success from the very beginning, more than four decades ago.
               </p>
               <p>
-                We responded to the dual crises of COVID-19 and racial injustice by launching the
-                Campaign for Black Health Equity, a comprehensive framework that connects community
-                health education, legislative advocacy, workforce development, and healthcare coverage
-                under one unified strategy.
+                As we celebrate more than 40 years of advancing health equity for Black Californians, and as I reflect on the past, present, and the future, I recognize that despite the progress that has been made, there are still structural and systemic barriers that prevent our community from receiving quality, equitable healthcare, achieving optimal health, and living long healthy lives. Now, more than ever, it is imperative that we engage in advocacy/policy initiatives and programs that focus on addressing inequities at the individual, community, and system level to close the gap in health disparities and improve the life expectancy of Black Californians. I believe that we can only accomplish this by tackling structural and systemic racism at the system level, addressing social determinants of health, and dismantling barriers to quality, affordable, and equitable healthcare.
               </p>
               <p>
-                We recovered by rebuilding our partnerships, expanding our Black Health Network to
-                over 700 members across 31 counties, and securing new grant funding to sustain
-                programs like Health4Life, the HEAT Program, and the "How Do I..." Campaign.
+                As we move forward into the next era, and navigate through a dynamic healthcare landscape, dismantling barriers and tackling the root causes of health inequities will play a critical role in advancing health equity for Black Californians as well as for other racial/ethnic groups. We know that where there is truly health equity, there will be no health disparities. Which is why we launched the Campaign for Black Health Equity.
               </p>
               <p>
-                And we built resilience by investing in the systems, data, and people that will
-                carry this work forward for the next four decades.
+                Now, more than ever, we must come together as a collective community and work to improve health outcomes for all of our most vulnerable populations, give rise to hope for a better future, and create a new health story for all of us.
               </p>
               <p>
-                This report is not just a look back. It is a case for what comes next. We invite you
-                to read it, share it, and join us in rewriting the health story for all Black Californians.
+                Thank you for your ongoing support.
+              </p>
+              <p>
+                In solidarity,
               </p>
               <p className="font-semibold text-foreground pt-2">
                 Rhonda M. Smith
                 <br />
-                <span className="font-normal text-muted-foreground">Executive Director, California Black Health Network</span>
+                <span className="font-normal text-muted-foreground">Executive Director</span>
               </p>
             </motion.div>
           </div>
