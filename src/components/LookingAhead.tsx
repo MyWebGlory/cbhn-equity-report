@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import communityFaces from "@/assets/community-faces.png";
 
 const priorities = [
   {
@@ -32,10 +33,20 @@ const priorities = [
   },
 ];
 
+const numColors = [
+  "bg-primary text-primary-foreground",
+  "bg-secondary text-secondary-foreground",
+  "bg-accent text-accent-foreground",
+  "bg-sky-aqua text-foreground",
+  "bg-gold text-foreground",
+  "bg-magenta text-primary-foreground",
+  "bg-primary text-primary-foreground",
+];
+
 const levels = [
-  { level: "Individual Level", color: "bg-primary/10 text-primary", items: ["Health literacy", "Health disparities", "Health outcomes"] },
-  { level: "Community Level", color: "bg-secondary/10 text-secondary", items: ["Social/Political Determinants of Health", "Healthcare access", "Stakeholder engagement"] },
-  { level: "System Level", color: "bg-accent/10 text-accent", items: ["Racial bias/racism in healthcare", "Healthcare access", "Affordable, quality, equitable healthcare"] },
+  { level: "Individual Level", color: "bg-primary text-primary-foreground", items: ["Health literacy", "Health disparities", "Health outcomes"] },
+  { level: "Community Level", color: "bg-secondary text-secondary-foreground", items: ["Social/Political Determinants of Health", "Healthcare access", "Stakeholder engagement"] },
+  { level: "System Level", color: "bg-accent text-accent-foreground", items: ["Racial bias/racism in healthcare", "Healthcare access", "Affordable, quality, equitable healthcare"] },
 ];
 
 const LookingAhead = () => {
@@ -45,103 +56,112 @@ const LookingAhead = () => {
   const gridInView = useInView(gridRef, { once: true, margin: "-40px" });
 
   return (
-    <section className="section-padding bg-card">
-      <div className="report-container">
-        <motion.div
-          ref={headerRef}
-          initial={{ opacity: 0, y: 40 }}
-          animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mx-auto mb-14 max-w-3xl text-center"
-        >
-          <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
-            Looking Ahead
-          </p>
-          <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl lg:text-5xl">
-            2025 and Beyond
-          </h2>
-          <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
-            In looking ahead to the next phase of CBHN's evolution, the continued implementation of the core components of the Campaign for Black Health Equity will be the driving force to close the gap in health disparities, advance health equity, and ultimately improve life expectancy of Black Californians. To support this work, CBHN will work to address health disparities and inequities at three levels:
-          </p>
-        </motion.div>
+    <section className="relative overflow-hidden">
+      {/* Full-width banner */}
+      <div className="relative h-64 md:h-96 overflow-hidden">
+        <img src={communityFaces} alt="CBHN community faces" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-muted/80" />
+      </div>
 
-        {/* Three levels */}
-        <div className="mx-auto mb-14 grid max-w-3xl gap-5 sm:grid-cols-3">
-          {levels.map((l, i) => (
-            <motion.div
-              key={l.level}
-              initial={{ opacity: 0, y: 20 }}
-              animate={headerInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3 + i * 0.1 }}
-              className="rounded-xl border border-border/60 bg-background p-5"
-            >
-              <span className={`inline-block rounded-full px-3 py-1 text-[11px] font-semibold ${l.color}`}>
-                {l.level}
-              </span>
-              <ul className="mt-3 space-y-1.5">
-                {l.items.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-border" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+      <div className="section-padding bg-muted/30 -mt-20 relative z-10 pt-10">
+        <div className="report-container">
+          <motion.div
+            ref={headerRef}
+            initial={{ opacity: 0, y: 40 }}
+            animate={headerInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mx-auto mb-20 max-w-3xl text-center"
+          >
+            <p className="mb-6 text-[13px] font-bold uppercase tracking-[0.3em] text-secondary">
+              Looking Ahead
+            </p>
+            <h2 className="font-serif text-4xl font-bold text-foreground md:text-5xl lg:text-7xl">
+              2025 and Beyond
+            </h2>
+            <p className="mt-8 text-lg leading-[1.8] text-muted-foreground md:text-xl">
+              In looking ahead to the next phase of CBHN's evolution, the continued implementation of the core components of the Campaign for Black Health Equity will be the driving force to close the gap in health disparities, advance health equity, and ultimately improve life expectancy of Black Californians. To support this work, CBHN will work to address health disparities and inequities at three levels:
+            </p>
+          </motion.div>
+
+          {/* Three levels - solid colored */}
+          <div className="mx-auto mb-20 grid max-w-4xl gap-6 sm:grid-cols-3">
+            {levels.map((l, i) => (
+              <motion.div
+                key={l.level}
+                initial={{ opacity: 0, y: 20 }}
+                animate={headerInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.3 + i * 0.1 }}
+                className={`rounded-2xl p-7 shadow-xl ${l.color}`}
+              >
+                <span className="text-sm font-black uppercase tracking-wider">
+                  {l.level}
+                </span>
+                <ul className="mt-4 space-y-2">
+                  {l.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm opacity-90">
+                      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-current opacity-50" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Priorities */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={headerInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.5 }}
+            className="mb-5 text-center text-sm font-black uppercase tracking-[0.2em] text-muted-foreground"
+          >
+            Priority Initiatives
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={headerInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.55 }}
+            className="mb-10 mx-auto max-w-3xl text-center text-lg leading-[1.8] text-muted-foreground"
+          >
+            The Campaign for Black Health Equity will build greater awareness of CBHN, statewide and nationally, and provide a key fundraising vehicle for the organization in order to diversify revenue, support capacity building, and ensure long-term sustainability. Through the Campaign, CBHN will prioritize the following:
+          </motion.p>
+
+          <div ref={gridRef} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {priorities.map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                animate={gridInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                transition={{ duration: 0.6, delay: i * 0.08 }}
+                className="rounded-2xl bg-card p-8 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+              >
+                <span className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-black ${numColors[i]}`}>{i + 1}</span>
+                <h3 className="mt-4 font-serif text-lg font-bold text-foreground">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-[1.7] text-muted-foreground">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Our Commitment */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={gridInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.6 }}
+            className="mx-auto mt-20 max-w-3xl rounded-3xl bg-gradient-to-br from-primary via-accent to-primary p-10 text-center shadow-2xl"
+          >
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-primary-foreground/70 mb-4">Our Commitment</p>
+            <p className="text-base leading-relaxed text-primary-foreground/90">
+              CBHN is committed to eliminating health disparities among Black Californians by continuing to work with communities and faith-based organizations, healthcare systems and providers, public health agencies, and policymakers working together to develop policies, programs, and systems based on a health equity framework and community needs. The Campaign for Black Health Equity will build greater awareness about health inequities affecting our community and lead efforts to educate Black Californians about health equity issues and empower these communities to engage in the policymaking process.
+            </p>
+            <p className="mt-6 text-lg font-bold text-primary-foreground">
+              Please join the Campaign for Black Health Equity and help CBHN rewrite the health story for all Black Californians.
+            </p>
+          </motion.div>
         </div>
-
-        {/* Priorities */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={headerInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.5 }}
-          className="mb-4 text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground"
-        >
-          Priority Initiatives
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={headerInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.55 }}
-          className="mb-8 mx-auto max-w-3xl text-center text-base leading-[1.8] text-muted-foreground"
-        >
-          The Campaign for Black Health Equity will build greater awareness of CBHN, statewide and nationally, and provide a key fundraising vehicle for the organization in order to diversify revenue, support capacity building, and ensure long-term sustainability. Through the Campaign, CBHN will prioritize the following:
-        </motion.p>
-
-        <div ref={gridRef} className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {priorities.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 30, scale: 0.97 }}
-              animate={gridInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="rounded-xl border border-border/60 bg-background p-6 border-b-2 border-b-primary/10"
-            >
-              <h3 className="font-serif text-base font-semibold text-foreground">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-sm leading-[1.7] text-muted-foreground">
-                {item.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Our Commitment */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={gridInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6 }}
-          className="mx-auto mt-14 max-w-3xl rounded-xl border-2 border-primary/20 bg-primary/5 p-8 text-center"
-        >
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-3">Our Commitment</p>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            CBHN is committed to eliminating health disparities among Black Californians by continuing to work with communities and faith-based organizations, healthcare systems and providers, public health agencies, and policymakers working together to develop policies, programs, and systems based on a health equity framework and community needs. The Campaign for Black Health Equity will build greater awareness about health inequities affecting our community and lead efforts to educate Black Californians about health equity issues and empower these communities to engage in the policymaking process.
-          </p>
-          <p className="mt-4 text-base font-semibold text-foreground">
-            Please join the Campaign for Black Health Equity and help CBHN rewrite the health story for all Black Californians.
-          </p>
-        </motion.div>
       </div>
     </section>
   );

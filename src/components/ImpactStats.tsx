@@ -4,7 +4,7 @@ import { Activity, Heart, Baby, Scale, Brain, Ribbon } from "lucide-react";
 
 const stats = [
   {
-    icon: <Activity size={22} />,
+    icon: <Activity size={26} />,
     stat: "260%",
     label: "Asthma ER Visits",
     description:
@@ -12,7 +12,7 @@ const stats = [
     highlight: true,
   },
   {
-    icon: <Heart size={22} />,
+    icon: <Heart size={26} />,
     stat: "15%",
     label: "Diabetes and Heart Disease",
     description:
@@ -20,28 +20,28 @@ const stats = [
     highlight: true,
   },
   {
-    icon: <Baby size={22} />,
+    icon: <Baby size={26} />,
     stat: "12 per 1,000",
     label: "Infant Mortality",
     description:
       "According to KidsData.org, African Americans lead California in infant mortality. Between 2005 and 2007, an average of 12 out of every 1,000 children under one year of age suffered from a range of complications. Black maternal health in California remains a public health emergency. These historic figures reflect a systemic crisis that CBHN continues to challenge through direct policy intervention.",
   },
   {
-    icon: <Scale size={22} />,
+    icon: <Scale size={26} />,
     stat: "50%",
     label: "Obesity Rates",
     description:
       "Adult obesity rates for African Americans are higher than those for whites in nearly every state. 37% of Black men and nearly 50% of Black women are obese. These rates drive chronic conditions including diabetes, stroke, and cardiovascular disease.",
   },
   {
-    icon: <Brain size={22} />,
+    icon: <Brain size={26} />,
     stat: "13%",
     label: "Mental Health and Overall Wellbeing",
     description:
       "African Americans report episodes of depression that are more severe and last longer than those in other groups. 13% of African Americans of all ages describe their own health as fair or poor.",
   },
   {
-    icon: <Ribbon size={22} />,
+    icon: <Ribbon size={26} />,
     stat: "Underrepresented",
     label: "Cancer Mortality",
     description:
@@ -56,53 +56,55 @@ const ImpactStats = () => {
   const gridInView = useInView(gridRef, { once: true, margin: "-40px" });
 
   return (
-    <section id="impact" className="section-padding bg-gradient-to-br from-muted/50 via-background to-muted/40">
+    <section id="impact" className="section-padding bg-foreground">
       <div className="report-container">
         <motion.div
           ref={headerRef}
           initial={{ opacity: 0, y: 40 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mx-auto mb-14 max-w-3xl text-center"
+          className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
+          <p className="mb-6 text-[13px] font-bold uppercase tracking-[0.3em] text-secondary">
             The Disparities
           </p>
-          <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl lg:text-5xl">
+          <h2 className="font-serif text-4xl font-bold text-primary-foreground md:text-5xl lg:text-7xl">
             Why This Work Matters
           </h2>
-          <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
+          <p className="mt-8 text-lg leading-[1.8] text-primary-foreground/60 md:text-xl">
             Behind every number is a person who did not get the care they needed.
             Black Californians face preventable health conditions at rates that should
             not exist in 2024. Here is what the data tells us.
           </p>
         </motion.div>
 
-        <div ref={gridRef} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div ref={gridRef} className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
-              initial={{ opacity: 0, y: 35, scale: 0.97 }}
+              initial={{ opacity: 0, y: 35, scale: 0.95 }}
               animate={gridInView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{
                 duration: 0.6,
                 delay: i * 0.08,
                 ease: [0.25, 0.1, 0.25, 1],
               }}
-              className="group rounded-xl border border-border/60 bg-card p-7 transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5"
+              className={`group rounded-2xl p-8 shadow-lg ${
+                s.highlight
+                  ? "bg-secondary text-secondary-foreground"
+                  : "bg-accent text-accent-foreground"
+              }`}
             >
               <div className="mb-5 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/8 text-primary ring-1 ring-primary/10">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-foreground/10">
                   {s.icon}
                 </div>
-                <div>
-                  <p className={`font-serif text-2xl font-bold ${s.highlight ? "text-[hsl(0,100%,50%)]" : "text-foreground"}`}>{s.stat}</p>
-                </div>
+                <p className="font-serif text-4xl font-black md:text-5xl">{s.stat}</p>
               </div>
-              <p className="text-[13px] font-semibold uppercase tracking-wider text-secondary/80">
+              <p className="text-[13px] font-bold uppercase tracking-wider opacity-80">
                 {s.label}
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-3 text-sm leading-relaxed opacity-90">
                 {s.description}
               </p>
             </motion.div>
