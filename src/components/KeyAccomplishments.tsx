@@ -69,12 +69,12 @@ const KeyAccomplishments = () => {
               initial={{ opacity: 0, x: -30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.15 + i * 0.06, ease: [0.25, 0.1, 0.25, 1] }}
-              whileHover={{ x: 10, backgroundColor: "rgba(0,0,0,0.02)", boxShadow: "0 10px 30px -10px rgba(0,0,0,0.1)" }}
+              whileHover={{ x: 4, boxShadow: "0 8px 20px -8px rgba(0,0,0,0.08)" }}
               className="flex items-start gap-4 rounded-2xl bg-background px-6 py-5 shadow-md transition-all"
             >
               <motion.div
-                whileHover={{ rotate: 360, scale: 1.2 }}
-                transition={{ duration: 0.4 }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.2 }}
                 className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${checkColors[i]}`}
               >
                 <Check size={16} />
@@ -89,7 +89,7 @@ const KeyAccomplishments = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.8 }}
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.01 }}
           className="mx-auto mt-14 max-w-md rounded-2xl bg-primary p-8 shadow-xl transition-all"
         >
           <p className="text-xs font-black uppercase tracking-[0.2em] text-primary-foreground/70 mb-6 text-center">

@@ -79,7 +79,7 @@ const LookingAhead = () => {
                 initial={{ opacity: 0, y: 20, scale: 0.9 }}
                 animate={headerInView ? { opacity: 1, y: 0, scale: 1 } : {}}
                 transition={{ delay: 0.3 + i * 0.1 }}
-                whileHover={{ y: -10, scale: 1.05, boxShadow: "0 25px 50px -10px rgba(0,0,0,0.2)" }}
+                whileHover={{ y: -4, boxShadow: "0 12px 24px -8px rgba(0,0,0,0.12)" }}
                 className={`rounded-2xl p-7 shadow-xl transition-all cursor-default ${l.color}`}
               >
                 <span className="text-sm font-black uppercase tracking-wider">
@@ -145,12 +145,12 @@ const LookingAhead = () => {
                 initial={{ opacity: 0, y: 30, scale: 0.95 }}
                 animate={gridInView ? { opacity: 1, y: 0, scale: 1 } : {}}
                 transition={{ duration: 0.6, delay: i * 0.08 }}
-                whileHover={{ y: -8, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.15)" }}
+                whileHover={{ y: -4, boxShadow: "0 12px 24px -8px rgba(0,0,0,0.1)" }}
                 className="rounded-2xl bg-card p-8 shadow-lg transition-all"
               >
                 <motion.span
-                  whileHover={{ scale: 1.2, rotate: 360 }}
-                  transition={{ duration: 0.4 }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.2 }}
                   className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-black ${numColors[i]}`}
                 >
                   {i + 1}
@@ -170,7 +170,7 @@ const LookingAhead = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={gridInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.6 }}
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.01 }}
             className="mx-auto mt-20 max-w-3xl rounded-3xl bg-gradient-to-br from-primary via-accent to-primary p-10 text-center shadow-2xl transition-all"
           >
             <p className="text-xs font-black uppercase tracking-[0.3em] text-primary-foreground/70 mb-4">Our Commitment</p>

@@ -83,7 +83,7 @@ const TimelineItem = ({ item, i, listInView }: { item: typeof decades[0]; i: num
     >
       <div className="flex flex-col items-center">
         <motion.div
-          whileHover={{ scale: 1.15, rotate: 5 }}
+          whileHover={{ scale: 1.05 }}
           className={`flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl text-sm font-black shadow-lg cursor-pointer ${eraColors[i]}`}
         >
           {item.era}
@@ -133,7 +133,7 @@ const TimelineItem = ({ item, i, listInView }: { item: typeof decades[0]; i: num
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: si * 0.06 }}
-                      whileHover={{ x: 6 }}
+                      whileHover={{ x: 3 }}
                       className={`rounded-xl bg-card p-5 border-l-4 shadow-sm transition-all ${subItemColors[si % subItemColors.length]}`}
                     >
                       <p className="text-sm font-bold text-foreground">{sub.name}</p>

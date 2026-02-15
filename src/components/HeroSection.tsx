@@ -66,7 +66,7 @@ const HeroSection = () => {
         >
           <motion.a
             href="#executive-summary"
-            whileHover={{ scale: 1.08, boxShadow: "0 16px 50px -4px hsl(150,47%,38%,0.6)" }}
+            whileHover={{ scale: 1.03, boxShadow: "0 12px 30px -4px hsl(150,47%,38%,0.4)" }}
             whileTap={{ scale: 0.97 }}
             className="rounded-full bg-primary px-9 py-4 text-sm font-bold text-primary-foreground shadow-[0_8px_30px_-4px_hsl(150,47%,38%,0.5)] transition-all"
           >
@@ -74,7 +74,7 @@ const HeroSection = () => {
           </motion.a>
           <motion.a
             href="#donate"
-            whileHover={{ scale: 1.08, backgroundColor: "rgba(255,255,255,0.1)" }}
+            whileHover={{ scale: 1.03, backgroundColor: "rgba(255,255,255,0.08)" }}
             whileTap={{ scale: 0.97 }}
             className="rounded-full border-2 border-primary-foreground/40 px-9 py-4 text-sm font-bold text-primary-foreground transition-all hover:border-primary-foreground"
           >

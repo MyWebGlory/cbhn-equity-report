@@ -55,10 +55,10 @@ const StatCell = ({ item, inView, delay, colorClass }: { item: typeof stats[0]; 
       initial={{ opacity: 0, y: 30, scale: 0.9 }}
       animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ duration: 0.6, delay, ease: [0.25, 0.1, 0.25, 1] }}
-      whileHover={{ scale: 1.08, rotate: 1, boxShadow: "0 20px 50px -10px rgba(0,0,0,0.3)" }}
-      className={`flex flex-col items-center text-center rounded-2xl p-8 ${colorClass} shadow-lg transition-all duration-300 cursor-pointer`}
+      whileHover={{ y: -4, boxShadow: "0 12px 24px -8px rgba(0,0,0,0.15)" }}
+      className={`flex flex-col items-center text-center rounded-2xl p-8 ${colorClass} shadow-lg transition-all duration-200 cursor-pointer`}
     >
-      <motion.div className="mb-4 opacity-80" whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+      <motion.div className="mb-4 opacity-80" whileHover={{ scale: 1.1 }} transition={{ duration: 0.2 }}>
         {item.icon}
       </motion.div>
       <p className="font-serif text-4xl font-black md:text-5xl">

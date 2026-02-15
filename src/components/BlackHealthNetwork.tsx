@@ -95,11 +95,11 @@ const BlackHealthNetwork = () => {
                   initial={{ opacity: 0, x: -10 }}
                   animate={headerInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: 0.4 + i * 0.06 }}
-                  whileHover={{ x: 8, backgroundColor: "rgba(0,0,0,0.03)" }}
+                  whileHover={{ x: 4 }}
                   className="flex items-start gap-3 rounded-xl bg-card px-5 py-4 shadow-md transition-all"
                 >
                   <motion.div
-                    whileHover={{ scale: 1.5 }}
+                    whileHover={{ scale: 1.15 }}
                     className={`mt-1 h-3 w-3 shrink-0 rounded-full ${dotColors[i]}`}
                   />
                   <p className="text-sm text-foreground">{item}</p>
@@ -112,10 +112,10 @@ const BlackHealthNetwork = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={headerInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ scale: 1.01 }}
             className="overflow-hidden rounded-3xl"
           >
-            <img src={communityMen} alt="CBHN community members" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+            <img src={communityMen} alt="CBHN community members" className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
           </motion.div>
         </div>
 
@@ -149,7 +149,7 @@ const BlackHealthNetwork = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={gridInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileHover={{ y: -8, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.12)" }}
+              whileHover={{ y: -4, boxShadow: "0 12px 24px -8px rgba(0,0,0,0.08)" }}
               className={`rounded-2xl bg-card p-8 shadow-lg transition-all ${t.color}`}
             >
               <p className="text-base italic leading-[1.8] text-foreground/80">

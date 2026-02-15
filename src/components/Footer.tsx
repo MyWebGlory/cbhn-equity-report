@@ -51,7 +51,7 @@ const Footer = () => {
             href="https://fundraise.givesmart.com/e/c21PlQ?vid=19fqpi"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.1, boxShadow: "0 16px 60px -4px hsl(13,88%,52%,0.7)" }}
+            whileHover={{ scale: 1.03, boxShadow: "0 12px 30px -4px hsl(13,88%,52%,0.4)" }}
             whileTap={{ scale: 0.95 }}
             className="mt-6 inline-flex items-center gap-3 rounded-full bg-secondary px-12 py-6 text-lg font-black text-secondary-foreground shadow-[0_8px_30px_-4px_hsl(13,88%,52%,0.5)] transition-all"
           >
@@ -96,7 +96,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.label}
-                whileHover={{ scale: 1.2, y: -4 }}
+                whileHover={{ scale: 1.1, y: -2 }}
                 className="flex h-12 w-12 items-center justify-center rounded-full text-primary-foreground/40 transition-all hover:text-primary-foreground hover:bg-primary-foreground/10"
               >
                 {link.icon}

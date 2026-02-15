@@ -118,7 +118,7 @@ const LegislativeWins = () => {
               return (
                 <motion.span
                   key={p}
-                  whileHover={{ scale: 1.1, rotate: 2 }}
+                  whileHover={{ scale: 1.05 }}
                   className={`rounded-full px-5 py-2.5 text-xs font-bold shadow-md cursor-default ${colors[i]}`}
                 >
                   {p}
@@ -140,13 +140,13 @@ const LegislativeWins = () => {
                 initial={{ opacity: 0, y: 25 }}
                 animate={contentInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                whileHover={{ y: -6, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.15)" }}
+                whileHover={{ y: -3, boxShadow: "0 12px 24px -8px rgba(0,0,0,0.1)" }}
                 className={`group rounded-2xl bg-card p-8 shadow-lg border-l-4 transition-all ${item.signed ? "border-l-primary" : "border-l-destructive"}`}
               >
                 <div className="flex items-center gap-3 mb-3">
                   <motion.div
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.5 }}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
                     className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${item.signed ? "bg-primary text-primary-foreground" : "bg-destructive text-destructive-foreground"}`}
                   >
                     {item.icon}
@@ -175,7 +175,7 @@ const LegislativeWins = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={contentInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.4 + i * 0.04 }}
-                whileHover={{ scale: 1.05, x: 4 }}
+                whileHover={{ x: 3 }}
                 className="rounded-xl bg-card px-5 py-4 shadow-md border-l-4 border-l-accent transition-all cursor-default"
               >
                 <span className="text-xs font-black text-accent">{item.bill}</span>

@@ -77,7 +77,7 @@ const FlipCard = ({ s, i, gridInView }: { s: typeof stats[0]; i: number; gridInV
           >
             <div className="mb-5 flex items-center gap-3">
               <motion.div
-                whileHover={{ rotate: 15, scale: 1.2 }}
+                whileHover={{ scale: 1.1 }}
                 className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-foreground/10"
               >
                 {s.icon}

@@ -80,13 +80,13 @@ const StakeholderFeedback = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.01 }}
           className="mb-16 overflow-hidden rounded-3xl transition-all"
         >
           <img
             src={cbhnCommunity}
             alt="CBHN community members"
-            className="h-64 w-full object-cover md:h-96 transition-transform duration-700 hover:scale-110"
+            className="h-64 w-full object-cover md:h-96 transition-transform duration-500 hover:scale-105"
           />
         </motion.div>
 
@@ -98,7 +98,7 @@ const StakeholderFeedback = () => {
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={headerInView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ delay: 0.3 + i * 0.1 }}
-              whileHover={{ scale: 1.06, y: -6, boxShadow: "0 20px 50px -10px rgba(0,0,0,0.2)" }}
+              whileHover={{ y: -3, boxShadow: "0 12px 24px -8px rgba(0,0,0,0.12)" }}
               className={`rounded-2xl p-7 text-center shadow-xl transition-all cursor-default ${theme.color}`}
             >
               <p className="font-serif text-5xl font-black">{theme.stat}</p>
@@ -116,10 +116,10 @@ const StakeholderFeedback = () => {
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={gridInView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileHover={{ y: -8, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.12)" }}
+              whileHover={{ y: -4, boxShadow: "0 12px 24px -8px rgba(0,0,0,0.08)" }}
               className={`flex flex-col rounded-2xl bg-background p-8 shadow-lg transition-all ${s.borderColor}`}
             >
-              <motion.div whileHover={{ scale: 1.3, rotate: 15 }}>
+              <motion.div whileHover={{ scale: 1.1 }}>
                 <Quote size={24} className="mb-4 text-secondary" />
               </motion.div>
               <p className="flex-1 text-base italic leading-[1.8] text-foreground/80">
@@ -149,10 +149,10 @@ const StakeholderFeedback = () => {
               return (
                 <motion.div
                   key={i}
-                  whileHover={{ x: 8 }}
+                  whileHover={{ x: 4 }}
                   className="flex items-start gap-4 rounded-2xl bg-background px-6 py-5 shadow-md transition-all"
                 >
-                  <motion.div whileHover={{ scale: 1.5 }} className={`mt-1 h-3 w-3 shrink-0 rounded-full ${dots[i]}`} />
+                  <motion.div whileHover={{ scale: 1.15 }} className={`mt-1 h-3 w-3 shrink-0 rounded-full ${dots[i]}`} />
                   <p className="text-sm leading-relaxed text-muted-foreground">{item}</p>
                 </motion.div>
               );
