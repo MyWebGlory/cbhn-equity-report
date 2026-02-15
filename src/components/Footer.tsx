@@ -24,14 +24,15 @@ const Footer = () => {
           className="report-container mx-auto max-w-2xl text-center"
         >
           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
-            Support Our Work
+            Join the Movement
           </p>
           <h2 className="font-serif text-3xl font-semibold text-primary-foreground md:text-4xl lg:text-5xl">
-            Help Us Build a Healthier California
+            Join the Campaign for Black Health Equity
           </h2>
           <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-primary-foreground/60">
-            90% of every dollar funds community health programs, policy work, and direct
-            services for Black Californians. The remaining 10% covers operations.
+            Help CBHN rewrite the health story for all Black Californians. Your support
+            funds community health programs, legislative advocacy, and direct services
+            that save lives.
           </p>
           <motion.a
             initial={{ opacity: 0, y: 15 }}

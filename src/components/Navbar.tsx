@@ -3,10 +3,11 @@ import { Menu, X } from "lucide-react";
 import cbhnLogo from "@/assets/cbhn-logo.png";
 
 const navLinks = [
-  { label: "About Us", href: "#mission" },
-  { label: "Impact", href: "#impact" },
+  { label: "About", href: "#history" },
+  { label: "Timeline", href: "#timeline" },
   { label: "Programs", href: "#programs" },
   { label: "Policy", href: "#policy" },
+  { label: "Network", href: "#network" },
   { label: "Financials", href: "#financials" },
 ];
 
