@@ -6,7 +6,7 @@ const HeroSection = () => (
     <div className="absolute inset-0">
       <img
         src={heroCommunity}
-        alt="California Black Health Network community members"
+        alt="California Black Health Network community"
         className="h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(216,80%,12%)]/80 via-foreground/50 to-foreground/70" />
@@ -19,31 +19,31 @@ const HeroSection = () => (
         transition={{ duration: 0.8 }}
         className="mb-6 text-[13px] font-medium uppercase tracking-[0.25em] text-primary-foreground/60"
       >
-        2024 Annual Report
+        Impact Report
       </motion.p>
 
       <motion.h1
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
-        className="font-serif text-5xl font-bold leading-[1.1] text-primary-foreground md:text-7xl lg:text-8xl"
+        className="font-serif text-4xl font-bold leading-[1.1] text-primary-foreground md:text-6xl lg:text-7xl"
       >
-        Leading the Charge
+        4 Decades of
         <br />
-        for Health
+        Advancing Health
         <br />
-        <span className="italic font-normal">Equity</span>
+        <span className="italic font-normal">Equity</span> in California
       </motion.h1>
 
       <motion.p
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="mt-8 max-w-lg text-base leading-relaxed text-primary-foreground/70"
+        className="mt-8 max-w-xl text-base leading-relaxed text-primary-foreground/70 md:text-lg"
       >
-        CBHN is the only Black-led statewide organization in California working to
-        close health gaps for African Americans and Black immigrants. Here is what
-        we did in 2024.
+        Investments, Initiatives, and Impact. CBHN is the only Black-led statewide
+        organization in California dedicated to health equity for all African Americans
+        and Black immigrants. Founded in 1978.
       </motion.p>
 
       <motion.div
@@ -53,16 +53,16 @@ const HeroSection = () => (
         className="mt-10 flex flex-wrap gap-4"
       >
         <a
-          href="#mission"
+          href="#executive-summary"
           className="rounded-full bg-primary px-7 py-3 text-[13px] font-semibold text-primary-foreground transition-opacity hover:opacity-90"
         >
-          Explore the Report
+          Read the Report
         </a>
         <a
           href="#donate"
           className="rounded-full border border-primary-foreground/30 px-7 py-3 text-[13px] font-semibold text-primary-foreground transition-colors hover:border-primary-foreground/60"
         >
-          Donate Now
+          Support the Campaign
         </a>
       </motion.div>
 

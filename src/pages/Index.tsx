@@ -1,15 +1,18 @@
 import Navbar from "@/components/Navbar";
 import BackToTop from "@/components/BackToTop";
 import HeroSection from "@/components/HeroSection";
-import MissionSection from "@/components/MissionSection";
-import YearInNumbers from "@/components/YearInNumbers";
+import ExecutiveDirectorLetter from "@/components/ExecutiveDirectorLetter";
+import ExecutiveSummary from "@/components/ExecutiveSummary";
+import HistoryOverview from "@/components/HistoryOverview";
+import FourDecadesTimeline from "@/components/FourDecadesTimeline";
+import NewBeginning2020 from "@/components/NewBeginning2020";
+import GrantPrograms from "@/components/GrantPrograms";
 import ImpactStats from "@/components/ImpactStats";
-import ProgramsGrid from "@/components/ProgramsGrid";
-import CommunityStories from "@/components/CommunityStories";
-import EventsTimeline from "@/components/EventsTimeline";
 import LegislativeWins from "@/components/LegislativeWins";
-import Leadership from "@/components/Leadership";
-import Partners from "@/components/Partners";
+import BlackHealthNetwork from "@/components/BlackHealthNetwork";
+import KeyAccomplishments from "@/components/KeyAccomplishments";
+import HowDoICampaign from "@/components/HowDoICampaign";
+import StakeholderFeedback from "@/components/StakeholderFeedback";
 import LookingAhead from "@/components/LookingAhead";
 import FinancialsChart from "@/components/FinancialsChart";
 import Footer from "@/components/Footer";
@@ -20,15 +23,18 @@ const Index = () => (
     <BackToTop />
     <main>
       <HeroSection />
-      <MissionSection />
-      <YearInNumbers />
+      <ExecutiveDirectorLetter />
+      <ExecutiveSummary />
+      <HistoryOverview />
+      <FourDecadesTimeline />
+      <NewBeginning2020 />
+      <GrantPrograms />
       <ImpactStats />
-      <ProgramsGrid />
-      <CommunityStories />
-      <EventsTimeline />
       <LegislativeWins />
-      <Leadership />
-      <Partners />
+      <BlackHealthNetwork />
+      <KeyAccomplishments />
+      <HowDoICampaign />
+      <StakeholderFeedback />
       <LookingAhead />
       <FinancialsChart />
     </main>
