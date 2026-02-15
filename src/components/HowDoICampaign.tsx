@@ -1,6 +1,7 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import communityJoy from "@/assets/community-joy.png";
+import AnimatedCounter from "./AnimatedCounter";
 
 const webinarTopics = [
   "Know Your Patient Rights",
@@ -20,13 +21,21 @@ const topicCircleColors = [
 
 const HowDoICampaign = () => {
   const ref = useRef(null);
+  const imageRef = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+  const { scrollYProgress } = useScroll({ target: imageRef, offset: ["start end", "end start"] });
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   return (
     <section className="relative overflow-hidden">
-      {/* Full-width banner image */}
-      <div className="relative h-64 md:h-96 overflow-hidden">
-        <img src={communityJoy} alt="CBHN community members" className="w-full h-full object-cover" />
+      {/* Full-width banner image with parallax */}
+      <div ref={imageRef} className="relative h-64 md:h-96 overflow-hidden">
+        <motion.img
+          style={{ y: imageY }}
+          src={communityJoy}
+          alt="CBHN community members"
+          className="w-full h-[120%] object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-card" />
       </div>
 
@@ -54,53 +63,59 @@ const HowDoICampaign = () => {
               </p>
             </div>
 
-            <div className="grid gap-10 md:grid-cols-2">
-              {/* Results card */}
+            {/* Big animated counters */}
+            <div className="grid gap-10 sm:grid-cols-2 mb-16">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.3 }}
-                className="rounded-2xl bg-foreground p-8 shadow-xl"
+                whileHover={{ scale: 1.05 }}
+                className="rounded-3xl bg-foreground p-10 text-center shadow-xl transition-all"
               >
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-primary-foreground/60 mb-6">
-                  HDI Campaign Results and Impact, Year 1 (2024)
-                </p>
-                <p className="text-sm leading-relaxed text-primary-foreground/70 mb-6">
-                  During the first year, CBHN hosted a webinar series, in-person community conversations events, and community outreach efforts to help Black Californians better understand how to make the healthcare system work better for them.
-                </p>
-                <div className="space-y-5">
-                  <div>
-                    <p className="font-serif text-5xl font-black gradient-text-shamrock">600+</p>
-                    <p className="text-sm text-primary-foreground/60">Individuals educated</p>
-                  </div>
-                  <div className="h-px bg-primary-foreground/10" />
-                  <div>
-                    <p className="font-serif text-5xl font-black gradient-text-fire">4.8<span className="text-lg text-primary-foreground/40"> / 5.0</span></p>
-                    <p className="text-sm text-primary-foreground/60">Overall satisfaction rating</p>
-                  </div>
-                </div>
+                <AnimatedCounter value={600} suffix="+" label="Individuals Educated" color="gradient-text-shamrock" />
+                <p className="mt-4 text-xs text-primary-foreground/50">HDI Campaign Year 1 (2024)</p>
               </motion.div>
-
-              {/* Topics */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.4 }}
-                className="rounded-2xl bg-background p-8 shadow-lg border-t-4 border-t-sky-aqua"
+                whileHover={{ scale: 1.05 }}
+                className="rounded-3xl bg-foreground p-10 text-center shadow-xl transition-all"
               >
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-muted-foreground mb-6">
-                  Webinar Series Topics
-                </p>
-                <div className="space-y-4">
-                  {webinarTopics.map((topic, i) => (
-                    <div key={i} className="flex items-start gap-4">
-                      <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-black ${topicCircleColors[i]}`}>{i + 1}</span>
-                      <p className="text-base font-semibold text-foreground pt-1">{topic}</p>
-                    </div>
-                  ))}
-                </div>
+                <AnimatedCounter value={4.8} suffix="/5.0" label="Overall Satisfaction Rating" color="gradient-text-fire" isDecimal />
+                <p className="mt-4 text-xs text-primary-foreground/50">Across all webinars and events</p>
               </motion.div>
             </div>
+
+            {/* Topics with hover */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.4 }}
+              className="rounded-2xl bg-background p-8 shadow-lg border-t-4 border-t-sky-aqua"
+            >
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-muted-foreground mb-6">
+                Webinar Series Topics
+              </p>
+              <div className="space-y-4">
+                {webinarTopics.map((topic, i) => (
+                  <motion.div
+                    key={i}
+                    whileHover={{ x: 12, backgroundColor: "rgba(0,0,0,0.02)" }}
+                    className="flex items-start gap-4 rounded-xl p-2 transition-all cursor-default"
+                  >
+                    <motion.span
+                      whileHover={{ scale: 1.2, rotate: 360 }}
+                      transition={{ duration: 0.4 }}
+                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-black ${topicCircleColors[i]}`}
+                    >
+                      {i + 1}
+                    </motion.span>
+                    <p className="text-base font-semibold text-foreground pt-1">{topic}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

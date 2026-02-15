@@ -1,7 +1,8 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Landmark, FileText, Scale, Megaphone } from "lucide-react";
+import { Landmark, FileText, Scale, Megaphone, Sparkles } from "lucide-react";
 import advocacyImg from "@/assets/advocacy.png";
+import RevealCard from "./RevealCard";
 
 const sponsored = [
   {
@@ -59,8 +60,11 @@ const supported = [
 const LegislativeWins = () => {
   const headerRef = useRef(null);
   const contentRef = useRef(null);
+  const imageRef = useRef(null);
   const headerInView = useInView(headerRef, { once: true, margin: "-60px" });
   const contentInView = useInView(contentRef, { once: true, margin: "-40px" });
+  const { scrollYProgress } = useScroll({ target: imageRef, offset: ["start end", "end start"] });
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1.1, 1]);
 
   return (
     <section id="policy" className="section-padding relative overflow-hidden bg-muted/30">
@@ -83,14 +87,20 @@ const LegislativeWins = () => {
           </p>
         </motion.div>
 
-        {/* Advocacy image with overlay */}
+        {/* Advocacy image with parallax */}
         <motion.div
+          ref={imageRef}
           initial={{ opacity: 0, y: 20 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-16 overflow-hidden rounded-3xl relative"
         >
-          <img src={advocacyImg} alt="CBHN advocacy event" className="h-64 w-full object-cover md:h-96" />
+          <motion.img
+            style={{ scale: imageScale }}
+            src={advocacyImg}
+            alt="CBHN advocacy event"
+            className="h-64 w-full object-cover md:h-96"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
         </motion.div>
 
@@ -106,7 +116,13 @@ const LegislativeWins = () => {
             {["Anti-racism in Medicine", "Social Determinants of Health", "Precision/Personalized Medicine in Primary Care"].map((p, i) => {
               const colors = ["bg-primary text-primary-foreground", "bg-secondary text-secondary-foreground", "bg-accent text-accent-foreground"];
               return (
-                <span key={p} className={`rounded-full px-5 py-2.5 text-xs font-bold shadow-md ${colors[i]}`}>{p}</span>
+                <motion.span
+                  key={p}
+                  whileHover={{ scale: 1.1, rotate: 2 }}
+                  className={`rounded-full px-5 py-2.5 text-xs font-bold shadow-md cursor-default ${colors[i]}`}
+                >
+                  {p}
+                </motion.span>
               );
             })}
           </div>
@@ -124,12 +140,17 @@ const LegislativeWins = () => {
                 initial={{ opacity: 0, y: 25 }}
                 animate={contentInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className={`group rounded-2xl bg-card p-8 shadow-lg border-l-4 ${item.signed ? "border-l-primary" : "border-l-destructive"}`}
+                whileHover={{ y: -6, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.15)" }}
+                className={`group rounded-2xl bg-card p-8 shadow-lg border-l-4 transition-all ${item.signed ? "border-l-primary" : "border-l-destructive"}`}
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${item.signed ? "bg-primary text-primary-foreground" : "bg-destructive text-destructive-foreground"}`}>
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${item.signed ? "bg-primary text-primary-foreground" : "bg-destructive text-destructive-foreground"}`}
+                  >
                     {item.icon}
-                  </div>
+                  </motion.div>
                   <div>
                     <span className="text-sm font-black text-foreground">{item.bill}</span>
                     <span className="ml-2 text-[10px] font-bold text-muted-foreground">CBHN Position: {item.position}</span>
@@ -154,7 +175,8 @@ const LegislativeWins = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={contentInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.4 + i * 0.04 }}
-                className="rounded-xl bg-card px-5 py-4 shadow-md border-l-4 border-l-accent"
+                whileHover={{ scale: 1.05, x: 4 }}
+                className="rounded-xl bg-card px-5 py-4 shadow-md border-l-4 border-l-accent transition-all cursor-default"
               >
                 <span className="text-xs font-black text-accent">{item.bill}</span>
                 <p className="text-sm font-bold text-foreground mt-1">{item.title}</p>
@@ -163,54 +185,47 @@ const LegislativeWins = () => {
             ))}
           </div>
 
-          {/* BHEAW - full green card */}
+          {/* BHEAW - interactive reveal */}
           <p className="mb-6 text-sm font-black uppercase tracking-[0.2em] text-muted-foreground">
             Advocacy Initiatives
           </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={contentInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.6 }}
-            className="mx-auto max-w-3xl rounded-3xl bg-primary p-10 text-center mb-10 shadow-xl"
-          >
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-primary-foreground/70 mb-4">Landmark Achievement</p>
-            <h3 className="font-serif text-2xl font-bold text-primary-foreground md:text-3xl">
-              Black Health Equity Advocacy Week
-            </h3>
-            <p className="mt-4 text-base leading-relaxed text-primary-foreground/90">
-              A resolution created and written by CBHN and sponsored by Assemblymember Dr. Akilah Weber. The resolution recognized May 1-5, 2023, and every first week of May thereafter, as Black Health Equity Advocacy Week (BHEAW) in California. BHEAW establishes the first of its kind, a statewide focus on the need to address the health disparities gap for Black Californians.
-            </p>
-          </motion.div>
+          <div className="space-y-10 mx-auto max-w-3xl">
+            <RevealCard
+              teaser="Black Health Equity Advocacy Week: A landmark first in California history"
+              ctaText="Click to read the full story"
+              color="bg-primary"
+              revealContent={
+                <p>A resolution created and written by CBHN and sponsored by Assemblymember Dr. Akilah Weber. The resolution recognized May 1-5, 2023, and every first week of May thereafter, as Black Health Equity Advocacy Week (BHEAW) in California. BHEAW establishes the first of its kind, a statewide focus on the need to address the health disparities gap for Black Californians.</p>
+              }
+            />
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={contentInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.7 }}
-            className="mx-auto max-w-3xl rounded-3xl bg-accent p-10 shadow-xl"
-          >
-            <h3 className="font-serif text-xl font-bold text-accent-foreground mb-4">
-              Health Equity Advocacy Training (HEAT) Program
-            </h3>
-            <p className="text-sm leading-relaxed text-accent-foreground/90 mb-5">
-              The HEAT Program organizes, trains, and empowers Black Californians and civic-minded individuals to utilize their collective community capital to persuade legislative decision-makers to implement policies that address health disparities in California. The goal is to cultivate a culture of power-building and a statewide network of activists within the Black community, with the aim of influencing policy change at the state and local levels.
-            </p>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-foreground/70 mb-4">Upon completion, cohort members will be able to:</p>
-            <div className="space-y-2">
-              {[
-                "Better understand the California legislative process and how a bill becomes a law.",
-                "Engage in the advocacy process and galvanize community engagement around key issues and drivers of health.",
-                "Communicate effectively with policymakers and legislators to drive change.",
-                "Amplify their voice and advocate for change around issues affecting the health and well-being of Black Californians within their respective communities.",
-                "Turn issues into actionable policy advocacy.",
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent-foreground/50" />
-                  <p className="text-sm text-accent-foreground/90">{item}</p>
+            <RevealCard
+              teaser="Health Equity Advocacy Training (HEAT) Program: Building a statewide network of advocates"
+              ctaText="Click to learn about HEAT outcomes"
+              color="bg-accent"
+              revealContent={
+                <div>
+                  <p className="mb-4">The HEAT Program organizes, trains, and empowers Black Californians and civic-minded individuals to utilize their collective community capital to persuade legislative decision-makers to implement policies that address health disparities in California. The goal is to cultivate a culture of power-building and a statewide network of activists within the Black community, with the aim of influencing policy change at the state and local levels.</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] opacity-70 mb-3">Upon completion, cohort members will be able to:</p>
+                  <ul className="space-y-2">
+                    {[
+                      "Better understand the California legislative process and how a bill becomes a law.",
+                      "Engage in the advocacy process and galvanize community engagement around key issues and drivers of health.",
+                      "Communicate effectively with policymakers and legislators to drive change.",
+                      "Amplify their voice and advocate for change around issues affecting the health and well-being of Black Californians within their respective communities.",
+                      "Turn issues into actionable policy advocacy.",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <Sparkles size={12} className="mt-1 shrink-0 opacity-60" />
+                        <span className="text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              ))}
-            </div>
-          </motion.div>
+              }
+            />
+          </div>
         </div>
       </div>
     </section>

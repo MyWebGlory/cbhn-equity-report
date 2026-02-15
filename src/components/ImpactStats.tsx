@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { Activity, Heart, Baby, Scale, Brain, Ribbon } from "lucide-react";
+import { useRef, useState } from "react";
+import { Activity, Heart, Baby, Scale, Brain, Ribbon, ChevronDown, Sparkles } from "lucide-react";
+import { AnimatePresence } from "framer-motion";
 
 const stats = [
   {
@@ -49,6 +50,75 @@ const stats = [
   },
 ];
 
+const FlipCard = ({ s, i, gridInView }: { s: typeof stats[0]; i: number; gridInView: boolean }) => {
+  const [flipped, setFlipped] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 35, scale: 0.95 }}
+      animate={gridInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+      transition={{ duration: 0.6, delay: i * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
+      onClick={() => setFlipped(!flipped)}
+      className="cursor-pointer perspective-1000"
+    >
+      <AnimatePresence mode="wait">
+        {!flipped ? (
+          <motion.div
+            key="front"
+            initial={{ rotateY: -90 }}
+            animate={{ rotateY: 0 }}
+            exit={{ rotateY: 90 }}
+            transition={{ duration: 0.4 }}
+            className={`group rounded-2xl p-8 shadow-lg min-h-[280px] flex flex-col ${
+              s.highlight
+                ? "bg-secondary text-secondary-foreground"
+                : "bg-accent text-accent-foreground"
+            }`}
+          >
+            <div className="mb-5 flex items-center gap-3">
+              <motion.div
+                whileHover={{ rotate: 15, scale: 1.2 }}
+                className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-foreground/10"
+              >
+                {s.icon}
+              </motion.div>
+              <p className="font-serif text-4xl font-black md:text-5xl">{s.stat}</p>
+            </div>
+            <p className="text-[13px] font-bold uppercase tracking-wider opacity-80">
+              {s.label}
+            </p>
+            <div className="mt-auto pt-4 flex items-center gap-2 text-xs font-bold opacity-60">
+              <Sparkles size={14} />
+              Click to learn more
+              <motion.div animate={{ y: [0, 4, 0] }} transition={{ repeat: Infinity, duration: 1 }}>
+                <ChevronDown size={14} />
+              </motion.div>
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="back"
+            initial={{ rotateY: -90 }}
+            animate={{ rotateY: 0 }}
+            exit={{ rotateY: 90 }}
+            transition={{ duration: 0.4 }}
+            className={`rounded-2xl p-8 shadow-lg min-h-[280px] flex flex-col ${
+              s.highlight
+                ? "bg-secondary/90 text-secondary-foreground"
+                : "bg-accent/90 text-accent-foreground"
+            }`}
+          >
+            <p className="text-sm leading-relaxed opacity-90 flex-1">
+              {s.description}
+            </p>
+            <p className="mt-4 text-xs font-bold opacity-50">Click to flip back</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
 const ImpactStats = () => {
   const headerRef = useRef(null);
   const gridRef = useRef(null);
@@ -76,38 +146,20 @@ const ImpactStats = () => {
             Black Californians face preventable health conditions at rates that should
             not exist in 2024. Here is what the data tells us.
           </p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={headerInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.5 }}
+            className="mt-4 flex items-center justify-center gap-2 text-sm font-bold text-gold"
+          >
+            <Sparkles size={16} />
+            Click any card to reveal the full details
+          </motion.p>
         </motion.div>
 
         <div ref={gridRef} className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {stats.map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 35, scale: 0.95 }}
-              animate={gridInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{
-                duration: 0.6,
-                delay: i * 0.08,
-                ease: [0.25, 0.1, 0.25, 1],
-              }}
-              className={`group rounded-2xl p-8 shadow-lg ${
-                s.highlight
-                  ? "bg-secondary text-secondary-foreground"
-                  : "bg-accent text-accent-foreground"
-              }`}
-            >
-              <div className="mb-5 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-foreground/10">
-                  {s.icon}
-                </div>
-                <p className="font-serif text-4xl font-black md:text-5xl">{s.stat}</p>
-              </div>
-              <p className="text-[13px] font-bold uppercase tracking-wider opacity-80">
-                {s.label}
-              </p>
-              <p className="mt-3 text-sm leading-relaxed opacity-90">
-                {s.description}
-              </p>
-            </motion.div>
+            <FlipCard key={s.label} s={s} i={i} gridInView={gridInView} />
           ))}
         </div>
       </div>

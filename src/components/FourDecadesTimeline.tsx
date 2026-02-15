@@ -1,5 +1,7 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { ChevronDown, Sparkles } from "lucide-react";
+import { AnimatePresence } from "framer-motion";
 import FloatingShapes from "./FloatingShapes";
 
 const eraColors = [
@@ -69,6 +71,85 @@ const subItemColors = [
   "border-l-magenta",
 ];
 
+const TimelineItem = ({ item, i, listInView }: { item: typeof decades[0]; i: number; listInView: boolean }) => {
+  const [expanded, setExpanded] = useState(i === 0 || !item.items);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -20 }}
+      animate={listInView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.1, 0.25, 1] }}
+      className="group flex gap-6"
+    >
+      <div className="flex flex-col items-center">
+        <motion.div
+          whileHover={{ scale: 1.15, rotate: 5 }}
+          className={`flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl text-sm font-black shadow-lg cursor-pointer ${eraColors[i]}`}
+        >
+          {item.era}
+        </motion.div>
+        {i < decades.length - 1 && (
+          <div className="mt-3 h-full w-1 rounded-full bg-gradient-to-b from-primary/40 via-secondary/20 to-transparent" />
+        )}
+      </div>
+      <div className="pb-2 flex-1">
+        <span className={`text-xs font-black tracking-wider uppercase ${i % 2 === 0 ? "text-primary" : "text-secondary"}`}>
+          {item.era}
+        </span>
+        <h3 className="mt-2 font-serif text-2xl font-bold text-foreground md:text-3xl">
+          {item.title}
+        </h3>
+        {item.description && (
+          <p className="mt-3 text-base leading-[1.7] text-muted-foreground">
+            {item.description}
+          </p>
+        )}
+        {item.items && (
+          <>
+            <motion.button
+              onClick={() => setExpanded(!expanded)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-4 flex items-center gap-2 rounded-full bg-muted px-5 py-2 text-xs font-bold uppercase tracking-wider text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+            >
+              <Sparkles size={14} />
+              {expanded ? "Collapse details" : `Reveal ${item.items.length} programs`}
+              <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.3 }}>
+                <ChevronDown size={14} />
+              </motion.div>
+            </motion.button>
+            <AnimatePresence>
+              {expanded && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="mt-5 space-y-4 overflow-hidden"
+                >
+                  {item.items.map((sub, si) => (
+                    <motion.div
+                      key={sub.name}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: si * 0.06 }}
+                      whileHover={{ x: 6 }}
+                      className={`rounded-xl bg-card p-5 border-l-4 shadow-sm transition-all ${subItemColors[si % subItemColors.length]}`}
+                    >
+                      <p className="text-sm font-bold text-foreground">{sub.name}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{sub.text}</p>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </>
+        )}
+      </div>
+    </motion.div>
+  );
+};
+
 const FourDecadesTimeline = () => {
   const headerRef = useRef(null);
   const listRef = useRef(null);
@@ -100,45 +181,7 @@ const FourDecadesTimeline = () => {
         <div ref={listRef} className="mx-auto max-w-3xl">
           <div className="relative space-y-16">
             {decades.map((item, i) => (
-              <motion.div
-                key={item.era}
-                initial={{ opacity: 0, x: -20 }}
-                animate={listInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.1, 0.25, 1] }}
-                className="group flex gap-6"
-              >
-                <div className="flex flex-col items-center">
-                  <div className={`flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl text-sm font-black shadow-lg ${eraColors[i]}`}>
-                    {item.era}
-                  </div>
-                  {i < decades.length - 1 && (
-                    <div className="mt-3 h-full w-1 rounded-full bg-gradient-to-b from-primary/40 via-secondary/20 to-transparent" />
-                  )}
-                </div>
-                <div className="pb-2 flex-1">
-                  <span className={`text-xs font-black tracking-wider uppercase ${i % 2 === 0 ? "text-primary" : "text-secondary"}`}>
-                    {item.era}
-                  </span>
-                  <h3 className="mt-2 font-serif text-2xl font-bold text-foreground md:text-3xl">
-                    {item.title}
-                  </h3>
-                  {item.description && (
-                    <p className="mt-3 text-base leading-[1.7] text-muted-foreground">
-                      {item.description}
-                    </p>
-                  )}
-                  {item.items && (
-                    <div className="mt-5 space-y-4">
-                      {item.items.map((sub, si) => (
-                        <div key={sub.name} className={`rounded-xl bg-card p-5 border-l-4 shadow-sm ${subItemColors[si % subItemColors.length]}`}>
-                          <p className="text-sm font-bold text-foreground">{sub.name}</p>
-                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{sub.text}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </motion.div>
+              <TimelineItem key={item.era} item={item} i={i} listInView={listInView} />
             ))}
           </div>
         </div>

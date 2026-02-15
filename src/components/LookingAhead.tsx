@@ -1,36 +1,16 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import communityFaces from "@/assets/community-faces.png";
+import BeforeAfterSlider from "./BeforeAfterSlider";
 
 const priorities = [
-  {
-    title: "Capacity Building",
-    description: "To create the internal infrastructure, resources, competencies, and intellectual expertise to achieve success in the implementation of the strategy framework and in achieving health equity for Black Californians."
-  },
-  {
-    title: "Marketing and Branding Strategy",
-    description: "To build/increase awareness and establish CBHN as a recognized leader in advocating for Black health equity and driving change in California."
-  },
-  {
-    title: "Provider Network Directory",
-    description: "To create opportunities for Black Californians to access Black physicians, health, and wellness professionals."
-  },
-  {
-    title: "Health Education Programs and Initiatives",
-    description: "Year two of the \"How Do I...\" Campaign, with webinars hosted by Dr. Melissa Clarke, will continue to empower Black Californians with information and resources needed to navigate the healthcare system, advocate for themselves, their friends and family, and take action when faced with discrimination."
-  },
-  {
-    title: "Conscious Black Beauty Movement",
-    description: "Building upon the successes of the work between CBHN and Breast Cancer Prevention Partners' launch of the Nontoxic Black Beauty Project (NTBBP), CBHN created the Conscious Black Beauty Movement (CBBM). The CBBM aims to create a movement to tackle the critical health risks linked to toxic ingredients."
-  },
-  {
-    title: "Policy Priorities and Agenda",
-    description: "To effect change that can impact and improve health outcomes for Black Californians by leading policy initiatives aligned with the Black Health Agenda."
-  },
-  {
-    title: "Workforce Development",
-    description: "To support and facilitate the creation of a pipeline process to increase the number of Black multidisciplinary healthcare professionals. Create a community of members that is focused on power and capacity building for Black led community-based organizations and a space for professional networking."
-  },
+  { title: "Capacity Building", description: "To create the internal infrastructure, resources, competencies, and intellectual expertise to achieve success in the implementation of the strategy framework and in achieving health equity for Black Californians." },
+  { title: "Marketing and Branding Strategy", description: "To build/increase awareness and establish CBHN as a recognized leader in advocating for Black health equity and driving change in California." },
+  { title: "Provider Network Directory", description: "To create opportunities for Black Californians to access Black physicians, health, and wellness professionals." },
+  { title: "Health Education Programs and Initiatives", description: "Year two of the \"How Do I...\" Campaign, with webinars hosted by Dr. Melissa Clarke, will continue to empower Black Californians with information and resources needed to navigate the healthcare system, advocate for themselves, their friends and family, and take action when faced with discrimination." },
+  { title: "Conscious Black Beauty Movement", description: "Building upon the successes of the work between CBHN and Breast Cancer Prevention Partners' launch of the Nontoxic Black Beauty Project (NTBBP), CBHN created the Conscious Black Beauty Movement (CBBM). The CBBM aims to create a movement to tackle the critical health risks linked to toxic ingredients." },
+  { title: "Policy Priorities and Agenda", description: "To effect change that can impact and improve health outcomes for Black Californians by leading policy initiatives aligned with the Black Health Agenda." },
+  { title: "Workforce Development", description: "To support and facilitate the creation of a pipeline process to increase the number of Black multidisciplinary healthcare professionals. Create a community of members that is focused on power and capacity building for Black led community-based organizations and a space for professional networking." },
 ];
 
 const numColors = [
@@ -52,14 +32,22 @@ const levels = [
 const LookingAhead = () => {
   const headerRef = useRef(null);
   const gridRef = useRef(null);
+  const imageRef = useRef(null);
   const headerInView = useInView(headerRef, { once: true, margin: "-60px" });
   const gridInView = useInView(gridRef, { once: true, margin: "-40px" });
+  const { scrollYProgress } = useScroll({ target: imageRef, offset: ["start end", "end start"] });
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   return (
     <section className="relative overflow-hidden">
-      {/* Full-width banner */}
-      <div className="relative h-64 md:h-96 overflow-hidden">
-        <img src={communityFaces} alt="CBHN community faces" className="w-full h-full object-cover" />
+      {/* Full-width banner with parallax */}
+      <div ref={imageRef} className="relative h-64 md:h-96 overflow-hidden">
+        <motion.img
+          style={{ y: imageY }}
+          src={communityFaces}
+          alt="CBHN community faces"
+          className="w-full h-[120%] object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-muted/80" />
       </div>
 
@@ -83,15 +71,16 @@ const LookingAhead = () => {
             </p>
           </motion.div>
 
-          {/* Three levels - solid colored */}
+          {/* Three levels - solid colored with hover */}
           <div className="mx-auto mb-20 grid max-w-4xl gap-6 sm:grid-cols-3">
             {levels.map((l, i) => (
               <motion.div
                 key={l.level}
-                initial={{ opacity: 0, y: 20 }}
-                animate={headerInView ? { opacity: 1, y: 0 } : {}}
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                animate={headerInView ? { opacity: 1, y: 0, scale: 1 } : {}}
                 transition={{ delay: 0.3 + i * 0.1 }}
-                className={`rounded-2xl p-7 shadow-xl ${l.color}`}
+                whileHover={{ y: -10, scale: 1.05, boxShadow: "0 25px 50px -10px rgba(0,0,0,0.2)" }}
+                className={`rounded-2xl p-7 shadow-xl transition-all cursor-default ${l.color}`}
               >
                 <span className="text-sm font-black uppercase tracking-wider">
                   {l.level}
@@ -106,6 +95,29 @@ const LookingAhead = () => {
                 </ul>
               </motion.div>
             ))}
+          </div>
+
+          {/* Before/After: Past vs Future */}
+          <div className="mx-auto mb-20">
+            <BeforeAfterSlider
+              label="Past vs. Future"
+              beforeTitle="Where We've Been (2020-2024)"
+              beforeItems={[
+                "Responded to COVID-19 pandemic challenges",
+                "Rebuilt organizational capacity",
+                "Launched Campaign for Black Health Equity",
+                "Grew BHN to 700+ members",
+                "Enrolled 4,000+ in health plans",
+              ]}
+              afterTitle="Where We're Going (2025+)"
+              afterItems={[
+                "Capacity building and long-term sustainability",
+                "Provider Network Directory for Black physicians",
+                "Conscious Black Beauty Movement",
+                "Expanded workforce development pipeline",
+                "National recognition and partnerships",
+              ]}
+            />
           </div>
 
           {/* Priorities */}
@@ -133,9 +145,16 @@ const LookingAhead = () => {
                 initial={{ opacity: 0, y: 30, scale: 0.95 }}
                 animate={gridInView ? { opacity: 1, y: 0, scale: 1 } : {}}
                 transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="rounded-2xl bg-card p-8 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+                whileHover={{ y: -8, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.15)" }}
+                className="rounded-2xl bg-card p-8 shadow-lg transition-all"
               >
-                <span className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-black ${numColors[i]}`}>{i + 1}</span>
+                <motion.span
+                  whileHover={{ scale: 1.2, rotate: 360 }}
+                  transition={{ duration: 0.4 }}
+                  className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-black ${numColors[i]}`}
+                >
+                  {i + 1}
+                </motion.span>
                 <h3 className="mt-4 font-serif text-lg font-bold text-foreground">
                   {item.title}
                 </h3>
@@ -151,7 +170,8 @@ const LookingAhead = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={gridInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.6 }}
-            className="mx-auto mt-20 max-w-3xl rounded-3xl bg-gradient-to-br from-primary via-accent to-primary p-10 text-center shadow-2xl"
+            whileHover={{ scale: 1.02 }}
+            className="mx-auto mt-20 max-w-3xl rounded-3xl bg-gradient-to-br from-primary via-accent to-primary p-10 text-center shadow-2xl transition-all"
           >
             <p className="text-xs font-black uppercase tracking-[0.3em] text-primary-foreground/70 mb-4">Our Commitment</p>
             <p className="text-base leading-relaxed text-primary-foreground/90">
