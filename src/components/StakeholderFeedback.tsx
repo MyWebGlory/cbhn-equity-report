@@ -75,29 +75,31 @@ const StakeholderFeedback = () => {
           </p>
         </motion.div>
 
-        {/* Community image */}
+        {/* Community image with hover */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-16 overflow-hidden rounded-3xl"
+          whileHover={{ scale: 1.02 }}
+          className="mb-16 overflow-hidden rounded-3xl transition-all"
         >
           <img
             src={cbhnCommunity}
             alt="CBHN community members"
-            className="h-64 w-full object-cover md:h-96"
+            className="h-64 w-full object-cover md:h-96 transition-transform duration-700 hover:scale-110"
           />
         </motion.div>
 
-        {/* Themes stats - bold colored */}
+        {/* Themes stats - bold colored with hover */}
         <div className="mx-auto mb-16 grid max-w-4xl gap-6 sm:grid-cols-3">
           {themes.map((theme, i) => (
             <motion.div
               key={theme.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={headerInView ? { opacity: 1, y: 0 } : {}}
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+              animate={headerInView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ delay: 0.3 + i * 0.1 }}
-              className={`rounded-2xl p-7 text-center shadow-xl ${theme.color}`}
+              whileHover={{ scale: 1.06, y: -6, boxShadow: "0 20px 50px -10px rgba(0,0,0,0.2)" }}
+              className={`rounded-2xl p-7 text-center shadow-xl transition-all cursor-default ${theme.color}`}
             >
               <p className="font-serif text-5xl font-black">{theme.stat}</p>
               <p className="mt-2 text-xs font-black uppercase tracking-wider opacity-80">{theme.label}</p>
@@ -106,7 +108,7 @@ const StakeholderFeedback = () => {
           ))}
         </div>
 
-        {/* Quotes */}
+        {/* Quotes with staggered hover */}
         <div ref={gridRef} className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {stakeholders.map((s, i) => (
             <motion.div
@@ -114,9 +116,12 @@ const StakeholderFeedback = () => {
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={gridInView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className={`flex flex-col rounded-2xl bg-background p-8 shadow-lg ${s.borderColor}`}
+              whileHover={{ y: -8, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.12)" }}
+              className={`flex flex-col rounded-2xl bg-background p-8 shadow-lg transition-all ${s.borderColor}`}
             >
-              <Quote size={24} className="mb-4 text-secondary" />
+              <motion.div whileHover={{ scale: 1.3, rotate: 15 }}>
+                <Quote size={24} className="mb-4 text-secondary" />
+              </motion.div>
               <p className="flex-1 text-base italic leading-[1.8] text-foreground/80">
                 "{s.quote}"
               </p>
@@ -142,10 +147,14 @@ const StakeholderFeedback = () => {
             {keyLearnings.map((item, i) => {
               const dots = ["bg-primary", "bg-secondary", "bg-accent"];
               return (
-                <div key={i} className="flex items-start gap-4 rounded-2xl bg-background px-6 py-5 shadow-md">
-                  <div className={`mt-1 h-3 w-3 shrink-0 rounded-full ${dots[i]}`} />
+                <motion.div
+                  key={i}
+                  whileHover={{ x: 8 }}
+                  className="flex items-start gap-4 rounded-2xl bg-background px-6 py-5 shadow-md transition-all"
+                >
+                  <motion.div whileHover={{ scale: 1.5 }} className={`mt-1 h-3 w-3 shrink-0 rounded-full ${dots[i]}`} />
                   <p className="text-sm leading-relaxed text-muted-foreground">{item}</p>
-                </div>
+                </motion.div>
               );
             })}
           </div>

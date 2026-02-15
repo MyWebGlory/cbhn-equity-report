@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Calendar, Users, Landmark, FileText, HeartHandshake, Stethoscope, Award, DollarSign, Network, ScrollText } from "lucide-react";
 import FloatingShapes from "./FloatingShapes";
+import RevealCard from "./RevealCard";
 
 const paletteColors = [
   "bg-primary text-primary-foreground",
@@ -54,11 +55,12 @@ const StatCell = ({ item, inView, delay, colorClass }: { item: typeof stats[0]; 
       initial={{ opacity: 0, y: 30, scale: 0.9 }}
       animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ duration: 0.6, delay, ease: [0.25, 0.1, 0.25, 1] }}
-      className={`flex flex-col items-center text-center rounded-2xl p-8 ${colorClass} shadow-lg hover:scale-105 transition-transform duration-300`}
+      whileHover={{ scale: 1.08, rotate: 1, boxShadow: "0 20px 50px -10px rgba(0,0,0,0.3)" }}
+      className={`flex flex-col items-center text-center rounded-2xl p-8 ${colorClass} shadow-lg transition-all duration-300 cursor-pointer`}
     >
-      <div className="mb-4 opacity-80">
+      <motion.div className="mb-4 opacity-80" whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
         {item.icon}
-      </div>
+      </motion.div>
       <p className="font-serif text-4xl font-black md:text-5xl">
         {item.prefix || ""}{item.isYear ? item.value : (item.isDecimal ? count.toFixed(1) : count.toLocaleString())}{item.suffix}
       </p>
@@ -102,14 +104,19 @@ const ExecutiveSummary = () => {
           ))}
         </div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 1 }}
-          className="mx-auto mt-16 max-w-3xl text-center text-lg leading-[1.8] text-primary-foreground/60"
-        >
-          Over the past four decades, CBHN has worked diligently to eradicate the persistent health disparities that have plagued Black Californians and has consistently focused on community engagement, education, partnerships, and advocating for legislation to increase access to quality healthcare. As the only Black-led, statewide organization that works to advance health equity for all Black Californians, CBHN is well positioned to leverage the successes over the past four decades to have even greater impact in the decades to come on a statewide basis.
-        </motion.p>
+        {/* Interactive reveal card */}
+        <div className="mt-20">
+          <RevealCard
+            teaser="What does 4 decades of health equity work really look like?"
+            ctaText="Tap to see the full picture"
+            color="bg-accent"
+            revealContent={
+              <p>
+                Over the past four decades, CBHN has worked diligently to eradicate the persistent health disparities that have plagued Black Californians and has consistently focused on community engagement, education, partnerships, and advocating for legislation to increase access to quality healthcare. As the only Black-led, statewide organization that works to advance health equity for all Black Californians, CBHN is well positioned to leverage the successes over the past four decades to have even greater impact in the decades to come on a statewide basis.
+              </p>
+            }
+          />
+        </div>
       </div>
     </section>
   );

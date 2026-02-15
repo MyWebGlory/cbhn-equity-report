@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import communityConversation from "@/assets/community-conversation.png";
 import FloatingShapes from "./FloatingShapes";
+import BeforeAfterSlider from "./BeforeAfterSlider";
 
 const ease = [0.25, 0.1, 0.25, 1] as const;
 const fadeUp = (delay = 0) => ({
@@ -59,12 +60,19 @@ const HistoryOverview = () => {
             The California Black Health Network (CBHN) was established in 1978 as a collaborative arrangement with the Bay Area Black Consortium for Quality Health Care, the Black Health Leadership Council of Los Angeles, and the San Diego Black Health Associates. It soon expanded to six chapters and affiliates across the state:
           </p>
 
-          {/* Chapter badges */}
+          {/* Chapter badges with staggered hover */}
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             {chapters.map((ch, i) => (
-              <span key={ch} className={`rounded-full border-2 px-5 py-2 text-xs font-bold ${chapterColors[i]}`}>
+              <motion.span
+                key={ch}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={whoInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ delay: 0.3 + i * 0.08 }}
+                whileHover={{ scale: 1.1, rotate: Math.random() > 0.5 ? 2 : -2 }}
+                className={`rounded-full border-2 px-5 py-2 text-xs font-bold cursor-default ${chapterColors[i]}`}
+              >
                 {ch}
-              </span>
+              </motion.span>
             ))}
           </div>
 
@@ -73,14 +81,15 @@ const HistoryOverview = () => {
           </p>
         </motion.div>
 
-        {/* Full-width image break */}
+        {/* Full-width image break with parallax hover */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={whoInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.3 }}
+          whileHover={{ scale: 1.02 }}
           className="my-20 overflow-hidden rounded-3xl"
         >
-          <img src={communityConversation} alt="CBHN community conversation" className="w-full h-64 md:h-96 object-cover" />
+          <img src={communityConversation} alt="CBHN community conversation" className="w-full h-64 md:h-96 object-cover transition-transform duration-700 hover:scale-110" />
         </motion.div>
 
         {/* Core Focus */}
@@ -110,7 +119,8 @@ const HistoryOverview = () => {
                 key={item.title}
                 {...fadeUp(0.15 + i * 0.1)}
                 animate={prioritiesInView ? { opacity: 1, y: 0 } : {}}
-                className={`rounded-2xl bg-background p-7 shadow-lg ${item.color}`}
+                whileHover={{ y: -8, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.15)" }}
+                className={`rounded-2xl bg-background p-7 shadow-lg transition-all ${item.color}`}
               >
                 <h4 className="font-serif text-lg font-bold text-foreground">
                   {item.title}
@@ -123,34 +133,62 @@ const HistoryOverview = () => {
           </div>
         </div>
 
-        {/* 2017 Strategic Re-evaluation */}
-        <motion.div
-          ref={missionRef}
-          {...fadeUp(0.1)}
-          animate={missionInView ? { opacity: 1, y: 0 } : {}}
-          className="mx-auto mt-28 max-w-3xl"
-        >
-          <p className="mb-6 text-center text-[13px] font-bold uppercase tracking-[0.3em] text-secondary">
+        {/* Before/After: 2017 Strategic Re-evaluation */}
+        <div ref={missionRef} className="mx-auto mt-28 max-w-4xl">
+          <motion.p
+            {...fadeUp(0.1)}
+            animate={missionInView ? { opacity: 1, y: 0 } : {}}
+            className="mb-6 text-center text-[13px] font-bold uppercase tracking-[0.3em] text-secondary"
+          >
             2017 Strategic Re-Evaluation
-          </p>
-          <p className="text-center text-lg leading-[1.8] text-muted-foreground md:text-xl">
+          </motion.p>
+          <motion.p
+            {...fadeUp(0.15)}
+            animate={missionInView ? { opacity: 1, y: 0 } : {}}
+            className="mb-12 text-center text-lg leading-[1.8] text-muted-foreground md:text-xl"
+          >
             In 2017, CBHN reached a turning point, and the Board of Directors re-evaluated the organization's work and revised the vision, mission, and values as outlined below:
-          </p>
-          <div className="mt-10 space-y-6">
-            <div className="rounded-2xl bg-background p-8 border-l-4 border-l-primary shadow-md">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">Vision</p>
-              <p className="text-base leading-relaxed text-foreground">To be the voice and trusted resource for Black Health Equity in California.</p>
-            </div>
-            <div className="rounded-2xl bg-background p-8 border-l-4 border-l-secondary shadow-md">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-secondary mb-3">Mission</p>
-              <p className="text-base leading-relaxed text-foreground">To advocate for Black Health Equity by leading and facilitating convenings focused on providing policy analysis, research and best practices that help create the conditions for healthy Black people.</p>
-            </div>
-            <div className="rounded-2xl bg-background p-8 border-l-4 border-l-accent shadow-md">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-3">Values</p>
-              <p className="text-base leading-relaxed text-foreground">Based in the principles of Leadership and Accountability, Intergenerational Support and Activism, Coalition Building and Collaboration, and Racial Integrity and Pride.</p>
-            </div>
-          </div>
-        </motion.div>
+          </motion.p>
+
+          <BeforeAfterSlider
+            label="Before vs. After 2017"
+            beforeTitle="Before 2017"
+            beforeItems={[
+              "Focused primarily on outreach and education",
+              "Chapter-based model across 6 regions",
+              "Grant-funded project delivery",
+              "Community convenings and conferences",
+            ]}
+            afterTitle="After 2017 Re-evaluation"
+            afterItems={[
+              "Vision: To be the voice and trusted resource for Black Health Equity in California",
+              "Mission: Advocate for Black Health Equity through convenings, policy analysis, and research",
+              "Values: Leadership, Intergenerational Support, Coalition Building, Racial Integrity",
+              "Theory of Change: Staff-driven policy, strategy, and best practices",
+            ]}
+          />
+        </div>
+
+        {/* Vision/Mission/Values cards */}
+        <div className="mx-auto mt-16 max-w-3xl space-y-6">
+          {[
+            { label: "Vision", text: "To be the voice and trusted resource for Black Health Equity in California.", color: "border-l-primary", bg: "hover:bg-primary/5" },
+            { label: "Mission", text: "To advocate for Black Health Equity by leading and facilitating convenings focused on providing policy analysis, research and best practices that help create the conditions for healthy Black people.", color: "border-l-secondary", bg: "hover:bg-secondary/5" },
+            { label: "Values", text: "Based in the principles of Leadership and Accountability, Intergenerational Support and Activism, Coalition Building and Collaboration, and Racial Integrity and Pride.", color: "border-l-accent", bg: "hover:bg-accent/5" },
+          ].map((item, i) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, x: -30 }}
+              animate={missionInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ delay: 0.2 + i * 0.1 }}
+              whileHover={{ x: 8, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.1)" }}
+              className={`rounded-2xl bg-background p-8 border-l-4 shadow-md transition-all ${item.color} ${item.bg}`}
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-3">{item.label}</p>
+              <p className="text-base leading-relaxed text-foreground">{item.text}</p>
+            </motion.div>
+          ))}
+        </div>
 
         {/* Theory of Change */}
         <motion.div
@@ -162,9 +200,12 @@ const HistoryOverview = () => {
           <p className="mb-6 text-[13px] font-bold uppercase tracking-[0.3em] text-secondary">
             Theory of Change
           </p>
-          <p className="font-serif text-lg italic leading-relaxed text-foreground/80 md:text-xl border-l-4 border-l-gold pl-8 text-left">
+          <motion.p
+            whileHover={{ scale: 1.02 }}
+            className="font-serif text-lg italic leading-relaxed text-foreground/80 md:text-xl border-l-4 border-l-gold pl-8 text-left transition-all"
+          >
             Staff, informed by their own experiences, relationships, conversations, information, and data, who author, analyze, develop, and communicate policy, strategy, and best practices to stakeholders (Black Californians, legislators, CEOs, foundations, researchers, healthcare providers, health plans and systems, and other key stakeholders) will help create the conditions for healthy Black people in California.
-          </p>
+          </motion.p>
         </motion.div>
       </div>
     </section>

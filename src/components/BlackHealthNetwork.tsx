@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import communityMen from "@/assets/community-men.png";
 import FloatingShapes from "./FloatingShapes";
+import RevealCard from "./RevealCard";
 
 const accomplishments = [
   "Grew membership to 700 members as of the end of 2024",
@@ -94,9 +95,13 @@ const BlackHealthNetwork = () => {
                   initial={{ opacity: 0, x: -10 }}
                   animate={headerInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: 0.4 + i * 0.06 }}
-                  className="flex items-start gap-3 rounded-xl bg-card px-5 py-4 shadow-md"
+                  whileHover={{ x: 8, backgroundColor: "rgba(0,0,0,0.03)" }}
+                  className="flex items-start gap-3 rounded-xl bg-card px-5 py-4 shadow-md transition-all"
                 >
-                  <div className={`mt-1 h-3 w-3 shrink-0 rounded-full ${dotColors[i]}`} />
+                  <motion.div
+                    whileHover={{ scale: 1.5 }}
+                    className={`mt-1 h-3 w-3 shrink-0 rounded-full ${dotColors[i]}`}
+                  />
                   <p className="text-sm text-foreground">{item}</p>
                 </motion.div>
               ))}
@@ -107,10 +112,30 @@ const BlackHealthNetwork = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={headerInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
+            whileHover={{ scale: 1.03 }}
             className="overflow-hidden rounded-3xl"
           >
-            <img src={communityMen} alt="CBHN community members" className="w-full h-full object-cover" />
+            <img src={communityMen} alt="CBHN community members" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
           </motion.div>
+        </div>
+
+        {/* Interactive reveal for member details */}
+        <div className="mx-auto mb-16 max-w-3xl">
+          <RevealCard
+            teaser="What kind of impact has the mentoring program had on members?"
+            ctaText="Click to read member testimonials"
+            color="bg-primary"
+            revealContent={
+              <div className="space-y-6">
+                {testimonials.map((t) => (
+                  <div key={t.name}>
+                    <p className="italic leading-[1.8] opacity-90">"{t.quote}"</p>
+                    <p className="mt-2 text-sm font-bold">{t.name}, {t.role}</p>
+                  </div>
+                ))}
+              </div>
+            }
+          />
         </div>
 
         {/* Testimonials */}
@@ -124,7 +149,8 @@ const BlackHealthNetwork = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={gridInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className={`rounded-2xl bg-card p-8 shadow-lg ${t.color}`}
+              whileHover={{ y: -8, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.12)" }}
+              className={`rounded-2xl bg-card p-8 shadow-lg transition-all ${t.color}`}
             >
               <p className="text-base italic leading-[1.8] text-foreground/80">
                 "{t.quote}"

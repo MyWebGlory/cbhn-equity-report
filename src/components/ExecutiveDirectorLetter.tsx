@@ -30,7 +30,8 @@ const ExecutiveDirectorLetter = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mx-auto mt-14 max-w-2xl rounded-2xl bg-accent/5 p-8 border-l-4 border-l-accent"
+            whileHover={{ scale: 1.02, x: 4 }}
+            className="mx-auto mt-14 max-w-2xl rounded-2xl bg-accent/5 p-8 border-l-4 border-l-accent transition-all"
           >
             <p className="font-serif text-xl italic leading-relaxed text-foreground/90 md:text-2xl">
               "If we are going to improve the health of the Black community, we need to help people find a way get everything they need from a system that may not be well suited to give it to them."
@@ -45,12 +46,13 @@ const ExecutiveDirectorLetter = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="md:col-span-2"
+              whileHover={{ scale: 1.03 }}
+              className="md:col-span-2 transition-all"
             >
               <img
                 src={teamOffice}
                 alt="CBHN team"
-                className="rounded-2xl object-cover w-full h-64 md:h-full ring-4 ring-primary/20 ring-offset-4 ring-offset-card"
+                className="rounded-2xl object-cover w-full h-64 md:h-full ring-4 ring-primary/20 ring-offset-4 ring-offset-card transition-all duration-500 hover:ring-primary/40 hover:ring-offset-8"
               />
             </motion.div>
 

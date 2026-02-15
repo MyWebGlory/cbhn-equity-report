@@ -66,35 +66,47 @@ const KeyAccomplishments = () => {
           {accomplishments.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, x: -15 }}
+              initial={{ opacity: 0, x: -30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.15 + i * 0.06, ease: [0.25, 0.1, 0.25, 1] }}
-              className="flex items-start gap-4 rounded-2xl bg-background px-6 py-5 shadow-md hover:shadow-lg transition-shadow"
+              whileHover={{ x: 10, backgroundColor: "rgba(0,0,0,0.02)", boxShadow: "0 10px 30px -10px rgba(0,0,0,0.1)" }}
+              className="flex items-start gap-4 rounded-2xl bg-background px-6 py-5 shadow-md transition-all"
             >
-              <div className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${checkColors[i]}`}>
+              <motion.div
+                whileHover={{ rotate: 360, scale: 1.2 }}
+                transition={{ duration: 0.4 }}
+                className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${checkColors[i]}`}
+              >
                 <Check size={16} />
-              </div>
+              </motion.div>
               <p className="text-base leading-relaxed text-foreground">{item}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Enrollment table */}
+        {/* Enrollment table with animated bars */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.8 }}
-          className="mx-auto mt-14 max-w-md rounded-2xl bg-primary p-8 shadow-xl"
+          whileHover={{ scale: 1.02 }}
+          className="mx-auto mt-14 max-w-md rounded-2xl bg-primary p-8 shadow-xl transition-all"
         >
           <p className="text-xs font-black uppercase tracking-[0.2em] text-primary-foreground/70 mb-6 text-center">
             Individuals Enrolled in Qualified Health Plans
           </p>
           <div className="space-y-3">
-            {enrollmentData.map((row) => (
-              <div key={row.year} className="flex items-center justify-between border-b border-primary-foreground/20 pb-3">
+            {enrollmentData.map((row, i) => (
+              <motion.div
+                key={row.year}
+                initial={{ opacity: 0, width: 0 }}
+                animate={inView ? { opacity: 1, width: "100%" } : {}}
+                transition={{ delay: 0.9 + i * 0.15, duration: 0.6 }}
+                className="flex items-center justify-between border-b border-primary-foreground/20 pb-3"
+              >
                 <span className="text-base font-bold text-primary-foreground">{row.year}</span>
                 <span className="text-lg font-black text-primary-foreground">{row.count}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
