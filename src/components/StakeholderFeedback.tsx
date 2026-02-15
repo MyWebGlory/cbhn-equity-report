@@ -5,31 +5,42 @@ import cbhnCommunity from "@/assets/cbhn-community.png";
 
 const stakeholders = [
   {
-    quote: "CBHN is one of the most effective health equity organizations in California. Their ability to translate community need into legislative action is unmatched. We are proud to support their work.",
+    quote: "CBHN has added depth to our understanding of Black health disparities. While we may have the data, working with CBHN helps us to understand the complex and intersectional community behind the data.",
     name: "Leigh Purry",
     org: "Blue Shield of California",
   },
   {
-    quote: "CBHN brings a level of authenticity and trust to health policy conversations that is rare. They represent the communities they serve, and that representation makes the policy stronger.",
+    quote: "CPEHN has been able to deepen our multicultural work by having CBHN as a member at the table and representing the Black community. Without CBHN, there would be a considerable void and it would not be possible to meaningfully advance health equity.",
     name: "Kiran Savage-Sangwan",
     org: "California Pan-Ethnic Health Network",
   },
   {
-    quote: "The HEAT training changed everything for me. I went from handing out flyers to actually sitting with people in their homes and listening. That is where the real health work begins.",
+    quote: "I went in not knowing what to expect but gained a lot out of the experience. Very informative. Would like to do it again. Ready to stir things up!",
     name: "Anonymous",
-    org: "HEAT Program Graduate",
+    org: "HEAT Program Participant",
   },
   {
-    quote: "Before the Health4Life screening, I had not seen a doctor in over five years. They found my blood pressure was dangerously high. I got on medication that same week.",
+    quote: "This was my first opportunity to be an advocate. I realized how much I needed the community connection.",
     name: "Anonymous",
-    org: "Health4Life Participant",
+    org: "HEAT Program Participant",
+  },
+  {
+    quote: "Appreciation for the community coming together from up and down the state and speaking on behalf of Black issues.",
+    name: "Anonymous",
+    org: "HEAT Program Participant",
   },
 ];
 
 const themes = [
-  { label: "Health Disparity Awareness", stat: "100%", text: "of stakeholders reported improved awareness of health disparities" },
-  { label: "Trust in CBHN Advocacy", stat: "85%", text: "expressed confidence in CBHN's ability to influence policy" },
-  { label: "Connections Made", stat: "80%", text: "reported making meaningful professional connections through CBHN" },
+  { label: "Health Disparity Awareness", stat: "100%", text: "of survey respondents who attended at least one Health Equity Forum stated that they have a better awareness of the health disparities affecting the Black community in their area/region." },
+  { label: "Trust in CBHN Advocacy", stat: "85%", text: "of survey respondents stated they trust CBHN to advocate for legislation that will positively impact their communities." },
+  { label: "Connections Made", stat: "80%", text: "of survey respondents stated they have made at least one personal, professional and/or organizational connection since attending a CBHN event or becoming a BHN Member." },
+];
+
+const keyLearnings = [
+  "CBHN needs to continue to build awareness of the health inequities affecting Black Californians, statewide and locally, and could benefit from a campaign to support elevating the level of awareness of the organization and its work to advance health equity.",
+  "CBHN needs to amplify its policy/advocacy initiatives and priorities, provide information to promote better understanding of what they are, and engage the community more broadly in identifying high priority issues to address to advance health equity for Black Californians.",
+  "There is value and power in the BHN, facilitating connections and being intentional about cultivating a culture of collaboration, and building a bridge between individuals, the community, and organizations working to advance health equity for Black Californians.",
 ];
 
 const StakeholderFeedback = () => {
@@ -49,14 +60,13 @@ const StakeholderFeedback = () => {
           className="mx-auto mb-14 max-w-3xl text-center"
         >
           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
-            What They Say
+            Listening and Learning
           </p>
           <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl lg:text-5xl">
             Stakeholder Feedback
           </h2>
           <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
-            From funding partners to program participants, here is what people
-            say about working with CBHN and experiencing our programs firsthand.
+            CBHN conducted an evaluation of key stakeholders to obtain their feedback and perspective on the organization's progress. The aim of this evaluation was to understand the impact CBHN has had on the individual and organizational level over the past decade.
           </p>
         </motion.div>
 
@@ -92,7 +102,7 @@ const StakeholderFeedback = () => {
         </div>
 
         {/* Quotes */}
-        <div ref={gridRef} className="grid gap-6 md:grid-cols-2">
+        <div ref={gridRef} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {stakeholders.map((s, i) => (
             <motion.div
               key={i}
@@ -112,6 +122,26 @@ const StakeholderFeedback = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Key Learnings */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={gridInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.6 }}
+          className="mx-auto mt-12 max-w-3xl"
+        >
+          <p className="mb-5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            Key Learnings from the Stakeholder Survey
+          </p>
+          <div className="space-y-3">
+            {keyLearnings.map((item, i) => (
+              <div key={i} className="flex items-start gap-3 rounded-lg border border-border/60 bg-background px-5 py-4">
+                <div className="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-secondary" />
+                <p className="text-sm leading-relaxed text-muted-foreground">{item}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

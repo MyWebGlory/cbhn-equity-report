@@ -4,38 +4,38 @@ import { useRef } from "react";
 const priorities = [
   {
     title: "Capacity Building",
-    description: "Strengthening internal systems, expanding staff, and building the infrastructure needed to scale programs across all 58 counties."
+    description: "To create the internal infrastructure, resources, competencies, and intellectual expertise to achieve success in the implementation of the strategy framework and in achieving health equity for Black Californians."
   },
   {
     title: "Marketing and Branding Strategy",
-    description: "Elevating CBHN's visibility and public profile through a comprehensive rebrand, digital strategy, and targeted outreach to funders and partners."
+    description: "To build/increase awareness and establish CBHN as a recognized leader in advocating for Black health equity and driving change in California."
   },
   {
     title: "Provider Network Directory",
-    description: "Launching a searchable directory of culturally competent healthcare providers for Black Californians, connecting patients with providers who understand their experience."
+    description: "To create opportunities for Black Californians to access Black physicians, health, and wellness professionals."
   },
   {
-    title: "Health Education: \"How Do I...\" Year 2",
-    description: "Expanding the \"How Do I...\" Campaign with new webinar topics, in-person workshops, and partnerships with community health centers across the state."
+    title: "Health Education Programs and Initiatives",
+    description: "Year two of the \"How Do I...\" Campaign, with webinars hosted by Dr. Melissa Clarke, will continue to empower Black Californians with information and resources needed to navigate the healthcare system, advocate for themselves, their friends and family, and take action when faced with discrimination."
   },
   {
     title: "Conscious Black Beauty Movement",
-    description: "Scaling the Non-Toxic Black Beauty Project into a statewide consumer awareness campaign and advocating for stronger regulations on toxic chemicals in beauty products."
+    description: "Building upon the successes of the work between CBHN and Breast Cancer Prevention Partners' launch of the Nontoxic Black Beauty Project (NTBBP), CBHN created the Conscious Black Beauty Movement (CBBM). The CBBM aims to create a movement to tackle the critical health risks linked to toxic ingredients."
   },
   {
     title: "Policy Priorities and Agenda",
-    description: "Continuing to sponsor and support legislation that addresses maternal health, environmental justice, mental health access, and social determinants of health."
+    description: "To effect change that can impact and improve health outcomes for Black Californians by leading policy initiatives aligned with the Black Health Agenda."
   },
   {
     title: "Workforce Development",
-    description: "Expanding the HEAT Program and community health worker pipeline to meet the growing demand for culturally competent healthcare professionals in underserved communities."
+    description: "To support and facilitate the creation of a pipeline process to increase the number of Black multidisciplinary healthcare professionals. Create a community of members that is focused on power and capacity building for Black led community-based organizations and a space for professional networking."
   },
 ];
 
 const levels = [
-  { level: "Individual", color: "bg-primary/10 text-primary", items: ["Health literacy", "Disparities awareness", "Health outcomes improvement"] },
-  { level: "Community", color: "bg-secondary/10 text-secondary", items: ["Social determinants of health", "Healthcare access", "Stakeholder engagement"] },
-  { level: "System", color: "bg-accent/10 text-accent", items: ["Racial bias elimination", "Access expansion", "Affordable equitable care"] },
+  { level: "Individual Level", color: "bg-primary/10 text-primary", items: ["Health literacy", "Health disparities", "Health outcomes"] },
+  { level: "Community Level", color: "bg-secondary/10 text-secondary", items: ["Social/Political Determinants of Health", "Healthcare access", "Stakeholder engagement"] },
+  { level: "System Level", color: "bg-accent/10 text-accent", items: ["Racial bias/racism in healthcare", "Healthcare access", "Affordable, quality, equitable healthcare"] },
 ];
 
 const LookingAhead = () => {
@@ -55,14 +55,13 @@ const LookingAhead = () => {
           className="mx-auto mb-14 max-w-3xl text-center"
         >
           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
-            What Comes Next
+            Looking Ahead
           </p>
           <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl lg:text-5xl">
-            Looking Ahead: 2025 and Beyond
+            2025 and Beyond
           </h2>
           <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
-            The Campaign for Black Health Equity continues. Our strategy operates at three
-            levels, each reinforcing the others to create lasting, systemic change.
+            In looking ahead to the next phase of CBHN's evolution, the continued implementation of the core components of the Campaign for Black Health Equity will be the driving force to close the gap in health disparities, advance health equity, and ultimately improve life expectancy of Black Californians. To support this work, CBHN will work to address health disparities and inequities at three levels:
           </p>
         </motion.div>
 
@@ -96,9 +95,17 @@ const LookingAhead = () => {
           initial={{ opacity: 0 }}
           animate={headerInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.5 }}
-          className="mb-8 text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground"
+          className="mb-4 text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground"
         >
           Priority Initiatives
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={headerInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.55 }}
+          className="mb-8 mx-auto max-w-3xl text-center text-base leading-[1.8] text-muted-foreground"
+        >
+          The Campaign for Black Health Equity will build greater awareness of CBHN, statewide and nationally, and provide a key fundraising vehicle for the organization in order to diversify revenue, support capacity building, and ensure long-term sustainability. Through the Campaign, CBHN will prioritize the following:
         </motion.p>
 
         <div ref={gridRef} className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -119,6 +126,22 @@ const LookingAhead = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Our Commitment */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={gridInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.6 }}
+          className="mx-auto mt-14 max-w-3xl rounded-xl border-2 border-primary/20 bg-primary/5 p-8 text-center"
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-3">Our Commitment</p>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            CBHN is committed to eliminating health disparities among Black Californians by continuing to work with communities and faith-based organizations, healthcare systems and providers, public health agencies, and policymakers working together to develop policies, programs, and systems based on a health equity framework and community needs. The Campaign for Black Health Equity will build greater awareness about health inequities affecting our community and lead efforts to educate Black Californians about health equity issues and empower these communities to engage in the policymaking process.
+          </p>
+          <p className="mt-4 text-base font-semibold text-foreground">
+            Please join the Campaign for Black Health Equity and help CBHN rewrite the health story for all Black Californians.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

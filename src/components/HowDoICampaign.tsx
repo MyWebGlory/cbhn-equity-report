@@ -2,12 +2,11 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const webinarTopics = [
-  "How do I navigate the healthcare system?",
-  "How do I talk to my doctor about my concerns?",
-  "How do I find a provider who understands my experience?",
-  "How do I manage a chronic condition day to day?",
-  "How do I access mental health services?",
-  "How do I enroll in health coverage?",
+  "Know Your Patient Rights",
+  "Communicating with your Healthcare Provider",
+  "Navigating the Healthcare System",
+  "Advocating for Yourself And Your Loved Ones",
+  "Participating in the Decision-Making For Your Care",
 ];
 
 const HowDoICampaign = () => {
@@ -32,10 +31,10 @@ const HowDoICampaign = () => {
               The "How Do I..." Campaign
             </h2>
             <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
-              Developed in response to the California Health Care Foundation's "Listening to
-              Black Californians" study, this campaign addresses the health literacy gap with
-              practical, culturally competent education delivered through community webinars
-              and in-person workshops.
+              The "Listening to Black Californians" study by the California Health Care Foundation (CHCF) highlights Black Californians' active efforts to pursue good health and their desire for a healthcare system that fully supports them. Findings show that Black Californians are proactive about their health -- they have insurance, get preventive screenings, prepare for doctor visits, and monitor their health -- yet they seek a healthcare system that meets them halfway in their commitment to well-being.
+            </p>
+            <p className="mt-4 text-base leading-[1.8] text-muted-foreground md:text-lg">
+              These findings informed CBHN's "How Do I..." (HDI) Campaign, supported by the California Health Care Foundation. The Campaign aims to empower Black Californians with information and resources needed to navigate the healthcare system, advocate for friends, family, and themselves.
             </p>
           </div>
 
@@ -48,17 +47,20 @@ const HowDoICampaign = () => {
               className="rounded-xl border border-border/60 bg-card p-7"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-5">
-                Year 1 Results
+                HDI Campaign Results and Impact, Year 1 (2024)
+              </p>
+              <p className="text-sm leading-relaxed text-muted-foreground mb-4">
+                During the first year, CBHN hosted a webinar series, in-person community conversations events, and community outreach efforts to help Black Californians better understand how to make the healthcare system work better for them.
               </p>
               <div className="space-y-4">
                 <div>
-                  <p className="font-serif text-3xl font-bold text-primary">600</p>
+                  <p className="font-serif text-3xl font-bold text-primary">600+</p>
                   <p className="text-sm text-muted-foreground">Individuals educated</p>
                 </div>
                 <div className="h-px bg-border" />
                 <div>
                   <p className="font-serif text-3xl font-bold text-primary">4.8<span className="text-lg text-muted-foreground"> / 5.0</span></p>
-                  <p className="text-sm text-muted-foreground">Participant satisfaction rating</p>
+                  <p className="text-sm text-muted-foreground">Overall satisfaction rating</p>
                 </div>
               </div>
             </motion.div>
@@ -71,12 +73,12 @@ const HowDoICampaign = () => {
               className="rounded-xl border border-border/60 bg-card p-7"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-5">
-                Webinar Topics
+                Webinar Series Topics
               </p>
               <div className="space-y-3">
                 {webinarTopics.map((topic, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" />
+                    <span className="mt-1 text-xs font-bold text-primary">{i + 1}.</span>
                     <p className="text-sm text-foreground">{topic}</p>
                   </div>
                 ))}

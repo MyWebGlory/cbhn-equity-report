@@ -4,15 +4,15 @@ import { Calendar, Users, Landmark, FileText, HeartHandshake, Stethoscope, Award
 
 const stats = [
   { icon: <Calendar size={22} />, value: 1978, suffix: "", label: "Year Founded", isYear: true },
-  { icon: <ScrollText size={22} />, value: 45, suffix: "+", label: "Grant-Funded Programs" },
+  { icon: <ScrollText size={22} />, value: 45, suffix: "+", label: "Grant-Funded Programs Reviewed" },
   { icon: <HeartHandshake size={22} />, value: 12, suffix: "", label: "Major Funders Over 4 Decades" },
-  { icon: <Users size={22} />, value: 106000, suffix: "+", label: "Individuals Reached" },
-  { icon: <Network size={22} />, value: 95, suffix: "", label: "Organizational Partnerships" },
-  { icon: <Landmark size={22} />, value: 100, suffix: "+", label: "Legislative Bills Sponsored or Supported" },
-  { icon: <Stethoscope size={22} />, value: 6000, suffix: "+", label: "Enrolled in Health Plans" },
+  { icon: <Users size={22} />, value: 106000, suffix: "+", label: "Individuals Reached via Convenings, Conferences, Webinars, and Forums" },
+  { icon: <Network size={22} />, value: 95, suffix: "", label: "Organizational Partnerships Created" },
+  { icon: <Landmark size={22} />, value: 100, suffix: "+", label: "Legislative Bills Sponsored, Co-Sponsored, or Supported" },
+  { icon: <Stethoscope size={22} />, value: 6000, suffix: "+", label: "Individuals Enrolled in Qualified Health Plans Since 2014" },
   { icon: <Award size={22} />, value: 700, suffix: "+", label: "Black Health Network Members" },
   { icon: <DollarSign size={22} />, value: 8.3, suffix: "M", prefix: "$", label: "In Grants (1980 to 2020)", isDecimal: true },
-  { icon: <FileText size={22} />, value: 4000, suffix: "+", label: "Enrolled in Coverage (2020 to 2024)" },
+  { icon: <FileText size={22} />, value: 206, suffix: "+", label: "Meetings, Events and Conferences Hosted, Attended, or Participated In" },
 ];
 
 function useCounter(target: number, active: boolean, isDecimal = false, duration = 1800) {
@@ -71,15 +71,13 @@ const ExecutiveSummary = () => {
           className="mx-auto mb-16 max-w-3xl text-center"
         >
           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
-            Executive Summary
+            Results and Impact
           </p>
           <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl lg:text-5xl">
-            Four Decades at a Glance
+            Snapshot Since CBHN Inception
           </h2>
           <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
-            Since 1978, CBHN has been the backbone of Black health equity in California.
-            These numbers represent 46 years of outreach, advocacy, partnerships, and
-            direct community investment.
+            Between 1980 and the end of 2020, CBHN established relationships with 12 major funders: The California Endowment, The California Wellness Foundation, California Pan-Ethnic Health Network, Astra Zeneca, Glaxo Smith Kline, Health Net, The Pfizer Foundation, The Kaiser Foundation, SAMHSA, Sierra Health Foundation, California Health Care Foundation, and Charles Drew University, to implement 17 grants and one research project for just under $8.3M.
           </p>
         </motion.div>
 
@@ -88,6 +86,15 @@ const ExecutiveSummary = () => {
             <StatCell key={item.label} item={item} inView={inView} delay={0.1 + i * 0.06} />
           ))}
         </div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ delay: 1 }}
+          className="mx-auto mt-10 max-w-3xl text-center text-base leading-[1.8] text-muted-foreground"
+        >
+          Over the past four decades, CBHN has worked diligently to eradicate the persistent health disparities that have plagued Black Californians and has consistently focused on community engagement, education, partnerships, and advocating for legislation to increase access to quality healthcare. As the only Black-led, statewide organization that works to advance health equity for all Black Californians, CBHN is well positioned to leverage the successes over the past four decades to have even greater impact in the decades to come on a statewide basis.
+        </motion.p>
       </div>
     </section>
   );

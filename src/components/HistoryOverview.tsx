@@ -8,7 +8,12 @@ const fadeUp = (delay = 0) => ({
 });
 
 const chapters = [
-  "Bay Area", "Los Angeles", "San Diego", "Sacramento", "Inland Empire", "Central Valley"
+  "African Americans Health Consortium - Inland Empire",
+  "Bay Area Consortium for Quality Health Care, Inc. - Bay Area",
+  "Black Health Leadership Council of Los Angeles - Los Angeles",
+  "North County African American Health Consortium - San Diego",
+  "San Diego Black Health Associates - San Diego",
+  "Sacramento Black Health Network - Sacramento",
 ];
 
 const HistoryOverview = () => {
@@ -25,7 +30,7 @@ const HistoryOverview = () => {
   return (
     <section id="history" className="section-padding bg-card">
       <div className="report-container">
-        {/* Who We Are */}
+        {/* History and Overview */}
         <motion.div
           ref={whoRef}
           {...fadeUp()}
@@ -33,18 +38,13 @@ const HistoryOverview = () => {
           className="mx-auto max-w-3xl text-center"
         >
           <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
-            Who We Are
+            CBHN History and Overview
           </p>
           <h2 className="font-serif text-3xl font-semibold leading-snug text-foreground md:text-4xl lg:text-5xl">
-            The Voice for Black Health in California
+            Who We Are and What We Do
           </h2>
           <p className="mt-8 text-base leading-[1.8] text-muted-foreground md:text-lg">
-            Founded in 1978 as a collaboration between health advocates in the Bay Area,
-            Los Angeles, and San Diego, CBHN is the only Black-led statewide organization
-            working to close health gaps for all African Americans and Black immigrants in
-            California. Incorporated as a 501(c)(3) nonprofit in 1983, CBHN addresses the
-            critical intersections where racial justice, social justice, and environmental
-            justice determine health outcomes.
+            The California Black Health Network (CBHN) was established in 1978 as a collaborative arrangement with the Bay Area Black Consortium for Quality Health Care, the Black Health Leadership Council of Los Angeles, and the San Diego Black Health Associates. It soon expanded to six chapters and affiliates across the state:
           </p>
 
           {/* Chapter badges */}
@@ -55,70 +55,34 @@ const HistoryOverview = () => {
               </span>
             ))}
           </div>
-        </motion.div>
 
-        {/* Mission */}
-        <motion.div
-          ref={missionRef}
-          {...fadeUp(0.1)}
-          animate={missionInView ? { opacity: 1, y: 0 } : {}}
-          className="mx-auto mt-20 max-w-3xl text-center"
-        >
-          <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
-            Our Mission
-          </p>
-          <h2 className="font-serif text-2xl font-semibold leading-snug text-foreground md:text-3xl">
-            Health Equity for All Black Californians
-          </h2>
-          <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
-            To ensure that all Black Californians, regardless of their education,
-            socio-economic class, zip code, sexual orientation, gender identity,
-            homelessness, or immigration status have access to high quality and equitable
-            primary and behavioral healthcare, and avoid unnecessarily succumbing to disease.
+          <p className="mt-8 text-base leading-[1.8] text-muted-foreground md:text-lg">
+            In 1980, CBHN hosted its first statewide conference and in 1983 incorporated as a 501c3 in response to the growing demand for an organization that both served the needs of and improved the health and well-being of Black Californians.
           </p>
         </motion.div>
 
-        {/* Vision */}
-        <motion.div
-          ref={visionRef}
-          {...fadeUp(0.1)}
-          animate={visionInView ? { opacity: 1, y: 0 } : {}}
-          className="mx-auto mt-20 max-w-3xl text-center"
-        >
-          <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
-            Our Vision
-          </p>
-          <p className="font-serif text-xl italic leading-relaxed text-foreground/80 md:text-2xl border-l-2 border-l-accent/25 pl-6 text-left">
-            A California where every African American and Black immigrant has the
-            opportunity to live long, healthy lives, free from violence, racism,
-            and health inequities.
-          </p>
-        </motion.div>
-
-        {/* Theory of Change */}
+        {/* Core Focus */}
         <div ref={prioritiesRef} className="mx-auto mt-20 max-w-3xl">
           <motion.p
             {...fadeUp()}
             animate={prioritiesInView ? { opacity: 1, y: 0 } : {}}
             className="mb-6 text-center text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary"
           >
-            Our Approach
+            Core Focus
           </motion.p>
           <motion.p
             {...fadeUp(0.1)}
             animate={prioritiesInView ? { opacity: 1, y: 0 } : {}}
             className="mb-8 text-center text-base leading-[1.8] text-muted-foreground md:text-lg"
           >
-            In 2017, CBHN conducted a strategic re-evaluation that produced a renewed vision,
-            mission, and theory of change. Our work operates across four pillars that reinforce
-            each other at every level.
+            Consequently, the core focus of CBHN as a newly established statewide organization was to:
           </motion.p>
           <div className="grid gap-5 md:grid-cols-4">
             {[
-              { title: "Outreach", text: "Culturally competent community engagement and health education in neighborhoods where Black Californians live and work." },
-              { title: "Advocacy", text: "Sponsoring and supporting legislation that directly addresses racial health disparities at the state level." },
-              { title: "Data-Driven Policy", text: "Research and evaluation that documents health determinants and informs equitable policy decisions." },
-              { title: "Partnerships", text: "Building coalitions with healthcare systems, state agencies, and community organizations statewide." },
+              { title: "Outreach", text: "Outreach to African Americans in communities across the state." },
+              { title: "Advocacy", text: "Advocate for culturally competent healthcare." },
+              { title: "Data-Driven Policy", text: "Utilize data and research to promote policy initiatives." },
+              { title: "Partnerships", text: "Cultivate partnership opportunities." },
             ].map((item, i) => (
               <motion.div
                 key={item.title}
@@ -136,6 +100,50 @@ const HistoryOverview = () => {
             ))}
           </div>
         </div>
+
+        {/* 2017 Strategic Re-evaluation */}
+        <motion.div
+          ref={missionRef}
+          {...fadeUp(0.1)}
+          animate={missionInView ? { opacity: 1, y: 0 } : {}}
+          className="mx-auto mt-20 max-w-3xl"
+        >
+          <p className="mb-4 text-center text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
+            2017 Strategic Re-Evaluation
+          </p>
+          <p className="text-center text-base leading-[1.8] text-muted-foreground md:text-lg">
+            In 2017, CBHN reached a turning point, and the Board of Directors re-evaluated the organization's work and revised the vision, mission, and values as outlined below:
+          </p>
+          <div className="mt-8 space-y-6">
+            <div className="rounded-xl border border-border/60 bg-background p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary mb-2">Vision</p>
+              <p className="text-sm leading-relaxed text-foreground">To be the voice and trusted resource for Black Health Equity in California.</p>
+            </div>
+            <div className="rounded-xl border border-border/60 bg-background p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary mb-2">Mission</p>
+              <p className="text-sm leading-relaxed text-foreground">To advocate for Black Health Equity by leading and facilitating convenings focused on providing policy analysis, research and best practices that help create the conditions for healthy Black people.</p>
+            </div>
+            <div className="rounded-xl border border-border/60 bg-background p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary mb-2">Values</p>
+              <p className="text-sm leading-relaxed text-foreground">Based in the principles of Leadership and Accountability, Intergenerational Support and Activism, Coalition Building and Collaboration, and Racial Integrity and Pride.</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Theory of Change */}
+        <motion.div
+          ref={visionRef}
+          {...fadeUp(0.1)}
+          animate={visionInView ? { opacity: 1, y: 0 } : {}}
+          className="mx-auto mt-20 max-w-3xl text-center"
+        >
+          <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
+            Theory of Change
+          </p>
+          <p className="font-serif text-base italic leading-relaxed text-foreground/80 md:text-lg border-l-2 border-l-accent/25 pl-6 text-left">
+            Staff, informed by their own experiences, relationships, conversations, information, and data, who author, analyze, develop, and communicate policy, strategy, and best practices to stakeholders (Black Californians, legislators, CEOs, foundations, researchers, healthcare providers, health plans and systems, and other key stakeholders) will help create the conditions for healthy Black people in California.
+          </p>
+        </motion.div>
       </div>
     </section>
   );
