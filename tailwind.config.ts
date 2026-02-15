@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         serif: ["'Playfair Display'", "Georgia", "serif"],
-        sans: ["'Inter'", "system-ui", "sans-serif"],
+        sans: ["'Open Sans'", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -61,6 +61,9 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        "sky-aqua": "hsl(var(--sky-aqua))",
+        gold: "hsl(var(--gold))",
+        magenta: "hsl(var(--magenta))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -88,6 +91,20 @@ export default {
           from: { opacity: "0", transform: "translateX(-40px)" },
           to: { opacity: "1", transform: "translateX(0)" },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+          "50%": { transform: "translateY(-20px) rotate(3deg)" },
+        },
+        "spin-slow": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+        drift: {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "25%": { transform: "translate(10px, -15px)" },
+          "50%": { transform: "translate(-5px, -25px)" },
+          "75%": { transform: "translate(-15px, -10px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -95,6 +112,9 @@ export default {
         "count-up": "count-up 0.6s ease-out forwards",
         "fade-up": "fade-up 0.7s ease-out forwards",
         "slide-in-left": "slide-in-left 0.5s ease-out forwards",
+        float: "float 6s ease-in-out infinite",
+        "spin-slow": "spin-slow 20s linear infinite",
+        drift: "drift 8s ease-in-out infinite",
       },
     },
   },

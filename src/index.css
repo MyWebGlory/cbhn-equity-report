@@ -27,6 +27,11 @@
     --accent: 216 100% 26%;
     --accent-foreground: 0 0% 100%;
 
+    /* Extended palette */
+    --sky-aqua: 192 100% 48%;
+    --gold: 42 92% 56%;
+    --magenta: 330 80% 55%;
+
     --muted: 0 0% 93%;
     --muted-foreground: 0 0% 42%;
 
@@ -65,6 +70,9 @@
     --secondary-foreground: 0 0% 100%;
     --accent: 216 100% 26%;
     --accent-foreground: 0 0% 100%;
+    --sky-aqua: 192 100% 48%;
+    --gold: 42 92% 56%;
+    --magenta: 330 80% 55%;
     --muted: 0 0% 18%;
     --muted-foreground: 0 0% 65%;
     --destructive: 0 100% 30%;
@@ -100,11 +108,33 @@
   }
 
   .section-padding {
+    @apply px-6 py-28 md:px-12 lg:px-24 lg:py-36;
+  }
+
+  .section-padding-tight {
     @apply px-6 py-20 md:px-12 lg:px-24 lg:py-28;
   }
 
   .report-container {
     @apply mx-auto max-w-7xl;
+  }
+
+  .bold-heading {
+    @apply font-serif text-4xl font-bold md:text-6xl lg:text-7xl;
+  }
+
+  .gradient-text-shamrock {
+    background: linear-gradient(135deg, hsl(150, 47%, 38%), hsl(192, 100%, 48%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-fire {
+    background: linear-gradient(135deg, hsl(13, 88%, 52%), hsl(42, 92%, 56%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 

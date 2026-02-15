@@ -2,6 +2,20 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Check } from "lucide-react";
 
+const checkColors = [
+  "bg-primary text-primary-foreground",
+  "bg-secondary text-secondary-foreground",
+  "bg-accent text-accent-foreground",
+  "bg-sky-aqua text-foreground",
+  "bg-gold text-foreground",
+  "bg-magenta text-primary-foreground",
+  "bg-primary text-primary-foreground",
+  "bg-secondary text-secondary-foreground",
+  "bg-accent text-accent-foreground",
+  "bg-sky-aqua text-foreground",
+  "bg-gold text-foreground",
+];
+
 const accomplishments = [
   "Co-sponsored two Bills signed into law by Gov. Newsom: SB 987, the California Cancer Care Equity Act, and AB 2300, the California Toxic-Free Medical Devices Act.",
   "Created and championed the first ever Black Health Equity Advocacy Week (BHEAW) resolution in California through the support of the California Legislative Black Caucus.",
@@ -35,32 +49,32 @@ const KeyAccomplishments = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mx-auto mb-14 max-w-3xl text-center"
+          className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
+          <p className="mb-6 text-[13px] font-bold uppercase tracking-[0.3em] text-secondary">
             Key Accomplishments
           </p>
-          <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl lg:text-5xl">
+          <h2 className="font-serif text-4xl font-bold text-foreground md:text-5xl lg:text-7xl">
             2020 to 2024 Highlights
           </h2>
-          <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
+          <p className="mt-8 text-lg leading-[1.8] text-muted-foreground md:text-xl">
             Over the past three years, CBHN has made significant contributions to improving the health and well-being of individuals and families across California through various initiatives. CBHN has successfully educated and empowered many Black Californians, equipping them with the knowledge and tools necessary to take control of their health and well-being.
           </p>
         </motion.div>
 
-        <div className="mx-auto max-w-3xl space-y-3">
+        <div className="mx-auto max-w-3xl space-y-5">
           {accomplishments.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, x: -15 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.15 + i * 0.06, ease: [0.25, 0.1, 0.25, 1] }}
-              className="flex items-start gap-4 rounded-lg border border-border/60 bg-background px-5 py-4 hover:border-primary/20 transition-colors"
+              className="flex items-start gap-4 rounded-2xl bg-background px-6 py-5 shadow-md hover:shadow-lg transition-shadow"
             >
-              <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <Check size={14} />
+              <div className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${checkColors[i]}`}>
+                <Check size={16} />
               </div>
-              <p className="text-sm leading-relaxed text-foreground">{item}</p>
+              <p className="text-base leading-relaxed text-foreground">{item}</p>
             </motion.div>
           ))}
         </div>
@@ -70,16 +84,16 @@ const KeyAccomplishments = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.8 }}
-          className="mx-auto mt-10 max-w-md rounded-xl border border-border/60 bg-background p-6"
+          className="mx-auto mt-14 max-w-md rounded-2xl bg-primary p-8 shadow-xl"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">
+          <p className="text-xs font-black uppercase tracking-[0.2em] text-primary-foreground/70 mb-6 text-center">
             Individuals Enrolled in Qualified Health Plans
           </p>
-          <div className="space-y-2">
+          <div className="space-y-3">
             {enrollmentData.map((row) => (
-              <div key={row.year} className="flex items-center justify-between border-b border-border/40 pb-2">
-                <span className="text-sm font-medium text-foreground">{row.year}</span>
-                <span className="text-sm font-bold text-primary">{row.count}</span>
+              <div key={row.year} className="flex items-center justify-between border-b border-primary-foreground/20 pb-3">
+                <span className="text-base font-bold text-primary-foreground">{row.year}</span>
+                <span className="text-lg font-black text-primary-foreground">{row.count}</span>
               </div>
             ))}
           </div>

@@ -1,5 +1,15 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import FloatingShapes from "./FloatingShapes";
+
+const eraColors = [
+  "bg-primary text-primary-foreground",
+  "bg-secondary text-secondary-foreground",
+  "bg-accent text-accent-foreground",
+  "bg-sky-aqua text-foreground",
+  "bg-gold text-foreground",
+  "bg-magenta text-primary-foreground",
+];
 
 const decades = [
   {
@@ -50,6 +60,15 @@ const decades = [
   },
 ];
 
+const subItemColors = [
+  "border-l-primary",
+  "border-l-secondary",
+  "border-l-accent",
+  "border-l-sky-aqua",
+  "border-l-gold",
+  "border-l-magenta",
+];
+
 const FourDecadesTimeline = () => {
   const headerRef = useRef(null);
   const listRef = useRef(null);
@@ -57,62 +76,63 @@ const FourDecadesTimeline = () => {
   const listInView = useInView(listRef, { once: true, margin: "-40px" });
 
   return (
-    <section id="timeline" className="section-padding bg-muted/50">
-      <div className="report-container">
+    <section id="timeline" className="section-padding relative overflow-hidden bg-muted/30">
+      <FloatingShapes variant="waves" className="opacity-50" />
+      <div className="report-container relative z-10">
         <motion.div
           ref={headerRef}
           initial={{ opacity: 0, y: 40 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mx-auto mb-14 max-w-3xl text-center"
+          className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
+          <p className="mb-6 text-[13px] font-bold uppercase tracking-[0.3em] text-secondary">
             A CBHN Retrospective
           </p>
-          <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl lg:text-5xl">
+          <h2 className="font-serif text-4xl font-bold text-foreground md:text-5xl lg:text-7xl">
             Four Decades of Addressing Health Disparities
           </h2>
-          <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
+          <p className="mt-8 text-lg leading-[1.8] text-muted-foreground md:text-xl">
             From its inception, CBHN's aim was to improve the health status of people of African descent in California by influencing policies and developing programs that promote health and prevent disease. Throughout the past four decades, CBHN has continued to focus on addressing health disparities, health policy, and health reform, and remains the only Black-led, statewide organization dedicated to advocating for health equity for all Black Californians in key regions across the state.
           </p>
         </motion.div>
 
         <div ref={listRef} className="mx-auto max-w-3xl">
-          <div className="relative space-y-10">
+          <div className="relative space-y-16">
             {decades.map((item, i) => (
               <motion.div
                 key={item.era}
                 initial={{ opacity: 0, x: -20 }}
                 animate={listInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-                className="group flex gap-5"
+                transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.1, 0.25, 1] }}
+                className="group flex gap-6"
               >
                 <div className="flex flex-col items-center">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-primary/30 bg-card text-[11px] font-bold text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <div className={`flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl text-sm font-black shadow-lg ${eraColors[i]}`}>
                     {item.era}
                   </div>
                   {i < decades.length - 1 && (
-                    <div className="mt-2 h-full w-px bg-gradient-to-b from-primary/30 to-border" />
+                    <div className="mt-3 h-full w-1 rounded-full bg-gradient-to-b from-primary/40 via-secondary/20 to-transparent" />
                   )}
                 </div>
                 <div className="pb-2 flex-1">
-                  <span className="text-[11px] font-semibold tracking-wider text-secondary">
+                  <span className={`text-xs font-black tracking-wider uppercase ${i % 2 === 0 ? "text-primary" : "text-secondary"}`}>
                     {item.era}
                   </span>
-                  <h3 className="mt-1 font-serif text-lg font-semibold text-foreground">
+                  <h3 className="mt-2 font-serif text-2xl font-bold text-foreground md:text-3xl">
                     {item.title}
                   </h3>
                   {item.description && (
-                    <p className="mt-1.5 text-sm leading-[1.7] text-muted-foreground">
+                    <p className="mt-3 text-base leading-[1.7] text-muted-foreground">
                       {item.description}
                     </p>
                   )}
                   {item.items && (
-                    <div className="mt-3 space-y-3">
-                      {item.items.map((sub) => (
-                        <div key={sub.name} className="rounded-lg border border-border/40 bg-background/50 p-3">
-                          <p className="text-sm font-semibold text-foreground">{sub.name}</p>
-                          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{sub.text}</p>
+                    <div className="mt-5 space-y-4">
+                      {item.items.map((sub, si) => (
+                        <div key={sub.name} className={`rounded-xl bg-card p-5 border-l-4 shadow-sm ${subItemColors[si % subItemColors.length]}`}>
+                          <p className="text-sm font-bold text-foreground">{sub.name}</p>
+                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{sub.text}</p>
                         </div>
                       ))}
                     </div>

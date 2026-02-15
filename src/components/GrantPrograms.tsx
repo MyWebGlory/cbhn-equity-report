@@ -1,6 +1,49 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { HeartPulse, Flame, BookOpen, Stethoscope, Brain, Sparkles, Apple, Dna, Users, Baby } from "lucide-react";
+import FloatingShapes from "./FloatingShapes";
+
+const topBorderColors = [
+  "border-t-4 border-t-primary",
+  "border-t-4 border-t-secondary",
+  "border-t-4 border-t-accent",
+  "border-t-4 border-t-sky-aqua",
+  "border-t-4 border-t-gold",
+  "border-t-4 border-t-magenta",
+  "border-t-4 border-t-primary",
+  "border-t-4 border-t-secondary",
+  "border-t-4 border-t-accent",
+  "border-t-4 border-t-sky-aqua",
+  "border-t-4 border-t-gold",
+];
+
+const iconColors = [
+  "bg-primary text-primary-foreground",
+  "bg-secondary text-secondary-foreground",
+  "bg-accent text-accent-foreground",
+  "bg-sky-aqua text-foreground",
+  "bg-gold text-foreground",
+  "bg-magenta text-primary-foreground",
+  "bg-primary text-primary-foreground",
+  "bg-secondary text-secondary-foreground",
+  "bg-accent text-accent-foreground",
+  "bg-sky-aqua text-foreground",
+  "bg-gold text-foreground",
+];
+
+const tagColors = [
+  "bg-primary/15 text-primary",
+  "bg-secondary/15 text-secondary",
+  "bg-accent/15 text-accent",
+  "bg-sky-aqua/15 text-sky-aqua",
+  "bg-gold/15 text-gold",
+  "bg-magenta/15 text-magenta",
+  "bg-primary/15 text-primary",
+  "bg-secondary/15 text-secondary",
+  "bg-accent/15 text-accent",
+  "bg-sky-aqua/15 text-sky-aqua",
+  "bg-gold/15 text-gold",
+];
 
 const programs = [
   {
@@ -78,47 +121,48 @@ const GrantPrograms = () => {
   const gridInView = useInView(gridRef, { once: true, margin: "-40px" });
 
   return (
-    <section id="programs" className="section-padding bg-card">
-      <div className="report-container">
+    <section id="programs" className="section-padding relative overflow-hidden bg-card">
+      <FloatingShapes variant="dots" className="opacity-40" />
+      <div className="report-container relative z-10">
         <motion.div
           ref={headerRef}
           initial={{ opacity: 0, y: 40 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mx-auto mb-14 max-w-3xl text-center"
+          className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <p className="mb-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-secondary">
+          <p className="mb-6 text-[13px] font-bold uppercase tracking-[0.3em] text-secondary">
             Grant Funded Projects and Programs
           </p>
-          <h2 className="font-serif text-3xl font-semibold text-foreground md:text-4xl lg:text-5xl">
+          <h2 className="font-serif text-4xl font-bold text-foreground md:text-5xl lg:text-7xl">
             Programs and Initiatives: 2020 to 2024
           </h2>
-          <p className="mt-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
+          <p className="mt-8 text-lg leading-[1.8] text-muted-foreground md:text-xl">
             Between 2020 and 2024, CBHN received funding from eleven different funders to support the following key projects and programs:
           </p>
         </motion.div>
 
-        <div ref={gridRef} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div ref={gridRef} className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {programs.map((program, i) => (
             <motion.div
               key={program.title}
-              initial={{ opacity: 0, y: 30, scale: 0.97 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={gridInView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: i * 0.06, ease: [0.25, 0.1, 0.25, 1] }}
-              className="group flex flex-col rounded-xl border border-border/60 bg-background p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5"
+              className={`group flex flex-col rounded-2xl bg-background p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${topBorderColors[i]}`}
             >
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/8 text-primary ring-1 ring-primary/10">
+              <div className="mb-5 flex items-center gap-3">
+                <div className={`flex h-11 w-11 items-center justify-center rounded-xl ${iconColors[i]}`}>
                   {program.icon}
                 </div>
-                <span className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+                <span className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest ${tagColors[i]}`}>
                   {program.tag}
                 </span>
               </div>
-              <h3 className="font-serif text-base font-semibold text-foreground">
+              <h3 className="font-serif text-base font-bold text-foreground">
                 {program.title}
               </h3>
-              <p className="mt-2 flex-1 text-sm leading-[1.7] text-muted-foreground">
+              <p className="mt-3 flex-1 text-sm leading-[1.7] text-muted-foreground">
                 {program.description}
               </p>
             </motion.div>
