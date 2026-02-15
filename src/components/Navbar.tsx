@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import cbhnLogo from "@/assets/cbhn-logo.png";
 
 const navLinks = [
   { label: "About Us", href: "#mission" },
@@ -27,15 +28,13 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="report-container flex items-center justify-between px-6 py-5 lg:px-24">
+      <div className="report-container flex items-center justify-between px-6 py-4 lg:px-24">
         <a href="#" className="flex items-center gap-3">
-          <span className={`font-serif text-lg font-bold tracking-tight ${scrolled ? "text-foreground" : "text-primary-foreground"}`}>
-            CBHN
-          </span>
-          <div className={`hidden h-5 w-px sm:block ${scrolled ? "bg-border" : "bg-primary-foreground/30"}`} />
-          <span className={`hidden text-xs font-medium tracking-wide sm:block ${scrolled ? "text-muted-foreground" : "text-primary-foreground/70"}`}>
-            California Black Health Network
-          </span>
+          <img
+            src={cbhnLogo}
+            alt="California Black Health Network"
+            className={`h-10 w-auto transition-all ${scrolled ? "brightness-100" : "brightness-0 invert"}`}
+          />
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex">

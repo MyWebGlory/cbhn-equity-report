@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Quote } from "lucide-react";
+import cbhnCommunity from "@/assets/cbhn-community.png";
 
 const stories = [
   {
@@ -60,6 +61,20 @@ const CommunityStories = () => {
             stories from people who walked through our doors, picked up the phone, or showed
             up at a community event and left with something they did not have before.
           </p>
+        </motion.div>
+
+        {/* Community image banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={headerInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+          className="mb-10 overflow-hidden rounded-xl"
+        >
+          <img
+            src={cbhnCommunity}
+            alt="CBHN community members and healthcare professionals across California"
+            className="h-64 w-full object-cover md:h-80 lg:h-96"
+          />
         </motion.div>
 
         <div ref={gridRef} className="grid gap-6 md:grid-cols-2">

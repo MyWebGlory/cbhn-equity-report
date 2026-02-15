@@ -9,7 +9,7 @@ const HeroSection = () => (
         alt="California Black Health Network community members"
         className="h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(180,25%,12%)]/80 via-foreground/50 to-foreground/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(216,80%,12%)]/80 via-foreground/50 to-foreground/70" />
     </div>
 
     <div className="report-container relative z-10 px-6 py-32 lg:px-24">
@@ -54,7 +54,7 @@ const HeroSection = () => (
       >
         <a
           href="#mission"
-          className="rounded-full bg-primary-foreground px-7 py-3 text-[13px] font-semibold text-foreground transition-opacity hover:opacity-90"
+          className="rounded-full bg-primary px-7 py-3 text-[13px] font-semibold text-primary-foreground transition-opacity hover:opacity-90"
         >
           Explore the Report
         </a>

@@ -3,11 +3,11 @@ import { useRef, useState } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 
 const data = [
-  { name: "Community Health Programs", value: 45, color: "hsl(180, 45%, 28%)" },
-  { name: "Policy & Advocacy", value: 20, color: "hsl(28, 55%, 52%)" },
-  { name: "Education & Outreach", value: 15, color: "hsl(270, 20%, 38%)" },
-  { name: "Research & Data", value: 10, color: "hsl(180, 30%, 50%)" },
-  { name: "Operations & Admin", value: 10, color: "hsl(220, 10%, 75%)" },
+  { name: "Community Health Programs", value: 45, color: "hsl(150, 47%, 38%)" },
+  { name: "Policy & Advocacy", value: 20, color: "hsl(13, 88%, 52%)" },
+  { name: "Education & Outreach", value: 15, color: "hsl(216, 100%, 26%)" },
+  { name: "Research & Data", value: 10, color: "hsl(192, 100%, 48%)" },
+  { name: "Operations & Admin", value: 10, color: "hsl(0, 0%, 60%)" },
 ];
 
 const CustomTooltip = ({ active, payload }: any) => {
